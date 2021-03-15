@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm webpack --watch --mode=development"
+    "postinstall": "webpack",
+    "webpack": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
@@ -35,5 +36,9 @@
     "redux": "^4.0.5",
     "webpack": "^5.24.4",
     "webpack-cli": "^4.5.0"
+  },
+  "engines": {
+    "node": "15.11.0",
+    "npm": "7.6.0"
   }
 }
