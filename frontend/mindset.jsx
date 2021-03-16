@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 
 document.addEventListener('DOMContentLoaded', () => {
     // const store = configureStore;
-    const rootEl = document.addEventListener('root');
-    ReactDOM.render(<Root store={store}>Test</Root>, rootEl)
+    const rootEl = document.getElementById('root');
+    // ReactDOM.render(<Root store={store}>Test</Root>, rootEl)
+    ReactDOM.render(<h1>MindSet</h1>, rootEl);
 });
