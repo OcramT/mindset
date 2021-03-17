@@ -3,13 +3,11 @@ import {RECEIVE_CURRENT_USER,
 
 const sessionErrorsReducer = (defaultState = [], action) => {
     Object.freeze(defaultState);
-    let nextState = Object.assign({}, defaultState);
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
-            return Object.assign({}, defaultState, action.errors)
+            return action.errors
         case RECEIVE_CURRENT_USER:
-            nextState = []
-            return nextState
+            return []
         default:
             return defaultState;
     }

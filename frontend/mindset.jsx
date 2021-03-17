@@ -5,13 +5,25 @@ import Root from './components/root';
 import * as sessionActions from './actions/session_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const store = configureStore();
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore()
+    }
     const rootEl = document.getElementById('root');
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.login = sessionActions.login
-    window.logout = sessionActions.logout
-    window.signup = sessionActions.signup
-    ReactDOM.render(<Root store={store}/>, rootEl)
+    ReactDOM.render(<Root store={store} />, rootEl)
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
+    // window.login = sessionActions.login
+    // window.logout = sessionActions.logout
+    // window.signup = sessionActions.signup
     // ReactDOM.render(<h1>MindSet</h1>, rootEl);
 });

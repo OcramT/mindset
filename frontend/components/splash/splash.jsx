@@ -6,6 +6,7 @@ const Splash = ({ currentUser, logout }) => {
     const sessionStart = () => (
         <div>
             <Link to='/signup'>Sign Up</Link>
+            &nbsp;&nbsp;
             <Link to='/login'>Login</Link>
         </div>
     );
