@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const RightNavBarLinks = () => (
     <div>
-        <ul class='right-nav-bar-links'>
+        <ul className='right-nav-bar-links'>
             <li>
                 <NavLink to='/'>About</NavLink>
             </li>

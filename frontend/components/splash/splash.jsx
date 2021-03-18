@@ -5,20 +5,19 @@ import RightNavBarLinks from '../nav/nav_link';
 const Splash = ({ currentUser, logout }) => {
 
     const sessionStart = () => (
-        <div class='nav-bar'>
-
-            <div class='nav-left'>
-                <NavLink class='home-nav' to='/'>
-                    <div class="logo-text">
-                        <span class='logo'>&#11044;</span> mindset
+        <div className='nav-bar'>
+            <div className='nav-left'>
+                <NavLink className='home-nav' to='/'>
+                    <div className="logo-text">
+                        <span className='logo'>&#11044;</span> mindset
                     </div>
                 </NavLink>
             </div>
             
-            <div class='nav-right'>
-                {/* <Link to='/login' class='login nav-links'>Login</Link> */}
+            <div className='nav-right'>
+                {/* <Link to='/login' className='login nav-links'>Login</Link> */}
                 <RightNavBarLinks />
-                <Link to='/signup' class='signup session-button'>Try for free</Link>
+                <Link to='/signup' className='signup session-button'>Try for free</Link>
             </div>
 
         </div>
