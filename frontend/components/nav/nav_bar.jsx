@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import RightNavBarLinks from './right_nav_links';
+import LeftNavBarLinks from './left_nav_links';
 import Greeting from '../session_form/greeting';
 import GreetingContainer from '../session_form/greeting_container';
 
@@ -14,6 +15,7 @@ const NavBar = ({ currentUser, logout }) => {
                         <span className='logo'>&#11044;</span> mindset
                     </div>
                 </NavLink>
+                <LeftNavBarLinks />
             </div>
             
             <div className='nav-right'>
