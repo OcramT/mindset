@@ -1,13 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import RightNavBarLinks from '../nav/nav_link';
 
 const Splash = ({ currentUser, logout }) => {
 
     const sessionStart = () => (
-        <div>
-            <Link to='/signup'>Sign Up</Link>
-            &nbsp;&nbsp;
-            <Link to='/login'>Login</Link>
+        <div class='nav-bar'>
+
+            <div class='nav-left'>
+                <NavLink class='home-nav' to='/'>
+                    <div class="logo-text">
+                        <span class='logo'>&#11044;</span> mindset
+                    </div>
+                </NavLink>
+            </div>
+            
+            <div class='nav-right'>
+                {/* <Link to='/login' class='login nav-links'>Login</Link> */}
+                <RightNavBarLinks />
+                <Link to='/signup' class='signup session-button'>Try for free</Link>
+            </div>
+
         </div>
     );
 

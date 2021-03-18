@@ -9,14 +9,11 @@ import { NavLink, Link } from 'react-router-dom'
 const App = () => (
     <div>
         <header>
-            <NavLink to='/'>
-                <h1>&#11044; Mindset</h1>
-            </NavLink>
             <SplashContainer />
         </header>
         <Route path="/" />
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
     </div>
     
 );

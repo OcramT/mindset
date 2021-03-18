@@ -21,9 +21,10 @@ time, mark, audio, video, button {
 	border: 0;
 	font-size: 100%;
     font-family: 'Apercu', sans-serif;
-	// font: inherit;
 	vertical-align: baseline;
     text-decoration: none;
+    color: #3a3938;
+    // background: #36393f;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -48,19 +49,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-
-
-// @font-face {
-//     font-family: "Apercu"; 
-//     src: url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.eot"); 
-//     src: url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.eot?#iefix") 
-//     format("embedded-opentype"), 
-//     url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.woff2") 
-//     format("woff2"), 
-//     url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.woff") 
-//     format("woff"), 
-//     url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.ttf") 
-//     format("truetype"), 
-//     url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.svg#Apercu") 
-//     format("svg"); }

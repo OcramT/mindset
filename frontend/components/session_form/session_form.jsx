@@ -39,7 +39,6 @@ class SessionForm extends React.Component {
         const { formType } = this.props
         return (
             <div>
-                <h1>{formType}</h1>
                 <h2>{this.props.navLink}</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>Username
@@ -68,7 +67,7 @@ class SessionForm extends React.Component {
                         onChange={this.handleChange('password')}/>
                     </label>
                     &nbsp;&nbsp;
-                    <button>{formType}</button>
+                    <input class='session-button' type='submit' value={formType}/>
                     {this.renderErrors()}
                 </form>
             </div>
