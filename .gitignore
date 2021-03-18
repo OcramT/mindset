@@ -16,5 +16,4 @@ bundle.js.map
 npm-debug.log
 
 /app/assets/javascripts/bundle.js
-app/assets/images/
 /public/assets

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const rootEl = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, rootEl)
-    // window.getState = store.getState;
+    window.getState = store.getState;
     // window.dispatch = store.dispatch;
     // window.login = sessionActions.login
     // window.logout = sessionActions.logout
