@@ -19,7 +19,8 @@
     border-radius: 2rem;
     background: #0C6FF9;
     box-shadow: 0 0.125rem 0 lightgrey;
-    max-width: 150px;
+    width: 80px;
+    min-width: 80px;
     color: white;
     padding-top: calc((2.75rem - 1.1em) / 2);
     padding-right: 1.5rem;

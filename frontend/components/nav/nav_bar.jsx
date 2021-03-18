@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import RightNavBarLinks from '../nav/nav_link';
+import RightNavBarLinks from './right_nav_links';
 
-const Splash = ({ currentUser, logout }) => {
+const NavBar = ({ currentUser, logout }) => {
 
     const sessionStart = () => (
         <div className='nav-bar'>
@@ -15,7 +15,6 @@ const Splash = ({ currentUser, logout }) => {
             </div>
             
             <div className='nav-right'>
-                {/* <Link to='/login' className='login nav-links'>Login</Link> */}
                 <RightNavBarLinks />
                 <Link to='/signup' className='signup session-button'>Try for free</Link>
             </div>
@@ -33,4 +32,4 @@ const Splash = ({ currentUser, logout }) => {
     return currentUser ?  welcomeMsg() : sessionStart();
 };
 
-export default Splash;
+export default NavBar;
