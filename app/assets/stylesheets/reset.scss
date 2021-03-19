@@ -22,15 +22,10 @@ time, mark, audio, video, button {
 	font-size: 100%;
 	font-weight:unset;
     font-family: 'Apercu', sans-serif;
-	// @font-face {
-	// 	font-family: 'Apercu';
-	// 	src: font-url('/assets/fonts/ApercuRegular.otf');
-	// }
 	vertical-align: baseline;
     text-decoration: none;
     color: #3a3938;
 	text-size-adjust: 100%;
-    // background: #36393f;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -55,3 +50,5 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
