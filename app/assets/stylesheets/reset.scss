@@ -20,10 +20,12 @@ time, mark, audio, video, button {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+	font-weight:unset;
     font-family: 'Apercu', sans-serif;
 	vertical-align: baseline;
     text-decoration: none;
     color: #3a3938;
+	text-size-adjust: 100%;
     // background: #36393f;
 }
 /* HTML5 display-role reset for older browsers */

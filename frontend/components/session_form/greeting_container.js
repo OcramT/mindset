@@ -1,5 +1,4 @@
 import {connect} from 'react-redux';
-// import NavBar from './nav_bar';
 import Greeting from './greeting'
 import {logout, login} from '../../actions/session_actions';
 

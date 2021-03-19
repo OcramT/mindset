@@ -10,7 +10,7 @@ class Greeting extends React.Component {
     }
 
     sessionStart() {
-        return <Link to='/' 
+        return <Link to='/dashboard' 
                 className='signup session-button' 
                 onClick={() => this.login(this.dummy)}>Try for free</Link>
     };
@@ -18,7 +18,7 @@ class Greeting extends React.Component {
     welcomeMsg() {
        return <div>
                     <p>Welcome, {this.props.currentUser.username}</p>
-                    <button onClick={this.logout}>Log Out</button>
+                    <Link to='/' onClick={this.logout}>Log Out</Link>
               </div>
     };
 
