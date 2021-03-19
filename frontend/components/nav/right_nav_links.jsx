@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 class RightNavBarLinks extends React.Component {
     constructor(props) {
         super(props)
+        console.log(props)
     }
 
     render() {
@@ -27,9 +28,11 @@ class RightNavBarLinks extends React.Component {
                     <li>
                         <NavLink to='/'>Help</NavLink>
                     </li>
-                    <li>
-                        {routeLink}
-                    </li>
+                    {!this.props.currentUser && (
+                        <li>
+                            {routeLink}
+                        </li>
+                    )}   
                 </ul>
             </div>
         )

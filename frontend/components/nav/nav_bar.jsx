@@ -4,6 +4,7 @@ import RightNavBarLinks from './right_nav_links';
 import LeftNavBarLinks from './left_nav_links';
 import Greeting from '../session_form/greeting';
 import GreetingContainer from '../session_form/greeting_container';
+import NavContainer from './nav_container'
 
 const NavBar = ({ currentUser, logout }) => {
 
@@ -19,7 +20,7 @@ const NavBar = ({ currentUser, logout }) => {
             </div>
             
             <div className='nav-right'>
-                <RightNavBarLinks />
+                <NavContainer />
                 <GreetingContainer />
             </div>
         </div>);
