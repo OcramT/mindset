@@ -14,10 +14,10 @@
  *= require_self
  */
 /* @import url('//db.onlinewebfonts.com/c/0a086e32e41c5e5960b26626757f07f3?family=Apercu'); */
-
+/* 
 @font-face {
   font-family: 'Apercu';
-  src: font-url('/assets/ApercuRegular.otf');
+  src: url('/assets/fonts/ApercuRegular.otf');
   font-weight: normal;
   font-style: normal;
-}
+} */
