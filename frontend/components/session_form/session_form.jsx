@@ -81,7 +81,9 @@ class SessionForm extends React.Component {
                         {this.renderErrors()}
                     </form>
                 </div>
-                <img className='form-bg' src={mindsetBGUrl}/>
+                <div className='form-bg-container'>
+                    <img preserveAspectRatio="none" className='form-bg' src={mindsetBGUrl} />
+                </div>
             </div>
         )
     }

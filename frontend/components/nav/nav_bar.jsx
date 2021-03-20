@@ -8,23 +8,26 @@ import NavContainer from './nav_container'
 
 const NavBar = ({ currentUser, logout }) => {
 
+    document.addEventListener("scroll", () => {
+        document.documentElement.dataset.scroll = window.scrollY;
+    });
 
-       return ( <div className='nav-bar'>
-            <div className='nav-left'>
-                <NavLink className='home-nav' to='/'>
-                   <img className='logo' src={logoText} />
-                    {/* <div className="logo-text">
-                        <span className='logo'>&#11044;</span> mindset
-                    </div> */}
-                </NavLink>
-                <LeftNavBarLinks />
-            </div>
-            
-            <div className='nav-right'>
-                <NavContainer />
-                <GreetingContainer />
-            </div>
-        </div>);
+    return ( <div className='nav-bar'>
+        <div className='nav-left'>
+            <NavLink className='home-nav' to='/'>
+                <img className='logo' src={logoText} />
+                {/* <div className="logo-text">
+                    <span className='logo'>&#11044;</span> mindset
+                </div> */}
+            </NavLink>
+            <LeftNavBarLinks />
+        </div>
+        
+        <div className='nav-right'>
+            <NavContainer />
+            <GreetingContainer />
+        </div>
+    </div>);
 
 };
 

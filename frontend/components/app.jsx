@@ -6,11 +6,13 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import SplashContainer from './splash/splash_container';
+import MeditationContainer from './meditation/meditation_container';
 
 const App = () => (
     <div>
         <NavBar />
         <Switch>
+            {/* <Route path="/meditation" component={MeditationContainer} /> */}
             <ProtectedRoute path="/dashboard" component={DashboardContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />

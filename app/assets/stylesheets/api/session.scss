@@ -70,9 +70,16 @@
     text-decoration: underline;
 }
 
-.form-bg {
-    position: absolute;
+.form-bg-container {
     width: 100%;
+    height: 720px;
+    background-size: 100% 100%;
+    
+}
+
+.form-bg {
+    width: 100vw;
+    // height: 100%;
 }
 
 .form-button {
