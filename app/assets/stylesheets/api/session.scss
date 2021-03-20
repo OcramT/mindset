@@ -79,6 +79,8 @@
     width: 540px;
     font-family: 'Apercu', sans-serif;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     border: 0.125rem solid transparent;
     border-radius: 2rem;
     background: #0C6FF9;
@@ -91,7 +93,15 @@
     cursor: pointer;
 }
 
-// .session-text {
-//     display: flex;
-//     justify-content: center;
-// }
+.form-button:hover {
+    background: #084FFF;
+    color: white;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10 px;
+    color: rgb(232, 93, 74)
+}

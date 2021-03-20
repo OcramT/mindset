@@ -12,9 +12,10 @@ const NavBar = ({ currentUser, logout }) => {
        return ( <div className='nav-bar'>
             <div className='nav-left'>
                 <NavLink className='home-nav' to='/'>
-                    <div className="logo-text">
+                   <img className='logo' src={logoText} />
+                    {/* <div className="logo-text">
                         <span className='logo'>&#11044;</span> mindset
-                    </div>
+                    </div> */}
                 </NavLink>
                 <LeftNavBarLinks />
             </div>

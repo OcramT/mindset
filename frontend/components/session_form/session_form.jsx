@@ -25,14 +25,18 @@ class SessionForm extends React.Component {
 
     renderErrors() {
         return (
-            <ul>
+            <ul className='errors'>
                 {this.props.errors.map((error, idx) => (
-                    <li key={idx}>
+                    <li key={`error-${idx}`} className='error'>
                         {error}
                     </li>
                 ))}
             </ul>
         )
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors();
     }
 
     render() {
@@ -52,6 +56,7 @@ class SessionForm extends React.Component {
                             value={this.state.username}
                             onChange={this.handleChange('username')}/>
                         </label>
+                        <div></div>
                         
                         {this.props.formType === 'Sign up' && (
                         <label className='session-field'>

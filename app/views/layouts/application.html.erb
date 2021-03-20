@@ -5,8 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel='icon' href="<%= image_url('mindset-logo.svg') %>"/>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <script type='text/javascript'>
+      window.logo = "<%=image_url('mindset-logo.svg')%>";
+      window.logoText = "<%=image_url('mindsetLogo2.png')%>";
       window.mindsetBGUrl = "<%=image_url('headspace-login-bg.svg')%>";
       window.meditationBG = "<%=image_url('meditation-bg.png')%>";
     </script>
