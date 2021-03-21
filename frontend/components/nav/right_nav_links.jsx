@@ -3,8 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 import { formType } from '../session_form/session_form';
 import { withRouter } from 'react-router-dom'
 
-class RightNavBarLinks extends React.Component {
+class RightNavLinks extends React.Component {
     constructor(props) {
+        console.log(props)
         super(props)
     }
 
@@ -38,4 +39,4 @@ class RightNavBarLinks extends React.Component {
     }
 };
 
-export default withRouter(RightNavBarLinks);
+export default withRouter(RightNavLinks);

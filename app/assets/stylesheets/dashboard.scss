@@ -2,18 +2,20 @@
 //     padding-top: 5em;
 // }
 
+.banner-wrapper {
+    display: flex;
+    width: 100%;
+    height: 600px;
+}
+
 .banner {
     display: flex;
-    // flex-direction: column;
     justify-content: center;
-    // align-items: center;
-    // align-content: center;
-    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
     width: 100%;
-    height: 500px;
+    height: 100%;
     background-image: image-url('meditation-bg.png');
     background-size:cover;
     background-position: center;
@@ -39,7 +41,6 @@
 .med-title {
     font-size: 88px;
     font-weight: 700;
-    // font-smooth: ;
     line-height: 96px;
     margin-bottom: 32px;
     margin-top: 0px;
@@ -118,9 +119,8 @@
 }
 
 .med-dur:hover {
-        // transition: all 0.2s ease-in-out 0s;
-        color: rgb(255, 255, 255);
-        fill: rgb(65, 61, 71);
-        background-color: rgb(65, 61, 71);
-        transform: scale(1);
+    color: rgb(255, 255, 255);
+    fill: rgb(65, 61, 71);
+    background-color: rgb(65, 61, 71);
+    transform: scale(1);
 }

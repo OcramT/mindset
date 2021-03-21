@@ -4,7 +4,6 @@ import {logout, login} from '../../actions/session_actions';
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.id],
-    dummyUser: state.entities.users.dummy
 });
 
 const mDTP = () => dispatch => ({

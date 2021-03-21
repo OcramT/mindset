@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../nav/nav_bar'
+import NavBarContainer from '../nav/nav_bar_container'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
         const { formType } = this.props
         return (
             <>
-            <div className='nav-main hidden'><NavBar /></div>
+            <div className='nav-main hidden'><NavBarContainer /></div>
             <div className='session-splash'>
                 <div className='session-form'>
                     <h1 className='session-title'>{formType}</h1>

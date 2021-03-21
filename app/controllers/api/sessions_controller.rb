@@ -1,5 +1,6 @@
 class Api::SessionsController < ApplicationController
-    # before_action :require_logged_in, only: [:destroy]
+    before_action :require_logged_in, only: [:destroy]
+    
     def create
         @user = User.find_by_credentials(
             params[:user][:username],
@@ -23,4 +24,11 @@ class Api::SessionsController < ApplicationController
             render json: ["Oop. There's no one logged in!"], status:404
         end
     end
+
+    private
+
+    def session_params
+        params.require(:user).permit(:username, :email, :password)
+    end
+
 end

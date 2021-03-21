@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../nav/nav_bar';
 import {NavLink} from 'react-router-dom';
-
+import NavBarContainer from '../nav/nav_bar_container'
 
 class Splash extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class Splash extends React.Component {
     render() {
         return (
             <>
-                <div className='nav-main-splash'><NavBar /></div>
+                <div className='nav-main-splash'><NavBarContainer /></div>
                 <main className='splash-wrapper'>
                     <div className='ticker'>Ticker</div>
                     <ul className='ticker-subs'>

@@ -1,22 +1,32 @@
+.nav-wrapper {
+    display: flex;
+    // background-color: aqua;
+    height: 5rem;
+}
+
 .nav-bar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5rem;
-    margin-right: auto;    
-    margin-left: auto;    
-    // max-width: 100%;    
-    min-width: 100vw;
-    background: white;
-    z-index: 1;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    // align-items: center;
+    // height: 5rem;
+    // margin-right: auto;    
+    // margin-left: auto;    
+    // // max-width: 100%;    
+    // max-width: 100%;
+    background: white;
+    // z-index: 1;
+    // width: 100%;
+    // background-color:seagreen;
 }
 
 html:not([data-scroll="0"]) body {
-  padding-top: 0em;
+  padding-top: 5em;
 }
 
-html:not([data-scroll="0"]) .nav-bar {
+html:not([data-scroll="0"]) .nav-wrapper {
   position:fixed;
   top: 0;
   z-index: 2;
@@ -53,18 +63,21 @@ html:not([data-scroll="0"]) .nav-bar {
 }
 
 .session-button:hover {
-        background: #084FFF;
-        color: white;
+    background: #084FFF;
+    color: white;
 }
 
 .home-nav {
+    display: flex;
+    align-items: center;
     min-width: 120px;
     width: 120px;
-    height: 35px;
+    height: 5rem;
     // background: purple;
 }
 
 .logo {
+    display: flex;
     width: 100%;
     height: auto;
 }
@@ -90,12 +103,15 @@ html:not([data-scroll="0"]) .nav-bar {
 .right-nav-bar-links {
     display: flex;
     top: -9px;
-    height: 50px;
+    height: 5rem;
     width: 250px;
 }
 
 .right-nav-bar-links li {
-    margin: auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    // background-color: thistle;
 }
 
 .about:hover {
@@ -131,6 +147,7 @@ html:not([data-scroll="0"]) .nav-bar {
     // top: -9px;`
     // height: 50px;
     // width: 250px;
+    height: 5rem;
     width: 490px;
     padding: 0px 24px 0px 80px;
     // background: plum;
@@ -138,9 +155,11 @@ html:not([data-scroll="0"]) .nav-bar {
 
 .left-nav-bar-links li {
     // margin: auto;
-    // display: flex;
-    // justify-content: space-between;
-    margin: auto;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    // margin: auto;
     // background: pink;
 }
 
