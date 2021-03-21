@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { signup, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import NavBar from '../nav/nav_bar';
 
 const mSTP = ({ errors }) => ({
     errors: errors.session,

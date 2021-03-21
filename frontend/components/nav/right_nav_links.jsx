@@ -16,19 +16,19 @@ class RightNavBarLinks extends React.Component {
         };
 
         return (
-            <div>
+            <div className='hidden'>
                 <ul className='right-nav-bar-links'>
-                    <li>
+                    <li className='about'>
                         <NavLink to='/'>About</NavLink>
                     </li>
-                    <li>
+                    <li className='work'>
                         <NavLink to='/'>Work</NavLink>
                     </li>
-                    <li>
+                    <li className='help'>
                         <NavLink to='/'>Help</NavLink>
                     </li>
                     {!this.props.currentUser && (
-                        <li>
+                        <li className= 'demo'>
                             {routeLink}
                         </li>
                     )}   

@@ -11,21 +11,21 @@ class LeftNavBarLinks extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className='hidden'>
                 <ul className='left-nav-bar-links'>
-                    <li>
+                    <li className='articles'>
                         <NavLink to='/'>Articles</NavLink>
                     </li>
-                    <li>
-                        <NavLink to='/'>Meditation</NavLink>
+                    <li className='med-link'>
+                        <NavLink to='/meditation'>Meditation</NavLink>
                     </li>
-                    <li>
+                    <li className='sleep'>
                         <NavLink to='/'>Sleep</NavLink>
                     </li>
-                    <li>
+                    <li className='stress'>
                         <NavLink to='/'>Stress</NavLink>
                     </li>
-                    <li>
+                    <li className='mindfulness'>
                         <NavLink to='/'>Mindfulness</NavLink>
                     </li>
                 </ul>

@@ -9,17 +9,18 @@ import SplashContainer from './splash/splash_container';
 import MeditationContainer from './meditation/meditation_container';
 
 const App = () => (
-    <div>
-        <NavBar />
-        <Switch>
-            {/* <Route path="/meditation" component={MeditationContainer} /> */}
-            <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-            <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <AuthRoute path='/' component={SplashContainer}/>
-            {/* <Redirect to="/"/> */}
-        </Switch>
-    </div>
+    <>
+        {/* <div className='nav-main hidden'><NavBar /></div> */}
+        <div> 
+            <Switch>
+                <ProtectedRoute path="/meditation" component={MeditationContainer} />
+                <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+                <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                <AuthRoute exact path="/login" component={LoginFormContainer} />
+                <AuthRoute path='/' component={SplashContainer}/>
+            </Switch>
+        </div>
+    </>
 );
 
 export default App;

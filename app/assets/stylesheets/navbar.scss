@@ -3,33 +3,34 @@
     justify-content: space-between;
     align-items: center;
     height: 5rem;
-    // min-width: 48rem;
     margin-right: auto;    
     margin-left: auto;    
-    max-width: 100%;    
-    min-width: 1000px;
-    // max-width: 100%;
-    // padding: 0px 200px;
-    // margin-left: 2%;
-    // margin-right: 2%;
-    // position: fixed;
-    // top: 0;
+    // max-width: 100%;    
+    min-width: 100vw;
     background: white;
     z-index: 1;
     width: 100%;
 }
 
 html:not([data-scroll="0"]) body {
-  padding-top: 5em;
+  padding-top: 0em;
 }
 
 html:not([data-scroll="0"]) .nav-bar {
-  position: fixed;
+  position:fixed;
   top: 0;
   z-index: 2;
-
   box-shadow: rgb(240, 240, 240) 0px 5px 10px;
 }
+
+// html:not([data-scroll='0']) {
+//     .nav-bar {
+//         position: fixed;
+//         top: 0;
+//         z-index: 2;
+//         box-shadow: rgb(240, 240, 240) 0px 5px 10px;
+//     }
+// }
 
 .session-button {
     display: flex;
@@ -97,10 +98,19 @@ html:not([data-scroll="0"]) .nav-bar {
     margin: auto;
 }
 
-
-.right-nav-bar-links li:hover {
-    border-bottom: #0C6FF9 solid;        
+.about:hover {
+    border-bottom: #0C6FF9 solid;     
 }
+.work:hover {
+    border-bottom: pink solid;
+}
+.help:hover {
+    border-bottom: purple solid;
+}
+.demo:hover {
+    border-bottom: coral solid;
+}
+
 
 
 .nav-left {
@@ -134,7 +144,18 @@ html:not([data-scroll="0"]) .nav-bar {
     // background: pink;
 }
 
-
-.left-nav-bar-links li:hover {
-    border-bottom: #0C6FF9 solid;        
+.articles:hover {
+    border-bottom: #0C6FF9 solid;     
+}
+.med-link:hover {
+    border-bottom: pink solid;
+}
+.sleep:hover {
+    border-bottom: purple solid;
+}
+.stress:hover {
+    border-bottom: coral solid;
+}
+.mindfulness:hover {
+    border-bottom:darkseagreen solid;
 }

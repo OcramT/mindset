@@ -4,6 +4,7 @@ import {RECEIVE_CURRENT_USER,
 
 const sessionErrorsReducer = (defaultState = [], action) => {
     Object.freeze(defaultState);
+
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
             return action.errors

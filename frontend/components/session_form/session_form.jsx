@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../nav/nav_bar'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -42,6 +43,8 @@ class SessionForm extends React.Component {
     render() {
         const { formType } = this.props
         return (
+            <>
+            <div className='nav-main hidden'><NavBar /></div>
             <div className='session-splash'>
                 <div className='session-form'>
                     <h1 className='session-title'>{formType}</h1>
@@ -82,9 +85,10 @@ class SessionForm extends React.Component {
                     </form>
                 </div>
                 <div className='form-bg-container'>
-                    <img preserveAspectRatio="none" className='form-bg' src={mindsetBGUrl} />
+                    <img className='form-bg' src={mindsetBGUrl} />
                 </div>
             </div>
+            </>
         )
     }
 
