@@ -11,7 +11,7 @@ class Greeting extends React.Component {
     sessionStart() {
         const dummy = { username: 'User', email: 'user@mail.com', password: 'password123' }
 
-        return <Link to='/' 
+        return <Link to='/dashboard' 
                 className='signup session-button hidden' 
                 onClick={() => this.login(dummy)}>Try for free</Link>
         // return <Link to='/dashboard' className='signup session-button hidden'>Try for free</Link>
