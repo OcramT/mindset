@@ -14,7 +14,6 @@ class Greeting extends React.Component {
         return <Link to='/dashboard' 
                 className='signup session-button hidden' 
                 onClick={() => this.login(dummy)}>Try for free</Link>
-        // return <Link to='/dashboard' className='signup session-button hidden'>Try for free</Link>
     };
 
     welcomeMsg() {

@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 
 class RightNavLinks extends React.Component {
     constructor(props) {
-        console.log(props)
         super(props)
     }
 

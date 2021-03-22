@@ -14,7 +14,6 @@ class NavBar extends React.Component {
         super(props)
         this.dummy = this.props.dummyUser
         this.login = this.props.login.bind(this)
-        // console.log(props)
     }
 
     render() { 

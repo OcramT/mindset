@@ -5,7 +5,6 @@ import NavBarContainer from '../nav/nav_bar_container'
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
-        console.log(this.props)
     }
 
     render() {

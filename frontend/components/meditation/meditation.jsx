@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import TestMed from '../../../app/assets/breathing_meditation.mp3';
 
 class Meditation extends React.Component {
     constructor(props) {
         super(props)
+        this.audio = new Audio('/assets/audio/TestMed.mp3')
     }
 
     render() {
@@ -29,6 +31,7 @@ class Meditation extends React.Component {
                                 <div className='button-wrapper'>
                                     <img className='med-button' src={medButton}/>
                                     <img className='play-button' src={medPlay}/>
+                                    <Sound url={TestMed}/>
                                 </div>
                                     <div className='progress-bar'></div>
                                     <div className='timer'> 00:00</div>
