@@ -23,25 +23,25 @@
     // background-color:seagreen;
 }
 
-html:not([data-scroll="0"]) body {
-  padding-top: 5em;
-}
-
-html:not([data-scroll="0"]) .nav-wrapper {
-  position:fixed;
-  top: 0;
-  z-index: 2;
-  box-shadow: rgb(240, 240, 240) 0px 5px 10px;
-}
-
-// html:not([data-scroll='0']) {
-//     .nav-bar {
-//         position: fixed;
-//         top: 0;
-//         z-index: 2;
-//         box-shadow: rgb(240, 240, 240) 0px 5px 10px;
-//     }
+// html:not([data-scroll="0"]) body {
+//   padding-top: 5em;
 // }
+
+// html:not([data-scroll="0"]) .nav-wrapper {
+//   position:fixed;
+//   top: 0;
+//   z-index: 2;
+//   box-shadow: rgb(240, 240, 240) 0px 5px 10px;
+// }
+
+html:not([data-scroll='0']) {
+    .nav-bar {
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        box-shadow: rgb(240, 240, 240) 0px 5px 10px;
+    }
+}
 
 .session-button {
     display: flex;
