@@ -11,18 +11,15 @@ import Player from './player/player';
 
 const App = () => (
     <>
-        {/* <div className='nav-main hidden'><NavBar /></div> */}
         <div> 
             <Switch>
-                <ProtectedRoute path="/meditation" component={MeditationContainer} />
+                <ProtectedRoute path='/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute path="/dashboard" component={DashboardContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute path='/' component={SplashContainer}/>
             </Switch>
-            <Route path='/meditation/:medId' component={MeditationContainer} />
         </div>
-            <Route path='/meditation/:medId/player' component={Player}/>
     </>
 );
 

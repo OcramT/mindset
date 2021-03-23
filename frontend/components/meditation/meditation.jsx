@@ -1,22 +1,10 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-import TestMed from '../../../app/assets/audio/TestMeditation.mp3';
-import { fetchMeditation } from '../../util/meditation_api_util';
 import Player from '../player/player';
 
 class Meditation extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            playing: false,
-            progress: 0,
-            currentTime: 0,
-            setCurrentTime: 0,
-            duration: 0,
-            setDuration: 0,
-            isSeeking: false,
-            setTime: () => {},
-        }
     }
 
     componentDidMount() {
@@ -45,7 +33,7 @@ class Meditation extends React.Component {
                                 <div className='play-info'>
                                     <Player
                                         className="button-wrapper"
-                                        currentMedId={this.props.currentMedId}
+                                        // currentMedId={this.props.currentMedId}
                                         currentMed={currentMed}
                                         currentMedUrl={currentMed.url} />
                                 </div >
