@@ -1,1 +1,1 @@
-json.extract! meditation, :id, :title, :category, :duration 
+json.extract! meditation, :id, :title, :category, :url, :duration 

@@ -19,8 +19,13 @@ testUser3 = User.create({username: 'ocramt', email: 'ocram@marco.com', password:
 dummyUser = User.create({username: "User", email: "user@mail.com", password: "password123"});
 
 #Test Meditations
-testMed1 = Meditation.create({title: 'Managing Anxiety', category: 'Wellness', url: 'https://www.uclahealth.org/marc/mpeg/01_Breathing_Meditation.mp3', duration: 5.31})
-testMed2 = Meditation.create({title: 'Mental Chatter', category: 'Sleep', url: 'https://www.uclahealth.org/marc/mpeg/test2.mp3', duration: 20})
-testMed3 = Meditation.create({title: 'Letting Go of Stress', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/test3.mp3', duration: 10})
+testMed1 = Meditation.create({title: 'Breathing', category: 'Wellness', url: 'https://www.uclahealth.org/marc/mpeg/01_Breathing_Meditation.mp3', duration: 5.31})
+testMed2 = Meditation.create({title: 'Breath, Sound, Body', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/02_Breath_Sound_Body_Meditation.mp3', duration: 12})
+testMed3 = Meditation.create({title: 'Complete Meditation', category: 'Basics', url: 'https://www.uclahealth.org/marc/mpeg/03_Complete_Meditation_Instructions.mp3', duration: 19})
+testMed4 = Meditation.create({title: 'Working with Difficulties', category: 'Wellness', url: 'https://www.uclahealth.org/marc/mpeg/04_Meditation_for_Working_with_Difficulties.mp3', duration: 7})
+testMed5 = Meditation.create({title: 'Loving Kindness', category: 'Wellness', url: 'https://www.uclahealth.org/marc/mpeg/05_Loving_Kindness_Meditation.mp3', duration: 9})
+testMed6 = Meditation.create({title: 'Body and Sound', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/Body-Sound-Meditation.mp3', duration: 3})
+testMed7 = Meditation.create({title: 'Body Scan', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/Body-Scan-Meditation.mp3', duration: 3})
+testMed8 = Meditation.create({title: 'Body Scan for Sleep', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/Body-Scan-for-Sleep.mp3', duration: 13})
 
 

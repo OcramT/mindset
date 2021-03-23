@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as sessionActions from './actions/session_actions';
-import { fetchMeditation, fetchAllMeditationIds } from './util/meditation_api_util';
-import { fetchAllMedIds } from './actions/meditation_actions';
+import { fetchAllMeditationIds } from './util/meditation_api_util';
+import { fetchAllMedIds, fetchMeditation } from './actions/meditation_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;

@@ -3,7 +3,7 @@ import Dashboard from './dashboard';
 import { fetchAllMedIds } from '../../actions/meditation_actions';
 
 const mSTP = state => ({
-    medIds: state.entities.meditations.medIds
+    medIds: state.entities.meditations.medIds,
 });
 
 const mDTP = dispatch => ({

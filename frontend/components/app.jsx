@@ -7,6 +7,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import SplashContainer from './splash/splash_container';
 import MeditationContainer from './meditation/meditation_container';
+import Player from './player/player';
 
 const App = () => (
     <>
@@ -21,6 +22,7 @@ const App = () => (
             </Switch>
             <Route path='/meditation/:medId' component={MeditationContainer} />
         </div>
+            <Route path='/meditation/:medId/player' component={Player}/>
     </>
 );
 
