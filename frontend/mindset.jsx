@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as sessionActions from './actions/session_actions';
-import {fetchMeditation} from './actions/meditation_actions';
+import { fetchMeditation, fetchAllMeditationIds } from './util/meditation_api_util';
+import { fetchAllMedIds } from './actions/meditation_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -25,4 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.signup = sessionActions.signup;
     window.dispatch = store.dispatch
     window.fetchMeditation = fetchMeditation;
+    window.fetchAllMeditationIds = fetchAllMeditationIds;
+    window.fetchAllMedIds = fetchAllMedIds
 });

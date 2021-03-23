@@ -1,17 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import TestMed from '../../../app/assets/audio/TestMeditation.mp3';
+import { fetchMeditation } from '../../util/meditation_api_util';
 
 class Meditation extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {playing: false}
+        this.state = {
+            playing: false,
+            progress: 0,
+            currentTime: 0,
+            setCurrentTime: 0,
+            duration: 0,
+            setDuration: 0,
+            isSeeking: false,
+            setTime: () => {},
+            // currentMed: null
+            // currentMed: this.props.fetchMeditation(2)
+        }
+        // this.currentMed = this.props.fetchMeditation(2).then(med => { med: med.meditation })
         this.audio = new Audio(TestMed)
         this.handlePlay = this.handlePlay.bind(this)
         console.log(this.props)
+        console.log(this.state)
+    }
+
+    startTimer() {
+        setTrackProgress(this.audio.currentTime)
+        setInterval(() => {
+            setTrackProgress(this.audio.currentTime.currentTime)
+        }, [1000]);
+    }
+
+    componentDidMount() {
+        this.setState({currentMed: this.props.fetchMeditation(2)})
+        // this.props.fetchMeditation(2).then(med => this.setState({ currentMed: med.meditation }))
+    }
+
+    componentDidMount() {
+        this.audio.addEventListener("timeupdate", e => {
+            this.setState({
+                currentTime: e.target.currentTime,
+                duration: e.target.duration
+            });
+        });
+    }
+
+    componentWillUnmount() {
+        this.audio.removeEventListener("timeupdate", () => {})
     }
 
     handlePlay() {
+        console.log(this.state)
+        
         console.log(this.state)
         if (!this.state.playing) {
             this.setState({playing: true})
@@ -32,14 +73,8 @@ class Meditation extends React.Component {
         )
     }
 
-    // timeDisplay() {
-    //     let audio = document.getElementById('audio-ele')
-    //     audio.addEventListener('timeupdate', (e) => {
-    //         `${currentTime}`
-    //     })
-    // }
-
     render() {
+        // if (!this.state.currentMed) return null
         return (
             <>
                 <div className='meditation-bg'>
@@ -65,7 +100,7 @@ class Meditation extends React.Component {
                                     <img className='play-button' src={medPlay}/>
                                 </div>
                                     <div className='progress-bar'></div>
-                                    <div className='timer'>{this.formatTime(this.audio.currentTime)}</div>
+                                <div className='timer'>{this.formatTime(this.audio.currentTime)}</div>
                             </div>
                         </div>
                     </div>

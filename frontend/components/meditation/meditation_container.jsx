@@ -1,18 +1,14 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import Meditation from './meditation'
+import TestMed from '../../../app/assets/audio/TestMeditation.mp3';
+import { fetchMeditation } from '../../actions/meditation_actions';
 
 const mSTP = (state) => ({
-    playing: false,
-    currentTime: 0,
-    duration: 1000,
-    progress: 50,
-    isSeeking: true,
-    setTime: () => {}
 });
 
-const mDTP = () => dispatch => ({
-    
+const mDTP = state => dispatch => ({
+    fetchMeditation: meditationId => dispatch(fetchMeditation(meditationId)),
 });
 
 export default connect(mSTP, mDTP)(Meditation);

@@ -1,5 +1,9 @@
 class Api::MeditationsController < ApplicationController
 
+    def index
+        @meditations = Meditation.all
+    end
+
     def show
         @meditation = Meditation.find_by(id: params[:id])
         if @meditation 

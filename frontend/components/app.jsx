@@ -19,6 +19,7 @@ const App = () => (
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute path='/' component={SplashContainer}/>
             </Switch>
+            <Route path='/meditation/:medId' component={MeditationContainer} />
         </div>
     </>
 );
