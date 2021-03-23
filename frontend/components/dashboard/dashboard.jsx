@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
                             <h3 className='session-info'>You're on session 1 of Level 1</h3>
                             <h1 className='med-title'>Managing Anxiety</h1>
                             <div className='med-buttons'>
-                                <Link to='/meditation/1' className='med-play'>&#9654; BEGIN</Link>
+                                <Link to='/meditation/' className='med-play'>&#9654; BEGIN</Link>
                                 <button className='med-dur'>20 MIN</button>
                                 <ul className='dash-meds'>
                                     {this.props.medIds.map(medId => (
