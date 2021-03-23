@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NavBarContainer from '../nav/nav_bar_container';
-import MedLink from '../../util/link_util';
 
 class Dashboard extends React.Component {
     constructor(props) {
