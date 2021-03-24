@@ -1,11 +1,8 @@
-// body {
-//     padding-top: 5em;
-// }
-
 .banner-wrapper {
     display: flex;
     width: 100%;
     height: 600px;
+    background-color: aqua;
 }
 
 .banner {
@@ -29,6 +26,7 @@
     margin-left: auto;
     margin-right: auto;
     height: 100%;
+    // background-color: cadetblue;
 }
 
 .session-info {
@@ -124,3 +122,203 @@
     background-color: rgb(65, 61, 71);
     transform: scale(1);
 }
+
+.lower-dash-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    height: 100%;
+    width: 100vw;
+    // background-color: coral;
+}
+
+.lower-dash-wrapper > * {
+    flex: 1 100%;
+    margin-bottom: 1%;
+    margin-left: 18%;
+    margin-right: 18%;
+    border-radius: 10px;
+}
+
+.packs-wrapper, .meds-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    // background-color: indianred;
+}
+
+.divider {
+    align-self: center;
+    border-bottom: solid 2px;
+    border-color: rgb(239, 236, 231);
+    width: 100vw;
+}
+
+.packs-wrapper > * {
+    margin: 0.2%;
+    border-radius: 10px;
+}
+
+.packs-header {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    font-size: 32px;
+    line-height: 48px;
+    // background-color: seagreen;
+}
+
+.packs-header-details {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 40px;
+    width: 95%;
+    // background-color: tan ;
+}
+
+.med-packs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    // background-color: indigo;
+}
+
+.med-packs > * {
+    color: wheat;
+    margin: .5%;
+    width: 360px;
+    height: 444px;
+    background-color:tomato;
+    border-radius: 8px;
+}
+
+
+.packs-discover {
+    -webkit-font-smoothing: antialiased;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    font-family: Apercu, sans-serif;
+    text-rendering: optimizelegibility;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2.5px;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid rgb(66, 66, 66);
+    transition: all 0.2s ease-in-out 0s;
+    color: rgb(65, 61, 71);;
+    fill: rgb(191, 191, 191);
+    background-color: transparent;
+    border-radius: 28px;
+    height: 56px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 25px;
+    margin-bottom: 40px;
+    max-width: 201px;
+}
+
+.packs-discover:hover, .singles-discover:hover {
+    color: rgb(255, 255, 255);
+    fill: rgb(65, 61, 71);
+    background-color: rgb(65, 61, 71);
+    transform: scale(1);
+}
+
+.meds-wrapper > * {
+    margin: 0.2%;
+    border-radius: 10px;
+}
+
+.single-meds {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    // background-color: indigo;
+}
+
+.single-meds > * {
+    color: wheat;
+    margin: .5%;
+    width: 360px;
+    height: 444px;
+    background-color:rosybrown;
+    border-radius: 8px;
+}
+
+.dash-link-info {
+    display: flex;
+    width: 80%;
+    padding-left: 30px;
+    padding-top: 50px;
+    -webkit-font-smoothing: antialiased;
+    font-family: Apercu, sans-serif;
+    text-rendering: optimizelegibility;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 40px;
+    margin-top: 6px;
+    color: rgb(65, 61, 71);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // background-color: tomato;
+}
+
+.singles-discover{
+    -webkit-font-smoothing: antialiased;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    font-family: Apercu, sans-serif;
+    text-rendering: optimizelegibility;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2.5px;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid rgb(66, 66, 66);
+    transition: all 0.2s ease-in-out 0s;
+    color: rgb(65, 61, 71);;
+    fill: rgb(191, 191, 191);
+    background-color: transparent;
+    border-radius: 28px;
+    height: 56px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 25px;
+    margin-bottom: 40px;
+    max-width: 201px;
+}
+

@@ -13,8 +13,8 @@ const App = () => (
     <>
         <div> 
             <Switch>
-                <ProtectedRoute path='/meditation/:medId' component={MeditationContainer} />
-                <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+                <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
+                <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute path='/' component={SplashContainer}/>
