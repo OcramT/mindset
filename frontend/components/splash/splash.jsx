@@ -16,15 +16,19 @@ class Splash extends React.Component {
         return (
             <>
                 <div className='nav-main-splash'><NavBarContainer /></div>
-                <main className='splash-wrapper'>
-                    <div className='ticker'>Ticker</div>
+                <main className='splash-wrapper'>                   
+                    <div className='ticker'>
+                        <div className='ticker-text-wrap'>
+                            How to be more empathetic
+                        </div>
+                    </div>
                     <ul className='ticker-subs'>
-                        <li className='ticker-sub1'>Ticker 1</li>
-                        <li className='ticker-sub2'>Ticker 2</li>
-                        <li className='ticker-sub3'>Ticker 3</li>
-                        <li className='ticker-sub4'>Ticker 4</li>
+                        <li className='ticker-sub1'>01 - The Headspace Guide to Sleep...</li>
+                        <li className='ticker-sub2'>02 - How to sleep better</li>
+                        <li className='ticker-sub3'>03 - How to relieve stress</li>
+                        <li className='ticker-sub4'>04 - How to meditate</li>
                     </ul>
-                    <div className='article-header'>Articles Header</div>
+                    <div className='article-header'>Latest articles</div>
                     <ul className='articles-list'>
                         <li className='article1'>
                             <p className='article-text-box-long'>

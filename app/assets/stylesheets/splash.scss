@@ -21,8 +21,10 @@
 }
 
 .ticker {
+    background-image: image_url('header1.svg');
     background-color: purple;
     height: 600px;
+    
     display: flex;
     justify-content:flex-start;
     align-items: center;
@@ -31,27 +33,43 @@
     padding-bottom: 250px;
 }
 
+.ticker-text-wrap {
+    color: white;
+    font-weight: bold;
+    font-size: 64px;
+    padding-left: 30px;
+    width: 50%;
+    // background-color: tomato;
+    // margin: 5px;
+}
+
 .ticker-subs {
     display: flex;
     // justify-content: center;
     // justify-content: space-around;
     align-items: flex-end;
     height: 100px;
-    background-color: pink;
+    // background-color: pink;
 }
 
 .ticker-subs > li {
-    background-color: salmon;
-    border-radius: 10px;
+    // background-color: salmon;
+    // border-radius: 10px;
+    font-size: 16px;
+    border-bottom: solid 2px;
+    border-radius: 2px;
     width: 100%;
     margin: 5px;
+    padding-bottom: 2px;
 }
 
 .article-header {
-    background-color: powderblue;
+    // background-color: powderblue;
     padding-top: 140px;
-    font-size: 50px;
+    font-size: 64px;
+    color: #413d45;
     display: flex;
+    font-weight: bold;
     justify-content: flex-end;
     align-items: center;
 }
@@ -69,7 +87,7 @@
     // background-color: salmon;
     border-radius: 10px;
     margin: 6px;
-    border: 0.125rem solid transparent;
+    border-bottom: 0.35rem solid tomato;
     border-radius: 0.7rem;
     // background: #0C6FF9;
     box-shadow: 0 0.125rem 0 lightgrey;
@@ -80,7 +98,6 @@
     padding-left: 1.5rem;
     display: flex;
     align-items: flex-end;
-    
 }
 
 .article-text-box-long {
