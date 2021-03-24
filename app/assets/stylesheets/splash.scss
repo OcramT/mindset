@@ -101,7 +101,8 @@
 .article1 {
     min-width: 44%;
     height: 200px;
-    background-image: image_url()
+    background-image: image_url('financial_stress.png');
+    background-size:cover;
 }
 
 .article2 {
