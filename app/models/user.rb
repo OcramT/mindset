@@ -7,6 +7,16 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :completed_meditations,
+        primary_key: :id,
+        foreign_key: :user_id, 
+        class_name: :Meditation
+    
+    has_many :packs,
+        primary_key: :id,
+        foreign_key: :user_id, 
+        class_name: :Pack
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
