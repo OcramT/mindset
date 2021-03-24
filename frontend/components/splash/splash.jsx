@@ -26,12 +26,30 @@ class Splash extends React.Component {
                     </ul>
                     <div className='article-header'>Articles Header</div>
                     <ul className='articles-list'>
-                        <li className='article1'>Article a</li>
-                        <li className='article2'>Article b</li>
-                        <li className='article3'>Article c</li>
-                        <li className='article4'>Article d</li>
-                        <li className='article5'>Article e</li>
-                        <li className='article6'>Article g</li>
+                        <li className='article1'>
+                            <p className='article-text-box-long'>
+                                Meditation for financial stress</p>
+                        </li>
+                        <li className='article2'>
+                            <p className='article-text-box'>
+                                Trouble falling asleep</p>
+                        </li>
+                        <li className='article3'>
+                            <p className='article-text-box'>
+                                How to develop self-discipline</p>
+                        </li>
+                        <li className='article4'>
+                            <p className='article-text-box'>
+                                How to deal with loneliness</p>
+                        </li>
+                        <li className='article5'>
+                            <p className='article-text-box'>
+                                How to stop negative self-talk</p>
+                        </li>
+                        <li className='article6'>
+                            <p className='article-text-box-long'>
+                                Why do I wake up tired?</p>
+                        </li>
                     </ul>
                     <NavLink to='/' className='article-link'>Article Link</NavLink>
                 </main>

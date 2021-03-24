@@ -10,14 +10,16 @@ import MeditationContainer from './meditation/meditation_container';
 
 const App = () => (
     <>
+        {/* <div className='nav-main hidden'><NavBar /></div> */}
         <div> 
             <Switch>
-                <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
-                <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
+                <ProtectedRoute path="/meditation" component={MeditationContainer} />
+                <ProtectedRoute path="/dashboard" component={DashboardContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute path='/' component={SplashContainer}/>
             </Switch>
+            <Route path='/meditation/:medId' component={MeditationContainer} />
         </div>
     </>
 );
