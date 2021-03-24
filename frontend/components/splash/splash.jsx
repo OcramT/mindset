@@ -3,6 +3,10 @@ import NavBar from '../nav/nav_bar';
 import {NavLink} from 'react-router-dom';
 import NavBarContainer from '../nav/nav_bar_container'
 
+document.addEventListener("scroll", () => {
+    document.documentElement.dataset.scroll = window.scrollY;
+});
+
 class Splash extends React.Component {
     constructor(props) {
         super(props)
@@ -31,6 +35,10 @@ class Splash extends React.Component {
                     </ul>
                     <NavLink to='/' className='article-link'>Article Link</NavLink>
                 </main>
+                <div className='animation-wrapper'>
+                    {/* <img preserveAspectRatio="xMidYMin slice" className='animate-path' src={headPath}/> */}
+                    <img preserveAspectRatio="xMidYMin slice" className='animate-head' src={splashHead} />
+                </div>
             </>
         )
     }

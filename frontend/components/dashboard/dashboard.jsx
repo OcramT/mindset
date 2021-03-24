@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
                         <ul className='med-packs'>
                             {this.props.medIds.map(medId => (
                                 <Link
-                                    className='dash-link'
+                                    className={`dash-link pack-${medId}`}
                                     key={`meditation ${medId}`}
                                     to={`meditation/${medId}`}>
                                     <h5 className='dash-link-info'>
@@ -60,10 +60,10 @@ class Dashboard extends React.Component {
                         <ul className='single-meds'>
                             {this.props.medIds.map(medId => (
                                 <Link 
-                                className='dash-link'
+                                className={`dash-link med-${medId}`}
                                 key={`meditation ${medId}`} 
                                 to={`meditation/${medId}`}>
-                                    <h5 className='dash-link-info'>
+                                    <h5 className='dash-link-singles-info'>
                                         {`Single Meditation ${medId}`}</h5>
                                 </Link>
                             ))}
