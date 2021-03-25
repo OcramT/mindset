@@ -6,7 +6,7 @@ const packsReducer = (defaultState = {}, action) => {
     let nextState = Object.assign({}, defaultState)
     switch (action.type) {
         case RECEIVE_PACK:
-            return Object.assign({}, nextState, {'currentPack': action.pack})
+            return Object.assign({}, nextState, action.pack)
         case RECEIVE_ALL_PACKS:
             return Object.assign({}, nextState, action.packs)
         default:

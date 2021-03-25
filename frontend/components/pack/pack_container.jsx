@@ -5,7 +5,7 @@ import { fetchPack } from '../../actions/pack_actions';
 
 const mSTP = (state, ownProps) => ({
     packId: ownProps.match.params.packId,
-    currentPack: state.entities.packs.currentPack
+    currentPack: state.entities.packs.packs
 })
 
 const mDTP = dispatch => ({

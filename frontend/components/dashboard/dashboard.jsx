@@ -15,12 +15,13 @@ class Dashboard extends React.Component {
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
+        console.log(this.props)
+        console.log(this.props.packs.id)
         const packIds = []
         for (const key in this.props.packs) {
             packIds.push(Object.values(this.props.packs[key])[0])
         }
         console.log(packIds)
-
         return (
             <>
                 <div className='nav-main hidden'><NavBarContainer /></div>

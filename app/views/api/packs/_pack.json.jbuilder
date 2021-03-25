@@ -1,2 +1,2 @@
-json.extract! pack, :name, :category
+json.extract! pack, :id, :name, :category
 
