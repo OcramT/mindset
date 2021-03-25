@@ -9,7 +9,7 @@ class Api::MeditationsController < ApplicationController
         if @meditation 
             render 'api/meditations/show'
         else
-            render json: ['That meditation does no exist!'], status: 404
+            render json: ['That meditation does not exist!'], status: 404
         end
     end
 

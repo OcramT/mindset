@@ -1,15 +1,19 @@
 class Pack < ApplicationRecord
     validates :name, :category, presence: true
-    validates :name, :category, uniqueness: true
+    validates :name, uniqueness: true
     
-    belongs_to :user,
-        primary_key: :id,
-        foreign_key: :user_id,
-        class_name: :User
-    
-    has_many :meditations,
+    has_many :meditation_packs,
         primary_key: :id,
         foreign_key: :pack_id,
-        class_name: :Meditation
+        class_name: :MeditationPack
+
+    has_many :user_packs,
+        primary_key: :id,
+        foreign_key: :pack_id,
+        class_name: :UserPack
+
+    has_many :users,
+        through: :user_packs,
+        source: :user
 
 end

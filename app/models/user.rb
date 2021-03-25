@@ -7,15 +7,23 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    has_many :completed_meditations,
+    has_many :completed_meditations
         primary_key: :id,
-        foreign_key: :user_id, 
-        class_name: :Meditation
-    
-    has_many :packs,
+        foreign_key: :user_id,
+        class_name: :CompletedMeditation
+
+    has_many :user_packs,
         primary_key: :id,
-        foreign_key: :user_id, 
-        class_name: :Pack
+        foreign_key: :user_id,
+        class_name: :UserPack
+
+    has_many :custom_packs,
+        through: :user_packs,
+        source: :meditation
+
+    has_many :meditations,
+        through: :completed_meditations,
+        source: :meditation
 
     def password=(password)
         @password = password

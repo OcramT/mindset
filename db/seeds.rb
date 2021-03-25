@@ -28,4 +28,7 @@ testMed6 = Meditation.create({title: 'Body and Sound', category: 'Health', url: 
 testMed7 = Meditation.create({title: 'Body Scan', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/Body-Scan-Meditation.mp3', duration: 3})
 testMed8 = Meditation.create({title: 'Body Scan for Sleep', category: 'Health', url: 'https://www.uclahealth.org/marc/mpeg/Body-Scan-for-Sleep.mp3', duration: 13})
 
-
+#Test Packs
+testPack1 = Pack
+testPack2
+testPack3

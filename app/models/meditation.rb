@@ -2,14 +2,19 @@ class Meditation < ApplicationRecord
     validates :title, :category, :duration, presence: true
     validates :title, :url, uniqueness: true
 
-    belongs_to :user,
+    has_many :meditation_packs,
         primary_key: :id,
-        foreign_key: :user_id,
-        class_name: :User
+        foreign_key: :meditation_id,
+        class_name: :MeditationPack
 
-    belongs_to :pack, 
-        primary_key: :id, 
-        foreign_key: :pack_id,
-        class_name: :Pack
+    has_many :completed_meditations,
+        primary_key: :id,
+        foreign_key: :meditation_id,
+        class_name: :CompletedMeditation
+
+    has_many :meditation_users,
+        through: :completed_meditations,
+        source: :user
+
 
 end
