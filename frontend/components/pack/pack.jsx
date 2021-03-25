@@ -7,26 +7,23 @@ class Pack extends React.Component {
 
     componentDidMount() {
         this.props.fetchPack(this.props.packId)
-        this.props.currentPack
     }
 
-    // componentWillUnmount() {
-    //     this.props.
-    // }
+    componentWillUnmount() {
+        // this.props.clearPack(this.props.pack)
+    }
 
     render() {
-        if (!this.props.currentPack) return null
+        if (!this.props.pack) return null
         if (!this.props.packId) return null
-
-        const {currentPack} = this.props
-        console.log(currentPack)
+        const {pack} = this.props
         
         return (
             <>
                 <div>{`PACK SHOW PAGE`}</div>
-                <div>{`${currentPack.name}`}</div>
-                <div>{`${currentPack.category}`}</div>
-                {currentPack.medIds.map(medId => (
+                <div>{`${pack.name}`}</div>
+                <div>{`${pack.category}`}</div>
+                {pack.medIds.map(medId => (
                     <div key={`med ${medId}`}>{`Meditation ${medId}`}</div>
                 ))}
             </>

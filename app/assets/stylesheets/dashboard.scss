@@ -198,10 +198,16 @@
     margin: .5%;
     width: 360px;
     height: 444px;
-    background-color:tomato;
     border-radius: 8px;
+    // background-color:tomato;
 }
 
+.pack-med-nums {
+    font-size: 16px;
+    font-weight: 100;
+    color: #413D47;
+    // background-color: thistle;
+}
 
 .packs-discover {
     -webkit-font-smoothing: antialiased;
@@ -269,20 +275,22 @@
     border-radius: 8px;
 }
 
+
+
 .pack-1 {
-    background-image: image_url('packThumb1.png');
+    background-image: image_url('packThumb7.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .pack-2 {
-    background-image: image_url('packThumb2.png');
+    background-image: image_url('packThumb8.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .pack-3 {
-    background-image: image_url('packThumb3.png');
+    background-image: image_url('packThumb9.png');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -300,26 +308,36 @@
 }
 
 .pack-6 {
-    background-image: image_url('packThumb6.png');
+    background-image: image_url('packThumb10.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .pack-7 {
-    background-image: image_url('packThumb7.png');
+    background-image: image_url('packThumb1.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .pack-8 {
-    background-image: image_url('packThumb8.png');
+    background-image: image_url('packThumb3.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-9 {
+    background-image: image_url('packThumb6.png');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .dash-link-info {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:flex-start;
     width: 80%;
+    height: 80%;
     padding-left: 30px;
     padding-top: 50px;
     -webkit-font-smoothing: antialiased;

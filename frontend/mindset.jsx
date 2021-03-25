@@ -34,4 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.fetchPack = packUtils.fetchPack
     window.fetchAllPacks = packActions.fetchAllPacks
     window.fetchPack = packActions.fetchPack
+    window.clearPack = packActions.clearPack
 });

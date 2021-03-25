@@ -15,13 +15,8 @@ class Dashboard extends React.Component {
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
-        console.log(this.props)
-        console.log(this.props.packs.id)
-        const packIds = []
-        for (const key in this.props.packs) {
-            packIds.push(Object.values(this.props.packs[key])[0])
-        }
-        console.log(packIds)
+        const packArr = Object.values(this.props.packs)
+       
         return (
             <>
                 <div className='nav-main hidden'><NavBarContainer /></div>
@@ -45,19 +40,28 @@ class Dashboard extends React.Component {
                             Themed meditations for specific topics. 
                             Each session builds on the one before it.</div>
                         <ul className='med-packs'>
-                            {packIds.map(packId => (
+                            {packArr.map(pack => (
                                 <Link
-                                    className={`dash-link pack-${packId}`}
-                                    key={`packs ${packId}`}
-                                    to={`packs/${packId}`}>
+                                    className={`dash-link pack-${pack.id}`}
+                                    key={`packs ${pack.id}`}
+                                    to={`packs/${pack.id}`}>
+
                                     <h5 className='dash-link-info'>
-                                        {`Meditation Pack ${packId}`}</h5>
+                                        {`${pack.name}`}
+                                        <div className='pack-med-nums'>
+                                            {`${pack.medIds.length}
+                                        sessions`}
+                                        </div>
+                                    </h5>
+
                                 </Link>
                             ))}
+                           
                         </ul>
                         <Link 
                             to='/dashboard' 
-                            className='packs-discover'>Discover More Packs</Link>
+                            className='packs-discover'>Discover More Packs
+                        </Link>
                     </div>
                     <div className='divider'/>
                     <div className='meds-wrapper'>
@@ -71,14 +75,17 @@ class Dashboard extends React.Component {
                                 className={`dash-link med-${medId}`}
                                 key={`meditation ${medId}`} 
                                 to={`meditation/${medId}`}>
+
                                     <h5 className='dash-link-singles-info'>
                                         {`Single Meditation ${medId}`}</h5>
+
                                 </Link>
                             ))}
                         </ul>
                         <Link 
                             to='/dashboard' 
-                            className='singles-discover'>Discover More Singles</Link>
+                            className='singles-discover'>Discover More Singles
+                        </Link>
                     </div>
                     <div className='divider' />
                 </div>
