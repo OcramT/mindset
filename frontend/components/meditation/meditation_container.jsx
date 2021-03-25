@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => ({
     currentMed: state.entities.meditations[ownProps.match.params.medId],
 });
 
-const mDTP = state => dispatch => ({
+const mDTP = dispatch => ({
     fetchMeditation: meditationId => dispatch(fetchMeditation(meditationId)),
 });
 

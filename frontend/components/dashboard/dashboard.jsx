@@ -9,11 +9,18 @@ class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllMedIds()
-        
+        this.props.fetchAllPacks()
     }
 
     render() {
         if (!this.props.medIds) return null;
+        if (!this.props.packs) return null;
+        const packIds = []
+        for (const key in this.props.packs) {
+            packIds.push(Object.values(this.props.packs[key])[0])
+        }
+        console.log(packIds)
+
         return (
             <>
                 <div className='nav-main hidden'><NavBarContainer /></div>
@@ -37,13 +44,13 @@ class Dashboard extends React.Component {
                             Themed meditations for specific topics. 
                             Each session builds on the one before it.</div>
                         <ul className='med-packs'>
-                            {this.props.medIds.map(medId => (
+                            {packIds.map(packId => (
                                 <Link
-                                    className={`dash-link pack-${medId}`}
-                                    key={`meditation ${medId}`}
-                                    to={`meditation/${medId}`}>
+                                    className={`dash-link pack-${packId}`}
+                                    key={`packs ${packId}`}
+                                    to={`packs/${packId}`}>
                                     <h5 className='dash-link-info'>
-                                        {`Meditation Pack ${medId}`}</h5>
+                                        {`Meditation Pack ${packId}`}</h5>
                                 </Link>
                             ))}
                         </ul>

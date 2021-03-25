@@ -7,6 +7,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import SplashContainer from './splash/splash_container';
 import MeditationContainer from './meditation/meditation_container';
+import PackContainer from './pack/pack_container';
 
 const App = () => (
     <>
@@ -15,6 +16,7 @@ const App = () => (
                 <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                 <ProtectedRoute exact path='/meditation/'/>
+                <ProtectedRoute path='/packs/:packId' component={PackContainer}/>
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute path='/' component={SplashContainer}/>
