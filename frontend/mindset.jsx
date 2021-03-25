@@ -5,6 +5,8 @@ import Root from './components/root';
 import * as sessionActions from './actions/session_actions';
 import { fetchAllMeditationIds } from './util/meditation_api_util';
 import { fetchAllMedIds, fetchMeditation } from './actions/meditation_actions';
+import * as packUtils from './util/pack_api_util';
+import * as packActions from './actions/pack_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -28,4 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchMeditation = fetchMeditation;
     window.fetchAllMeditationIds = fetchAllMeditationIds;
     window.fetchAllMedIds = fetchAllMedIds
+    // window.fetchAllPacks = packUtils.fetchAllPacks
+    // window.fetchPack = packUtils.fetchPack
+    window.fetchAllPacks = packActions.fetchAllPacks
+    window.fetchPack = packActions.fetchPack
 });

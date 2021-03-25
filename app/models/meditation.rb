@@ -16,5 +16,4 @@ class Meditation < ApplicationRecord
         through: :completed_meditations,
         source: :user
 
-
 end
