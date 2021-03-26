@@ -25,7 +25,7 @@ class Pack extends React.Component {
                         <div className='pack-info-wrapper'>
                             <header className='pack-title'>{`${pack.name}`}</header>
                             <div className='session-total'>{`${pack.medIds.length}`} sessions</div>
-                            <h1 className='pack-info'>Cultivate a new perspective on fear and anxiety.</h1>
+                                <h1 className='pack-info'>Alter your mindset with the {`${pack.name}`} pack.</h1>
                             <div className='add-remove'>
                                 <div to='/dashboard ' className='close-wrapper'>
                                     <img className='close remove' src={close} />
@@ -60,7 +60,7 @@ class Pack extends React.Component {
                             <div className='med-buttons'>
                                 <Link to='/meditation/1' className='med-play begin'>&#9654; BEGIN</Link>
                                 <button className='med-dur duration'>20 MIN</button>
-                                <h2 className='med-list-title'>Day 3 of Managing Anxiety</h2>
+                                    <h2 className='med-list-title'>Day {`${pack.medIds.length}`} of {`${pack.name}`} </h2>
                             </div>
                             <div to='/dashboard ' className='close-wrapper'>
                                 <img className='close remove' src={close} />

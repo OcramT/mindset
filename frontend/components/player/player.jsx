@@ -67,7 +67,7 @@ class Player extends React.Component {
 
         return (
             <>
-            <div className='day'>Day 2/30</div>
+            {/* <div className='day'>Day 2/30</div> */}
             <div className='time'>{this.currentMed.duration} minutes</div>
             <div onClick={() => this.handlePlay()}>
                 {!this.state.playing
