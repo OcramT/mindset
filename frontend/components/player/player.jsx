@@ -70,10 +70,14 @@ class Player extends React.Component {
             <div className='day'>Day 2/30</div>
             <div className='time'>{this.currentMed.duration} minutes</div>
             <div onClick={() => this.handlePlay()}>
-                <div className='button-wrapper'>
+                {!this.state.playing
+               ? <div className='button-wrapper'>
                     <img className='med-button' src={medButton} />
                     <img className='play-button' src={medPlay} />
                 </div>
+                :  <div className='button-wrapper'>
+                    <img className='med-button' src={medPause} />
+                </div>}
             </div>
             {/* <div className='progress-bar'></div> */}
             <div className='timer'>{this.formatTime(this.audio.currentTime)}</div>
