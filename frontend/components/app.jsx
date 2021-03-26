@@ -13,6 +13,7 @@ const App = () => (
     <>
         <div> 
             <Switch>
+                <ProtectedRoute exact path='/packs/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute exact path='/meditation/'/>
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />

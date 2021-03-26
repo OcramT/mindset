@@ -69,19 +69,18 @@ class Pack extends React.Component {
                         <div className='med-divider'></div>
                         <div className='med-list-wrapper'>
                             <ul className='med-list'>
-                                {pack.medIds.map((medId, idx) => (
-                                    <a
-                                    // to={`/meditation/${medId}`}
-                                    href={`https://mind-set.herokuapp.com/#/meditation/${medId}`}
+                                {pack.medIds.map(medId => (
+                                    <Link
+                                    to={`meditation/${medId}`}
                                     className='med-list-item' 
                                     key={`med-item ${medId}`}>
                                         <div className='link-wrap'>
                                         <img className='med-icon' src={medListButton} />
                                         <li className='med-text'
-                                            key={`med ${medId}`}>{`Session ${idx+1}`}
+                                            key={`med ${medId}`}>{`Session ${medId}`}
                                         </li>
                                         </div>
-                                    </a>
+                                    </Link>
                                     ))}
                             </ul>
                         </div>
