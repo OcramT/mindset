@@ -14,9 +14,10 @@ const App = () => (
         <div> 
             <Switch>
                 <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
+                <ProtectedRoute exact path='/meditation/'/>
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
-                {/* <ProtectedRoute exact path='/meditation/'/> */}
-                <ProtectedRoute path='/packs/:packId' component={PackContainer}/>
+                <ProtectedRoute exact path='/packs' component={PackContainer} />
+                <ProtectedRoute exact path='/packs/:packId' component={PackContainer}/>
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute path='/' component={SplashContainer}/>

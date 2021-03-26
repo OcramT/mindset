@@ -17,4 +17,7 @@
 @font-face {
     font-family: 'Apercu';
     src: font-url('ApercuRegular.otf') format('opentype');
+    -webkit-font-smoothing: antialiased;
+    font-family: Apercu, sans-serif;
+    text-rendering: optimizelegibility;
 }
