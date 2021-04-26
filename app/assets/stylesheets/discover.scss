@@ -1,0 +1,223 @@
+.discover-wrapper {
+    width: 100vw;
+    // height: 100vh;
+}
+
+.discover-header {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    // background: aquamarine;
+    padding: 10px 0px 10px 0px;
+}
+
+.discover-content {
+    display: flex;
+    // justify-content: space-between;
+    width: 100%;
+    // height: 100vh;
+    // background: aquamarine;
+    margin: auto;
+    // padding: 50px 200px 0px 200px;
+}
+
+.featured:first-child {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    background: rgb(244, 125, 49);
+    width: 135px;
+    height: 40px;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 200px;
+    height: 600px;
+    margin-top: 75px;
+    z-index: 1;
+    left: 10%;
+    // padding: 50px 0px 0px 50px;
+    // background: indianred;
+}
+
+.nav-genres {
+    margin: 10px 0px 10px 0px;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(89,98,116);
+    // background: pink;
+}
+
+.side-nav > * {
+    margin: 0px auto 20px auto;
+    // background: coral;
+}
+
+.side-nav > h2 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgb(245, 139, 68);
+    font-size: 14px;
+    line-height: 16px;
+    width: 45%;
+    // background: aqua;
+}
+
+.main-search {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 0;
+    left: 150px;
+    align-items: center;
+    // background: plum;
+    width: 1150px;
+    // height: 100vh;
+    margin: auto;
+}
+
+.discover-featured {
+    background: powderblue;
+    background-image: image-url('mindsetSleep.svg');
+    background-size: cover;
+    width: 840px;
+    height: 430px;
+    border-radius: 10px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+.discover-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    // background: pink;
+}
+
+.pack-genre-header {
+    width: 840px;
+    font-size: 32px;
+    line-height: 48px;
+    // background: tomato;
+}
+
+.discover-packs {
+    // background: purple;
+    width: 870px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    // background-color: indigo;
+}
+
+.discover-packs > * {
+    // color: wheat;
+    margin: 12px;
+    width: 265px;
+    height: 325px;
+    border-radius: 8px;
+    // background-color:tomato;
+}
+
+.discover-pack {
+    // background: palegreen;
+    width: 840px;
+    border-radius: 20px;
+}
+
+.discover-link-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:flex-start;
+    width: 80%;
+    height: 80%;
+    padding-left: 30px;
+    padding-top: 50px;
+    -webkit-font-smoothing: antialiased;
+    font-family: Apercu, sans-serif;
+    text-rendering: optimizelegibility;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 6px;
+    color: rgb(65, 61, 71);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // background-color: tomato;
+}
+
+.pack-med-nums {
+    font-size: 16px;
+    font-weight: 100;
+    color: #413D47;
+    // background-color: thistle;
+}
+
+.pack-1 {
+    background-image: image_url('packThumb7.png');
+    // background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-2 {
+    background-image: image_url('packThumb8.png');
+    // background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-3 {
+    background-image: image_url('packThumb9.png');
+    // background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-4 {
+    background-image: image_url('packThumb4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-5 {
+    background-image: image_url('packThumb5.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-6 {
+    background-image: image_url('packThumb10.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-7 {
+    background-image: image_url('packThumb1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-8 {
+    background-image: image_url('packThumb3.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pack-9 {
+    background-image: image_url('packThumb6.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
