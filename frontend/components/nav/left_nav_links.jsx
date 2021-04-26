@@ -14,19 +14,19 @@ class LeftNavBarLinks extends React.Component {
             <div className='hidden'>
                 <ul className='left-nav-bar-links'>
                     <li className='articles'>
-                        <NavLink to='/'>Articles</NavLink>
+                        <a href='https://www.marcotorre.io/' target="_blank">Portfolio</a>
                     </li>
                     <li className='med-link'>
-                        <NavLink to='/meditation'>Meditation</NavLink>
+                        <a href='https://www.linkedin.com/in/marco-torre-388286138/' target="_blank">LinkedIn</a>
                     </li>
                     <li className='sleep'>
-                        <NavLink to='/'>Sleep</NavLink>
+                        <a href='https://github.com/OcramT' target="_blank">GitHub</a>
                     </li>
                     <li className='stress'>
-                        <NavLink to='/'>Stress</NavLink>
+                        <a href='https://angel.co/u/marco-torre-1' target="_blank">AngelList</a>
                     </li>
                     <li className='mindfulness'>
-                        <NavLink to='/'>Mindfulness</NavLink>
+                        <a href="mailto:marcoatorre@gmail.com" target="_blank">Contact</a>
                     </li>
                 </ul>
             </div>
