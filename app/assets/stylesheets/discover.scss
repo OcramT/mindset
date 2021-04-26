@@ -21,14 +21,42 @@
     // padding: 50px 200px 0px 200px;
 }
 
-.featured:first-child {
-    color: white;
-    font-size: 14px;
-    text-transform: uppercase;
-    background: rgb(244, 125, 49);
-    width: 135px;
-    height: 40px;
+.featured {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: 150px;
+    height: 115px;
+    margin: 0px 0px 58px 58px;
+    // background: white;
+    
+    :first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+        text-transform: uppercase;
+        background: rgb(244, 125, 49);
+        width: 135px;
+        height: 40px;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    :last-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 72px;
+        font-size: 40px;
+        font-weight: 700;
+        background: white;
+        color: #5A6175;
+        border-radius: 0px 5px 5px 5px;
+    }
 }
+
 
 .side-nav {
     display: flex;
@@ -80,6 +108,7 @@
 }
 
 .discover-featured {
+    display: flex;
     background: powderblue;
     background-image: image-url('mindsetSleep.svg');
     background-size: cover;
