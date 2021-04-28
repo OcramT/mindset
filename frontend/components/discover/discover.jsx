@@ -14,19 +14,23 @@ class DiscoverPage extends React.Component {
         this.props.fetchAllMedIds()
         this.props.fetchAllPacks()
     }
-
+    
     filter(e) {
         let genreClass = e.target.classList[0]
- 
+        if (this.packRefs.includes(null)) {
+            this.packRefs = this.packRefs.slice(1, this.packRefs.length)
+        }
+        console.log(this.packRefs)
         this.packRefs.forEach(pack => {
             let packClass = pack.classList[0]
-            if(genreClass === packClass) {
+            if (genreClass === packClass) {
                 pack.className = `${packClass} showme`
             } else {
                 pack.className = `${packClass} hideme`
             }
         })
     }
+
 
     all() {
         this.packRefs.forEach(pack => {
@@ -45,6 +49,8 @@ class DiscoverPage extends React.Component {
                 genres.push(pack['category'])
             }
         })
+        this.genreRefs = [];
+        this.packRefs = [];
 
         return (
             <>
