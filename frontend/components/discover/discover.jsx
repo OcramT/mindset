@@ -5,11 +5,34 @@ import NavBarContainer from '../nav/nav_bar_container';
 class DiscoverPage extends React.Component {
     constructor(props) {
         super(props)
+
+        this.genreRefs = [];
+        this.packRefs = [];
     }
 
     componentDidMount() {
         this.props.fetchAllMedIds()
         this.props.fetchAllPacks()
+    }
+
+    filter(e) {
+        let genreClass = e.target.classList[0]
+ 
+        this.packRefs.forEach(pack => {
+            let packClass = pack.classList[0]
+            if(genreClass === packClass) {
+                pack.className = `${packClass} showme`
+            } else {
+                pack.className = `${packClass} hideme`
+            }
+        })
+    }
+
+    all() {
+        this.packRefs.forEach(pack => {
+            let oldClass = pack.classList[0]
+            pack.className = `${oldClass} showme`
+        })
     }
 
     render() {
@@ -32,9 +55,15 @@ class DiscoverPage extends React.Component {
                         <nav className='side-nav'>
                             <h2>Packs</h2>
                             <ul>
+                                <li className='nav-genres all'
+                                    onClick={() => this.all()}>All</li>
                                 {genres.map((genre, i) => (
-                                    <li className='nav-genres'
-                                    key={`${genre}-${i}`}>{`${genre}`}</li>
+                                    <li className={`${genre} nav-genres`}
+                                        key={`${genre}-${Math.random() * i}`}
+                                        ref={ref => (this.genreRefs.push(ref))}
+                                        onClick={(e) => this.filter(e)}>
+                                        {`${genre}`}
+                                    </li>
                                 ))}
                             </ul>
                         </nav>
@@ -47,31 +76,30 @@ class DiscoverPage extends React.Component {
                             </div>
                             <ul className='discover-categories'>
                                 {genres.map((genreCategory, idx) => (
-                                    <>
-                                    <h4 
-                                    key={`category-${idx}`}
-                                    className='pack-genre-header'>
-                                        {`${genreCategory}`}
-                                    </h4>
-                                    <ul className='discover-packs'>
-                                        {packArr.map(pack => (
-                                            genreCategory === pack['category'] && (
-                                                <Link
-                                                    className={`pack-${pack.id}`}
-                                                    key={`packs ${pack.id}`}
-                                                    to={`packs/${pack.id}`}>
-
-                                                    <h5 className='discover-link-info'>
-                                                        {`${pack.name}`}
-                                                        <div className='pack-med-nums'>
-                                                            {`${pack.medIds.length}
-                                                        sessions`}
-                                                        </div>
-                                                    </h5>
-                                                </Link>
+                                    <div key={Math.random() * idx + 23}
+                                        className={`${genreCategory} showme`}
+                                        ref={ref => (this.packRefs.push(ref))}>
+                                        <h4 className={`pack-genre-header`}>
+                                            {`${genreCategory}`}
+                                        </h4>
+                                        <ul className='discover-packs'>
+                                            {packArr.map((pack, idx2) => (
+                                                genreCategory === pack['category'] && (
+                                                    <Link
+                                                        className={`disc-pack-${pack.id}`}
+                                                        key={`packs ${pack.id}`}
+                                                        to={`packs/${pack.id}`}>
+                                                        <h5 className='discover-link-info'>
+                                                            {`${pack.name}`}
+                                                            <div className='pack-med-nums'>
+                                                                {`${pack.medIds.length}
+                                                                sessions`}
+                                                            </div>
+                                                        </h5>
+                                                    </Link>
                                             )))}
-                                    </ul>
-                                    </>
+                                        </ul>
+                                    </div>
                                 ))}
                             </ul>
                         </div>
