@@ -17,20 +17,32 @@ class DiscoverPage extends React.Component {
     
     filter(e) {
         let genreClass = e.target.classList[0]
+        
+        this.packRefs.forEach(pack => {
+            if (pack === null) {
+                this.packRefs.shift()
+            }
+        })
+        this.genreRefs.forEach(genre => {
+            if (genre === null) {
+                this.genreRefs.shift()
+            }
+        })
+        if (this.genreRefs.includes(null)) {
+            this.genreRefs = this.genreRefs.slice(1, this.genreRefs.length)
+        }
         if (this.packRefs.includes(null)) {
             this.packRefs = this.packRefs.slice(1, this.packRefs.length)
         }
-        console.log(this.packRefs)
+
         this.packRefs.forEach(pack => {
-            let packClass = pack.classList[0]
-            if (genreClass === packClass) {
-                pack.className = `${packClass} showme`
+            if (genreClass === pack.classList[0]) {
+                pack.className = `${pack.classList[0]} showme`
             } else {
-                pack.className = `${packClass} hideme`
+                pack.className = `${pack.classList[0]} hideme`
             }
         })
     }
-
 
     all() {
         this.packRefs.forEach(pack => {
