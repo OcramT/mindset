@@ -5,10 +5,16 @@ import Player from '../player/player';
 class Meditation extends React.Component {
     constructor(props) {
         super(props)
+
+        this.goBack = this.goBack.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchMeditation(this.props.currentMedId)
+    }
+
+    goBack() {
+        this.props.history.goBack();
     }
 
     render() {
@@ -20,9 +26,9 @@ class Meditation extends React.Component {
                 <div className='meditation-bg'>
                 <header className='med-nav'>
                     <div className='nav-wrapper'>
-                        <Link to='/dashboard 'className='close-wrapper'>
+                        <div onClick={() => this.goBack()} className='close-wrapper'>
                             <img className='close' src={close}/>
-                        </Link>
+                        </div>
                         <div className='med-details'>{currentMed.title}</div>
                         <div></div>
                     </div>
