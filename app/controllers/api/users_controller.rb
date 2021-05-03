@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
 
     # def show
     #     @user = User.find_by(id: params[:id])
+    #     @user_packs = Pack.select(:id, :name, :category).joins(:user_packs)
     #     render 'api/users/show'
     # end
 
