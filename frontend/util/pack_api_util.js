@@ -11,3 +11,4 @@ export const fetchPack = (packId) => {
         url: `api/packs/${packId}`
     })
 }
+
