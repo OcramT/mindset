@@ -24,6 +24,11 @@ class RightNavLinks extends React.Component {
                     <li className='work'>
                         <NavLink to='/work'>Work</NavLink>
                     </li>
+                    {this.props.currentUser && (
+                        <li className='discover'>
+                            <NavLink to='/discover'>Discover</NavLink>
+                        </li>
+                    )}
                     {!this.props.currentUser && (
                         <li className= 'demo'>
                             {routeLink}

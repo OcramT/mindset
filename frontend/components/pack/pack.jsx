@@ -14,7 +14,7 @@ class Pack extends React.Component {
     render() {
         if (!this.props.pack) return null
         if (!this.props.packId) return null
-        const {pack} = this.props
+        const {pack, packId} = this.props
         
         return (
             <>
@@ -26,8 +26,8 @@ class Pack extends React.Component {
                             <header className='pack-title'>{`${pack.name}`}</header>
                             <div className='session-total'>{`${pack.medIds.length}`} sessions</div>
                                 <h1 className='pack-info'>Alter your mindset with the {`${pack.name}`} pack.</h1>
-                            <div className='add-remove'>
-                                <div to='/dashboard ' className='close-wrapper'>
+                            <div className='add-remove' onClick={() => this.props.addPack(packId)}>
+                                <div className='close-wrapper'>
                                     <img className='close remove' src={close} />
                                 </div>
                                 <p className='remove-text'>remove from my packs</p>

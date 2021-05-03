@@ -8,6 +8,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 import SplashContainer from './splash/splash_container';
 import MeditationContainer from './meditation/meditation_container';
 import PackContainer from './pack/pack_container';
+import DiscoverContainer from './discover/discover_container';
 
 const App = () => (
     <>
@@ -15,7 +16,8 @@ const App = () => (
             <Switch>
                 <ProtectedRoute exact path='/packs/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
-                <ProtectedRoute exact path='/meditation/'/>
+                {/* <ProtectedRoute exact path='/meditation/'/> */}
+                <ProtectedRoute exact path='/discover' component={DiscoverContainer} />
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                 <ProtectedRoute exact path='/packs' component={PackContainer} />
                 <ProtectedRoute exact path='/packs/:packId' component={PackContainer}/>
