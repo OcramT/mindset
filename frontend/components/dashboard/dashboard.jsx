@@ -5,9 +5,16 @@ import NavBarContainer from '../nav/nav_bar_container';
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            
+        }
     }
 
     componentDidMount() {
+        this.props.fetchAllUserPacks()
+            .then(response => response)
+            .then((userPacks) => this.setState({ userPacks: userPacks['allUserPacks'] }))
+        // this.setState({ userPacks: this.props.fetchAllUserPacks().then(allPacks => (console.log(allPacks))
         this.props.fetchAllMedIds()
         this.props.fetchAllPacks()
     }
@@ -15,7 +22,11 @@ class Dashboard extends React.Component {
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
+        if (!this.state.userPacks) return null;
         const packArr = Object.values(this.props.packs)
+        const userPackArr = this.state.userPacks
+        // console.log(Object.values(this.props.userPacks))
+        // console.log(this.state.userPacks.map(pack => console.log(pack)))
        
         return (
             <>
@@ -40,7 +51,7 @@ class Dashboard extends React.Component {
                             Themed meditations for specific topics. 
                             Each session builds on the one before it.</div>
                         <ul className='med-packs'>
-                            {packArr.map(pack => (
+                            {userPackArr.map(pack => (
                                 <Link
                                     className={`dash-link pack-${pack.id}`}
                                     key={`packs ${pack.id}`}
@@ -48,10 +59,10 @@ class Dashboard extends React.Component {
 
                                     <h5 className='dash-link-info'>
                                         {`${pack.name}`}
-                                        <div className='pack-med-nums'>
+                                        {/* <div className='pack-med-nums'>
                                             {`${pack.medIds.length}
                                         sessions`}
-                                        </div>
+                                        </div> */}
                                     </h5>
 
                                 </Link>

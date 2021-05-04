@@ -1,0 +1,1 @@
+json.extract! userpack, :id, :user_id, :pack_id

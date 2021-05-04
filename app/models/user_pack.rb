@@ -1,4 +1,5 @@
 class UserPack < ApplicationRecord
+    validates :user_id, :pack_id, presence: true
  
     belongs_to :user,
         primary_key: :id,
