@@ -13,7 +13,9 @@ import DiscoverContainer from './discover/discover_container';
 const App = () => (
     <>
         <div> 
+            
             <Switch>
+                {/* <Route path='/user/packs' component={DashboardContainer}/> */}
                 <ProtectedRoute exact path='/packs/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
                 {/* <ProtectedRoute exact path='/meditation/'/> */}
