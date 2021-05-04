@@ -5,16 +5,13 @@ import NavBarContainer from '../nav/nav_bar_container';
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            
-        }
+        this.state = { }
     }
 
     componentDidMount() {
         this.props.fetchAllUserPacks()
             .then(response => response)
             .then((userPacks) => this.setState({ userPacks: userPacks['allUserPacks'] }))
-        // this.setState({ userPacks: this.props.fetchAllUserPacks().then(allPacks => (console.log(allPacks))
         this.props.fetchAllMedIds()
         this.props.fetchAllPacks()
     }

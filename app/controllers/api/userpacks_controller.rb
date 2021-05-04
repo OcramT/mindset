@@ -21,7 +21,7 @@ class Api::UserpacksController < ApplicationController
     end
 
     def destroy
-        @userpack = Userpack.find_by(id: params[:id])
+        @userpack = UserPack.find_by(pack_id: params[:id])
         @userpack.destroy
     end
 
