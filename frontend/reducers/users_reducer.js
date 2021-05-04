@@ -10,7 +10,7 @@ const usersReducer = (defaultState = {}, action) => {
                 [action.currentUser.id] : action.currentUser
             })
         case FETCH_ALL_USER_PACKS:
-            return Object.assign({}, nextState, { userpacks: action.allUserPacks})
+            return Object.assign({}, nextState)
         // case ADD_USER_PACK:
         //     return Object.assign({}, defaultState, {userpacks : {[action.userPack.id]: action.userPack}})
         default:
