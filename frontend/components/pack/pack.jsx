@@ -5,17 +5,46 @@ import {Link} from 'react-router-dom';
 class Pack extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            addRemove: "",
+            userPacks: {}
+        }
+        this.handleAddRemove = this.handleAddRemove.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchPack(this.props.packId)
+        this.props.fetchAllUserPacks()
+            .then(response => response)
+            .then((userPackIds) => this.setState({ userPackIds: userPackIds['allUserPacks'].map(pack => pack.id) }))
+        this.props.fetchAllUserPacks()
+            .then(response => response)
+            .then((userPackIds) => this.setState( {
+                test: userPackIds['allUserPacks'].map(pack => this.state.userPacks[pack.id] = pack.id)
+            }))
+    }
+
+    handleAddRemove(packId) {
+        let userPacks = this.state.userPacks
+
+        if (!userPacks[packId]) {
+            this.setState({ addRemove: 'added' })
+            this.setState(Object.assign(userPacks, {[`${packId}`]: parseInt(packId)}))
+        } else if (userPacks[packId]) {
+            this.setState({ addRemove: 'removed' })
+            this.setState({ [userPacks] : delete userPacks[packId] })
+        }
     }
 
     render() {
         if (!this.props.pack) return null
         if (!this.props.packId) return null
+        if (!this.state.userPackIds) return null;
+        if (!this.state.userPacks) return null;
         const {pack, packId} = this.props
-        console.log(this.props.userPacks)
+        let userPackIds = this.state.userPackIds
+        let userPacks = this.state.userPacks
+
         
         return (
             <>
@@ -27,12 +56,22 @@ class Pack extends React.Component {
                             <header className='pack-title'>{`${pack.name}`}</header>
                             <div className='session-total'>{`${pack.medIds.length}`} sessions</div>
                                 <h1 className='pack-info'>Alter your mindset with the {`${pack.name}`} pack.</h1>
-                            <div className='add-remove' onClick={() => this.props.addUserPack(packId)}>
+                                {/* {!userPackIds.includes(parseInt(packId)) && */}
+                                {!(packId in userPacks) &&
+                             (<div className='add-remove' onClick={() => {this.props.addUserPack(packId); this.handleAddRemove(packId)}}>
+                                <div className='close-wrapper'>
+                                    <img className='close remove' src={close} />
+                                </div>
+                                <p className='remove-text'>add to my packs</p>
+                              </div>) }
+                                {/* {userPackIds.includes(parseInt(packId)) && */}
+                                {(packId in userPacks) &&
+                                    (<div className='add-remove' onClick={() => {this.props.removeUserPack(packId); this.handleAddRemove(packId)}}>
                                 <div className='close-wrapper'>
                                     <img className='close remove' src={close} />
                                 </div>
                                 <p className='remove-text'>remove from my packs</p>
-                            </div>
+                            </div>) }
                         </div>
                         <div className='pack-image-wrapper'>
                             <img className='pack-image' src={anxietyPack} />
