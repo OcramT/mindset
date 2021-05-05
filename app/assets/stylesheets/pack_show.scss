@@ -83,10 +83,23 @@
     padding-right: 32px;
     cursor: pointer;
 
-    // .remove {
-    //     transform: rotate(45deg);
-    // }
+    .remove {
+        transform: rotate(45deg);
+    }
 }
+
+.add-add {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding-right: 32px;
+    cursor: pointer;
+
+    .remove {
+        transform: rotate(45deg);
+    }
+}
+
 
 .remove-text {
     font-size: 14px;
@@ -260,4 +273,8 @@
 .link-wrap {
     display: flex;
     // background-color: plum;
+}
+
+.add {
+    transform: rotate(50px);
 }

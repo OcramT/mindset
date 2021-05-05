@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
                            
                         </ul>
                         <Link 
-                            to='/dashboard' 
+                            to='/discover' 
                             className='packs-discover'>Discover More Packs
                         </Link>
                     </div>

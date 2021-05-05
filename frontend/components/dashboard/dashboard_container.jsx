@@ -6,8 +6,8 @@ import { fetchAllUserPacks } from '../../actions/user_pack_actions';
 
 const mSTP = state => ({
     medIds: state.entities.meditations.medIds,
-    packs: state.entities.packs,
-    userPacks: state.entities.users.userPacks
+    packs: state.entities.packs
+    // userPacks: state.entities.users.userPacks
 });
 
 const mDTP = dispatch => ({
