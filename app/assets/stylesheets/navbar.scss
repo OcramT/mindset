@@ -76,7 +76,7 @@ html:not([data-scroll='0']) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 409.42px;
+    width: 450px;
     margin: 0px 176px;
     padding-left: 0px 32px;
     // background:coral;
@@ -86,7 +86,7 @@ html:not([data-scroll='0']) {
     display: flex;
     top: -9px;
     height: 5rem;
-    width: 250px;
+    width: 325px;
 }
 
 .right-nav-bar-links li {
@@ -94,6 +94,7 @@ html:not([data-scroll='0']) {
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin: auto;
     // background-color: thistle;
 }
 
@@ -102,6 +103,9 @@ html:not([data-scroll='0']) {
 }
 .work:hover {
     border-bottom: pink solid;
+}
+.dashboard:hover {
+    border-bottom: tomato solid;
 }
 .discover:hover {
     border-bottom: purple solid;
