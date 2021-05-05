@@ -9,6 +9,8 @@ class RightNavLinks extends React.Component {
     }
 
     render() {
+        let url = this.props.location.pathname
+        console.log(this.props.location.pathname)
         const {location} = this.props
         let routeLink = <NavLink to='/login'>Log in</NavLink>
         if (location.pathname === '/login') {
@@ -24,7 +26,12 @@ class RightNavLinks extends React.Component {
                     <li className='work'>
                         <NavLink to='/work'>Work</NavLink>
                     </li>
-                    {this.props.currentUser && (
+                    {(this.props.currentUser && location.pathname !== '/dashboard') && (
+                        <li className='dashboard'>
+                            <NavLink to='/dashboard'>Dashboard</NavLink>
+                        </li>
+                    )}
+                    {(this.props.currentUser && location.pathname !== '/discover') && (
                         <li className='discover'>
                             <NavLink to='/discover'>Discover</NavLink>
                         </li>
