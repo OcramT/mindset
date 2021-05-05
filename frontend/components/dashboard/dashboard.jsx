@@ -13,14 +13,14 @@ class Dashboard extends React.Component {
             .then(response => response)
             .then((userPacks) => this.setState({ userPacks: userPacks['allUserPacks'] }))
         this.props.fetchAllMedIds()
-        this.props.fetchAllPacks()
+        // this.props.fetchAllPacks()
     }
 
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
         if (!this.state.userPacks) return null;
-        const packArr = Object.values(this.props.packs)
+        // const packArr = Object.values(this.props.packs)
         const userPackArr = this.state.userPacks
         // console.log(Object.values(this.props.userPacks))
         // console.log(this.state.userPacks.map(pack => console.log(pack)))
@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
                             ))}
                         </ul>
                         <Link 
-                            to='/dashboard' 
+                            to='/discover' 
                             className='singles-discover'>Discover More Singles
                         </Link>
                     </div>

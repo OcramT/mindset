@@ -10,7 +10,6 @@ class RightNavLinks extends React.Component {
 
     render() {
         let url = this.props.location.pathname
-        console.log(this.props.location.pathname)
         const {location} = this.props
         let routeLink = <NavLink to='/login'>Log in</NavLink>
         if (location.pathname === '/login') {

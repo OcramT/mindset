@@ -71,7 +71,7 @@ class DiscoverPage extends React.Component {
                     <h1 className='discover-header'></h1>
                     <div className='discover-content'>
                         <nav className='side-nav'>
-                            <h2>Packs</h2>
+                            <h2 onClick={() => this.all()}>Packs</h2>
                             <ul>
                                 <li className='nav-genres all'
                                     onClick={() => this.all()}>All</li>
