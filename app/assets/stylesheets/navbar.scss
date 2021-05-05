@@ -2,15 +2,15 @@
     display: flex;
     width: 100%;
     height: 5rem;
-    // background-color: aqua;
+    // background-color:violet;
 }
 
 .nav-bar {
     display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
+    // justify-content: center;
+    // align-items: center;
+    // justify-content: space-between;
     background: white;
     // background-color:seagreen;
 }
@@ -74,28 +74,40 @@ html:not([data-scroll='0']) {
 
 .nav-right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 450px;
-    margin: 0px 176px;
-    padding-left: 0px 32px;
+    justify-content: flex-end;
+    // justify-content: space-between;
+    // width: 409.42px;
+    // width: 100%;
+    // margin: 0px 176px;
+    // padding-left: 0px 32px;
     // background:coral;
+    // border-radius: 50px;
+}
+
+.test {
+    color: pink;
 }
 
 .right-nav-bar-links {
     display: flex;
+    justify-self: center;
     top: -9px;
     height: 5rem;
     width: 325px;
+    // background-color: turquoise;
+    // border-radius: 25px;
 }
 
 .right-nav-bar-links li {
     display: flex;
     width: 100%;
     align-items: center;
+    height: 5rem;
     justify-content: center;
-    margin: auto;
+    // margin: auto;
     // background-color: thistle;
+    // border-radius: 50px;
 }
 
 .about:hover {
@@ -114,15 +126,36 @@ html:not([data-scroll='0']) {
     border-bottom: coral solid;
 }
 
+.nav-spacer {
+    width: 10%;
+}
 
+.nav-spacer-center {
+    width: 40%;
+    min-width: 2px;
+}
+
+.account > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // color: rebeccapurple;
+}
+
+.greeting {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    // background-color:skyblue;
+}
 
 .nav-left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
     width: 409.42px;
-    margin: 0px 176px;
-    padding-left: 0px 32px;
+    // margin: 0px 176px;
+    // padding-left: 0px 32px;
     // background: powderblue;
 }
 
@@ -141,6 +174,7 @@ html:not([data-scroll='0']) {
     display: flex;
     justify-content: space-around;
     // background: pink;
+    border-radius: 50px;
 }
 
 .articles:hover {

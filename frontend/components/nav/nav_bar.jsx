@@ -21,19 +21,21 @@ class NavBar extends React.Component {
             <>
                 <div className='nav-wrapper'>
                     <div className='nav-bar hidden'>
+                        <div className='nav-spacer'></div>
                         <div className='nav-left'>
                             <NavLink className='home-nav hidden' to='/'>
                                 <img className='logo' src={logoText} />
                             </NavLink>
                             <LeftNavBarLinks />
                         </div>
-                        
+                        <div className='nav-spacer-center'></div>
                         <div className='nav-right'>
                             <RNLC />
-                            <div>
+                            <div className='greeting'>
                                 <GreetingContainer />
                             </div>
                         </div>
+                        <div className='nav-spacer'></div>
                     </div>
                 </div>
             </>

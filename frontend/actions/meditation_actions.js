@@ -3,6 +3,7 @@ import * as MeditationApiUtil from '../util/meditation_api_util';
 
 export const RECEIVE_MEDITATION = 'RECEIVE_MEDITATION';
 export const RECEIVE_ALL_MEDITATION_IDS = 'RECEIVE_ALL_MEDITATION_IDS';
+export const RECEIVE_ALL_MEDITATIONS = 'RECEIVE_ALL_MEDITATIONS';
 
 export const receiveMeditation = meditation => ({
     type: RECEIVE_MEDITATION,
@@ -14,6 +15,11 @@ export const receiveAllMedIds = (allMedIds) => ({
     allMedIds
 })
 
+export const receiveAllMeditations = (allMeditations) => ({
+    type: RECEIVE_ALL_MEDITATIONS,
+    allMeditations
+})
+
 export const fetchMeditation = (meditationId) => dispatch => {
     return MeditationApiUtil.fetchMeditation(meditationId)
         .then(meditation => dispatch(receiveMeditation(meditation)))
@@ -22,4 +28,9 @@ export const fetchMeditation = (meditationId) => dispatch => {
 export const fetchAllMedIds = () => dispatch => {
     return MeditationApiUtil.fetchAllMeditationIds()
         .then(allMedIds => (dispatch(receiveAllMedIds(allMedIds))))
+}
+
+export const fetchAllMeditations = (meditationIds) => dispatch => {
+    return MeditationApiUtil.fetchMeditation(meditationIds)
+        .then(allMeditations => dispatch(receiveAllMeditations(allMeditations)))
 }
