@@ -39,7 +39,7 @@ class Meditation extends React.Component {
                                 <div className='play-info'>
                                     <Player
                                         className="button-wrapper"
-                                        // currentMedId={this.props.currentMedId}
+                                        makeCurrentMed={this.props.makeCurrentMed}
                                         currentMed={currentMed}
                                         currentMedUrl={currentMed.url} />
                                 </div >

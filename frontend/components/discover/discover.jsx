@@ -84,6 +84,7 @@ class DiscoverPage extends React.Component {
                                     </li>
                                 ))}
                             </ul>
+                            <h2 onClick={() => this.all()}>Singles</h2>
                         </nav>
                         <div className='main-search'>
                             <div className='discover-featured'>
@@ -97,7 +98,7 @@ class DiscoverPage extends React.Component {
                                     <div key={Math.random() * idx + 23}
                                         className={`${genreCategory} showme`}
                                         ref={ref => (this.packRefs.push(ref))}>
-                                        <h4 className={`pack-genre-header`}>
+                                        <h4 className="pack-genre-header">
                                             {`${genreCategory}`}
                                         </h4>
                                         <ul className='discover-packs'>
@@ -119,6 +120,19 @@ class DiscoverPage extends React.Component {
                                         </ul>
                                     </div>
                                 ))}
+                                <h4 className='pack-genre-header'>Singles</h4>
+                                <ul className='discover-singles'>
+                                    {this.props.medIds.map(medId => (
+                                        <Link
+                                            className={`dash-link med-${medId}`}
+                                            key={`meditation ${medId}`}
+                                            to={`meditation/info/${medId}`}>
+
+                                            <h5 className='disc-link-singles-info'>
+                                                {`Single Meditation ${medId}`}</h5>
+                                        </Link>
+                                    ))}
+                                </ul>
                             </ul>
                         </div>
                     </div>

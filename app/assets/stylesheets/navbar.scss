@@ -2,17 +2,12 @@
     display: flex;
     width: 100%;
     height: 5rem;
-    // background-color:violet;
 }
 
 .nav-bar {
     display: flex;
     width: 100%;
-    // justify-content: center;
-    // align-items: center;
-    // justify-content: space-between;
     background: white;
-    // background-color:seagreen;
 }
 
 html:not([data-scroll='0']) {
@@ -76,27 +71,30 @@ html:not([data-scroll='0']) {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    // justify-content: space-between;
-    // width: 409.42px;
-    // width: 100%;
-    // margin: 0px 176px;
-    // padding-left: 0px 32px;
-    // background:coral;
-    // border-radius: 50px;
+    width: 100%;
 }
 
-.test {
-    color: pink;
+.nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
 }
-
 .right-nav-bar-links {
+    width: 300px;
+}
+
+.left-nav-bar-links {
+    width: 490px;
+    width: 490px;
+    padding: 0px 24px 0px 80px;
+}
+
+.right-nav-bar-links, .left-nav-bar-links {
     display: flex;
     justify-self: center;
     top: -9px;
     height: 5rem;
-    width: 325px;
-    // background-color: turquoise;
-    // border-radius: 25px;
 }
 
 .right-nav-bar-links li {
@@ -105,9 +103,14 @@ html:not([data-scroll='0']) {
     align-items: center;
     height: 5rem;
     justify-content: center;
-    // margin: auto;
-    // background-color: thistle;
-    // border-radius: 50px;
+}
+
+.left-nav-bar-links li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 5rem;
 }
 
 .about:hover {
@@ -127,54 +130,24 @@ html:not([data-scroll='0']) {
 }
 
 .nav-spacer {
-    width: 10%;
+    width: 30%;
 }
 
 .nav-spacer-center {
-    width: 40%;
-    min-width: 2px;
+    width: 20%;
 }
 
 .account > * {
     display: flex;
     justify-content: center;
     align-items: center;
-    // color: rebeccapurple;
 }
 
 .greeting {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 150px;
-    // background-color:skyblue;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    // justify-content: space-between;
-    width: 409.42px;
-    // margin: 0px 176px;
-    // padding-left: 0px 32px;
-    // background: powderblue;
-}
-
-.left-nav-bar-links {
-    display: flex;
-    justify-content: center;
-    height: 5rem;
-    width: 490px;
-    padding: 0px 24px 0px 80px;
-    // background: plum;
-}
-
-.left-nav-bar-links li {
-    width: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    // background: pink;
-    border-radius: 50px;
 }
 
 .articles:hover {

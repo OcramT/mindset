@@ -8,10 +8,12 @@ class Pack extends React.Component {
         this.state = {
             userPacks: {},
             footerRef: createRef(),
-            footerUp: false
+            footerUp: false,
+            meds: []
         }
-        this.handleAddRemove = this.handleAddRemove.bind(this)
-        this.handleAnimate = this.handleAnimate.bind(this)
+        this.handleAddRemove = this.handleAddRemove.bind(this);
+        this.handleAnimate = this.handleAnimate.bind(this);
+        this.handleMeds = this.handleMeds.bind(this);
     }
 
     componentDidMount() {
@@ -34,6 +36,16 @@ class Pack extends React.Component {
         }
     }
 
+    handleMeds() {
+        let medIds = this.props.pack.medIds
+        if (!this.state.footerUp && this.state.meds.length < medIds.length) {
+            medIds.map(medId => (
+                this.props.fetchMeditation(medId)
+                    .then(response => this.state.meds.push(response.meditation))
+            ))
+        }
+    }
+
     handleAnimate(e) {
         if (this.state.footerRef.current.className === 'med-bar-closed') {
             this.state.footerRef.current.className = 'med-bar-open'
@@ -51,9 +63,14 @@ class Pack extends React.Component {
         const {pack, packId} = this.props
         let userPacks = this.state.userPacks
         
+        // if (this.state.meds.length === 0) {
+        //     this.props.pack.medIds.map(medId => (
+        //         this.props.fetchMeditation(medId)
+        //             .then(response => this.state.meds.push(response.meditation))
+        //     ))
+        // }
         
-        // console.log(this.props)
-        console.log(this.state)
+        // console.log(this.state)
 
 
         
@@ -110,24 +127,21 @@ class Pack extends React.Component {
                             <div className='med-buttons'>
                                 <Link to='/meditation/1' className='med-play begin'>&#9654; BEGIN</Link>
                                 <button className='med-dur duration'>20 MIN</button>
-                                    <h2 className='med-list-title'>Day {`${pack.medIds.length}`} of {`${pack.name}`} </h2>
+                                    <h2 className='med-list-title'>Day 1 of {`${pack.medIds.length}`} in {`${pack.name}`} </h2>
                             </div>
                             <div to='/dashboard ' className='footer-close-wrapper' onClick={(e) => this.handleAnimate(e)}>
-                                {/* <img className='close remove' src={close} /> */}
                                 {!this.state.footerUp ? (
-                                    // <button className='footer-open-close'>see all</button>
                                     <img className='footer-open-close' src={footerOpen} />
                                 ) : (
-                                    // <button className='footer-open-close'>close</button>
                                     <img className='footer-open-close' src={footerClose} />
                                 )}
-                                
+                                {/* <p>{`${this.state.meds}`}</p> */}
                             </div>
                         </div>
                         <div className='med-divider'></div>
                         <div className='med-list-wrapper'>
                             <ul className='med-list'>
-                                {pack.medIds.map(medId => (
+                                {pack.medIds.map((medId, idx) => (
                                     <Link
                                     to={`meditation/${medId}`}
                                     className='med-list-item' 
@@ -135,7 +149,7 @@ class Pack extends React.Component {
                                         <div className='link-wrap'>
                                             <img className='med-icon' src={medListButton} />
                                             <li className='med-text'
-                                                key={`med ${medId}`}>{`Session ${medId}`}
+                                                key={`med ${medId}`}>{`Session ${idx + 1}`}
                                             </li>
                                         </div>
                                     </Link>

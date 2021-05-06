@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import Meditation from './meditation'
+import MeditationShow from './meditation_show'
 import { fetchMeditation, makeCurrentMed } from '../../actions/meditation_actions';
 
 const mSTP = (state, ownProps) => ({
@@ -13,4 +13,4 @@ const mDTP = dispatch => ({
     makeCurrentMed: med => dispatch(makeCurrentMed(med))
 });
 
-export default connect(mSTP, mDTP)(Meditation);
+export default connect(mSTP, mDTP)(MeditationShow);

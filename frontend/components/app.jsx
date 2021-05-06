@@ -9,6 +9,7 @@ import SplashContainer from './splash/splash_container';
 import MeditationContainer from './meditation/meditation_container';
 import PackContainer from './pack/pack_container';
 import DiscoverContainer from './discover/discover_container';
+import MeditationShowContainer from './meditation/meditation_show_container';
 
 const App = () => (
     <>
@@ -16,9 +17,9 @@ const App = () => (
             
             <Switch>
                 {/* <Route path='/user/packs' component={DashboardContainer}/> */}
+                <Route path='/meditation/info/:medId' component={MeditationShowContainer}/>
                 <ProtectedRoute exact path='/packs/meditation/:medId' component={MeditationContainer} />
                 <ProtectedRoute exact path='/meditation/:medId' component={MeditationContainer} />
-                {/* <ProtectedRoute exact path='/meditation/'/> */}
                 <ProtectedRoute exact path='/discover' component={DiscoverContainer} />
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                 <ProtectedRoute exact path='/packs' component={PackContainer} />

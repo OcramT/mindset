@@ -28,7 +28,7 @@ class NavBar extends React.Component {
                             </NavLink>
                             <LeftNavBarLinks />
                         </div>
-                        <div className='nav-spacer-center'></div>
+                            <div className='nav-spacer-center'></div>
                         <div className='nav-right'>
                             <RNLC />
                             <div className='greeting'>

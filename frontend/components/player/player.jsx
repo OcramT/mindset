@@ -115,12 +115,11 @@ class Player extends React.Component {
 
     render() {
         if (!this.currentMed) return null
-
         return (
             <>
                 {/* <div className='day'>Day 2/30</div> */}
                 <div className='time'>{this.currentMed.duration} minutes</div>
-                <div onClick={() => this.handlePlay()}>
+                <div onClick={() => {this.handlePlay(); this.props.makeCurrentMed(this.currentMed)}}>
                     {!this.state.playing
                         ? <div className='button-wrapper'>
                             <img className='med-button' src={medButton} />
