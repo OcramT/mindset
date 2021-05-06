@@ -25,9 +25,9 @@ class LeftNavBarLinks extends React.Component {
                     <li className='stress'>
                         <a href='https://angel.co/u/marco-torre-1' target="_blank">AngelList</a>
                     </li>
-                    <li className='mindfulness'>
+                    {/* <li className='mindfulness'>
                         <a href="mailto:marcoatorre@gmail.com" target="_blank">Contact</a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         )

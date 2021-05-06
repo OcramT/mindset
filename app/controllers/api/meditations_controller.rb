@@ -2,6 +2,10 @@ class Api::MeditationsController < ApplicationController
 
     def index
         @meditations = Meditation.all
+        @flag = params[:flag]
+        if @flag == 'all'
+            render 'api/meditations/all'
+        end
     end
 
     def show
@@ -16,6 +20,6 @@ class Api::MeditationsController < ApplicationController
     private
 
     def meditation_params
-        params.require(:meditation).permit(:title, :category, :url, :duration)
+        params.require(:meditation).permit(:title, :category, :url, :duration, :flag)
     end
 end

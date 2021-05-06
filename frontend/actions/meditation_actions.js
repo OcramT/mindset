@@ -36,7 +36,7 @@ export const fetchAllMedIds = () => dispatch => {
         .then(allMedIds => (dispatch(receiveAllMedIds(allMedIds))))
 }
 
-export const fetchAllMeditations = (meditationIds) => dispatch => {
-    return MeditationApiUtil.fetchMeditation(meditationIds)
+export const fetchAllMeditations = (flag) => dispatch => {
+    return MeditationApiUtil.fetchAllMeds(flag)
         .then(allMeditations => dispatch(receiveAllMeditations(allMeditations)))
 }

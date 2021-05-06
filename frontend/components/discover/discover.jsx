@@ -35,13 +35,12 @@ class DiscoverPage extends React.Component {
     };
 
     componentDidMount() {
-        console.log(this.genreRefs)
-        console.log(this.packRefs)
+        const flag = 'all'
         this.props.fetchAllMedIds()
         this.props.fetchAllPacks()
+        this.props.fetchAllMeditations(flag)
         this.removeNull()
     }
-
     
     filter(e) {
         this.removeNull()
@@ -102,6 +101,8 @@ class DiscoverPage extends React.Component {
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
+        if (!this.props.allMeditations) return null;
+        const {allMeditations} = this.props
         const packArr = Object.values(this.props.packs)
         const genres = []
         packArr.map(pack => {
@@ -116,6 +117,7 @@ class DiscoverPage extends React.Component {
         return (
             <>
                 <NavBarContainer/>
+                {/* <button onClick={()=>this.handleFetchAll()}>Fetch All Meds</button> */}
                 <div className='discover-wrapper'>
                     <h1 className='discover-header'></h1>
                     <div className='discover-content'>
@@ -177,14 +179,14 @@ class DiscoverPage extends React.Component {
                                 ref={this.allSinglesRef}>
                                 <h4 className='pack-genre-header'>Singles</h4>
                                 <ul className='discover-singles'>
-                                    {this.props.medIds.map(medId => (
+                                    {allMeditations.map(meditation => (
                                         <Link
-                                            className={`dash-link med-${medId}`}
-                                            key={`meditation ${medId}`}
-                                            to={`meditation/info/${medId}`}>
+                                            className={`dash-link med-${meditation.id}`}
+                                            key={`meditation ${meditation.id}`}
+                                            to={`meditation/info/${meditation.id}`}>
 
                                             <h5 className='disc-link-singles-info'>
-                                                {`Single Meditation ${medId}`}</h5>
+                                                {`${meditation.title}`}</h5>
                                         </Link>
                                     ))}
                                 </ul>

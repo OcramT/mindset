@@ -11,3 +11,11 @@ export const fetchMeditation = meditationId => {
         url: `/api/meditations/${meditationId}`
     })
 }
+
+export const fetchAllMeds = flag => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/meditations`,
+        data: {flag}
+    })
+}
