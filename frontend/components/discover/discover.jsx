@@ -8,24 +8,14 @@ class DiscoverPage extends React.Component {
 
         this.allSinglesRef = React.createRef();
         this.allPacksRef = React.createRef();
+        this.removeNull = this.removeNull.bind(this);
         this.genreRefs = [];
         this.packRefs = [];
     }
 
-    componentDidMount() {
-        this.props.fetchAllMedIds()
-        this.props.fetchAllPacks()
-    }
-    
-    filter(e) {
-        let genreClass = e.target.classList[0]
-        let oldSingles = this.allSinglesRef.current
-        let oldPacks = this.allPacksRef.current
-        if (oldPacks.classList[1] === 'hideme') {
-            oldPacks.className = `${oldPacks.classList[0]} showme`
-        }
-        oldSingles.className = `${oldSingles.classList[0]} hideme`
-        
+    removeNull() {
+        this.genreRefs.filter(x => x !== null)
+        this.packRefs.filter(y => y !== null)
         this.packRefs.forEach(pack => {
             if (pack === null) {
                 this.packRefs.shift()
@@ -42,6 +32,26 @@ class DiscoverPage extends React.Component {
         if (this.packRefs.includes(null)) {
             this.packRefs = this.packRefs.slice(1, this.packRefs.length)
         }
+    };
+
+    componentDidMount() {
+        console.log(this.genreRefs)
+        console.log(this.packRefs)
+        this.props.fetchAllMedIds()
+        this.props.fetchAllPacks()
+        this.removeNull()
+    }
+
+    
+    filter(e) {
+        this.removeNull()
+        let genreClass = e.target.classList[0]
+        let oldSingles = this.allSinglesRef.current
+        let oldPacks = this.allPacksRef.current
+        if (oldPacks.classList[1] === 'hideme') {
+            oldPacks.className = `${oldPacks.classList[0]} showme`
+        }
+        oldSingles.className = `${oldSingles.classList[0]} hideme`
 
         this.packRefs.forEach(pack => {
             if (genreClass === pack.classList[0]) {
@@ -55,7 +65,8 @@ class DiscoverPage extends React.Component {
     all() {
         let oldSingles = this.allSinglesRef.current
         let oldPacks = this.allPacksRef.current
-
+        this.removeNull()
+  
         if (oldSingles.classList[1] === 'hideme' || oldPacks.classList[1] === 'hideme') {
             oldSingles.className = `${oldSingles.classList[0]} showme`
             oldPacks.className = `${oldPacks.classList[0]} showme`
@@ -69,6 +80,8 @@ class DiscoverPage extends React.Component {
     allPacks() {
         let oldSingles = this.allSinglesRef.current
         let oldPacks = this.allPacksRef.current
+        this.removeNull()
+
         oldSingles.className = `${oldSingles.classList[0]} hideme`
         oldPacks.className = `${oldPacks.classList[0]} showme`
         this.packRefs.forEach(pack => {
@@ -80,6 +93,8 @@ class DiscoverPage extends React.Component {
     allSingles() {
         let oldSingles = this.allSinglesRef.current
         let oldPacks = this.allPacksRef.current
+        this.removeNull()
+
         oldSingles.className = `${oldSingles.classList[0]} showme`
         oldPacks.className = `${oldPacks.classList[0]} hideme`
     }
@@ -96,7 +111,8 @@ class DiscoverPage extends React.Component {
         })
         this.genreRefs = [];
         this.packRefs = [];
-
+        this.removeNull()
+       
         return (
             <>
                 <NavBarContainer/>
@@ -104,20 +120,20 @@ class DiscoverPage extends React.Component {
                     <h1 className='discover-header'></h1>
                     <div className='discover-content'>
                         <nav className='side-nav'>
-                            <h2 onClick={() => this.all()}>All</h2>
+                            <h2 onClick={this.removeNull(), () => { this.all()}}>All</h2>
                             <br />
-                            <h2 onClick={() => this.allPacks()}>Packs</h2>
+                            <h2 onClick={() => {this.removeNull(); this.allPacks()}}>Packs</h2>
                             <ul>
                                 {genres.map((genre, i) => (
                                     <li className={`${genre} nav-genres`}
                                         key={`${genre}-${Math.random() * i}`}
                                         ref={ref => (this.genreRefs.push(ref))}
-                                        onClick={(e) => this.filter(e)}>
+                                        onClick={(e) => { this.removeNull();this.filter(e)}}>
                                         {`${genre}`}
                                     </li>
                                 ))}
                             </ul>
-                            <h2 onClick={() => this.allSingles()}>Singles</h2>
+                            <h2 onClick={() => { this.removeNull();this.allSingles()}}>Singles</h2>
                         </nav>
                         <div className='main-search'>
                             <div className='discover-featured'>
