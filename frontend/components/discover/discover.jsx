@@ -19,6 +19,12 @@ class DiscoverPage extends React.Component {
     
     filter(e) {
         let genreClass = e.target.classList[0]
+        let oldSingles = this.allSinglesRef.current
+        let oldPacks = this.allPacksRef.current
+        if (oldPacks.classList[1] === 'hideme') {
+            oldPacks.className = `${oldPacks.classList[0]} showme`
+        }
+        oldSingles.className = `${oldSingles.classList[0]} hideme`
         
         this.packRefs.forEach(pack => {
             if (pack === null) {
