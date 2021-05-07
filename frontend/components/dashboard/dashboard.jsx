@@ -13,17 +13,23 @@ class Dashboard extends React.Component {
             .then(response => response)
             .then((userPacks) => this.setState({ userPacks: userPacks['allUserPacks'] }))
         this.props.fetchAllMedIds()
-        // this.props.fetchAllPacks()
+        this.props.fetchAllUserMeds()
+            .then(response => response)
+            .then((userMeds) => this.setState({ userMeds: userMeds['allUserMeds'] }))
     }
 
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
         if (!this.state.userPacks) return null;
+        if (!this.state.userMeds) return null;
         // const packArr = Object.values(this.props.packs)
         const userPackArr = this.state.userPacks
+        const userMedArr = this.state.userMeds.userMeds
         // console.log(Object.values(this.props.userPacks))
         // console.log(this.state.userPacks.map(pack => console.log(pack)))
+        console.log(this.state)
+        console.log(userMedArr)
        
         return (
             <>
@@ -43,7 +49,7 @@ class Dashboard extends React.Component {
 
                 <div className='lower-dash-wrapper'>
                     <div className='packs-wrapper'>
-                        <h3 className='packs-header'>My packs</h3>
+                        <h3 className='packs-header'>My Packs</h3>
                         <div className='packs-header-details'>
                             Themed meditations for specific topics. 
                             Each session builds on the one before it.</div>
@@ -73,19 +79,19 @@ class Dashboard extends React.Component {
                     </div>
                     <div className='divider'/>
                     <div className='meds-wrapper'>
-                        <h4 className='packs-header'>Singles</h4>
+                        <h4 className='packs-header'>My Singles</h4>
                         <div className='packs-header-details'>
                             One-off sessions designed to add some 
                             mindfulness to your day</div>
                         <ul className='single-meds'>
-                            {this.props.medIds.map(medId => (
+                            {userMedArr.map(userMed => (
                                 <Link 
-                                className={`dash-link med-${medId}`}
-                                key={`meditation ${medId}`} 
-                                to={`meditation/${medId}`}>
+                                className={`dash-link med-${userMed.id}`}
+                                key={`meditation ${userMed.id}`} 
+                                to={`meditation/info/${userMed.id}`}>
 
                                     <h5 className='dash-link-singles-info'>
-                                        {`Single Meditation ${medId}`}</h5>
+                                        {`${userMed.title}`}</h5>
 
                                 </Link>
                             ))}

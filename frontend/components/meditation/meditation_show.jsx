@@ -8,6 +8,7 @@ class MeditationShow extends React.Component {
         this.state = {
             footerRef: createRef(),
             footerUp: false,
+            userMeds: {}
         }
         // this.handleAddRemove = this.handleAddRemove.bind(this);
         // this.handleAnimate = this.handleAnimate.bind(this);
@@ -16,25 +17,33 @@ class MeditationShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchMeditation(this.props.currentMedId)
-        // this.props.fetchAllUserPacks()
+        // this.props.fetchAllUserMeds()
         //     .then(response => response)
-        //     .then((userPackIds) => this.setState(
+        //     .then((allUserMeds) => this.setState(
         //         {
-        //             userPackIds: userPackIds['allUserPacks'].map(
-        //                 pack => this.state.userPacks[pack.id] = pack.id)
+        //             allUserMeds: allUserMeds['allUserMeds'].map(
+        //                 med => this.state.userMeds[med.id] = med.id)
         //         }
         //     ))
+        this.props.fetchAllUserMeds()
+            .then(response => response)
+            .then((allUserMeds) => this.setState(
+                {
+                    userMedArr: allUserMeds.allUserMeds.userMeds.map(
+                        med => this.state.userMeds[med.id] = med.id)
+                }
+            ))
     }
 
-    // handleAddRemove(packId) {
-    //     let userPacks = this.state.userPacks
+    handleAddRemove(medId) {
+        let userMeds = this.state.userMeds
 
-    //     if (!userPacks[packId]) {
-    //         this.setState(Object.assign(userPacks, { [`${packId}`]: parseInt(packId) }))
-    //     } else if (userPacks[packId]) {
-    //         this.setState({ [userPacks]: delete userPacks[packId] })
-    //     }
-    // }
+        if (!userMeds[medId]) {
+            this.setState(Object.assign(userMeds, { [`${medId}`]: parseInt(medId) }))
+        } else if (userMeds[medId]) {
+            this.setState({ [userMeds]: delete userMeds[medId] })
+        }
+    }
 
     // handleMeds() {
     //     let medIds = this.props.pack.medIds
@@ -70,10 +79,12 @@ class MeditationShow extends React.Component {
         //     ))
         // }
         if (!this.props.currentMed) return null
+        if (!this.props.currentMedId) return null
         const { currentMed, currentMedId } = this.props;
+        let userMeds = this.state.userMeds;
         console.log('this is state', this.state)
         console.log('this is props', this.props)
-
+        console.log(currentMedId)
 
 
         return (
@@ -88,23 +99,22 @@ class MeditationShow extends React.Component {
                                 {/* <div className='session-total'>{`${currentMed.medIds.length}`} sessions</div> */}
                                 <h1 className='single-info'>Short on time? You can still alter your
                                 mindset with the {`${currentMed.title}`} single!</h1>
-                                {/* {
-                                !userPacks[packId] && () */}
-                                    <div className='single-add-remove' onClick={() => { this.props.addUserPack(packId); this.handleAddRemove(packId) }}>
+                                {!userMeds[currentMedId] && (
+                                    <div className='single-add-remove' onClick={() => { this.props.addUserMed(currentMedId); this.handleAddRemove(currentMedId) }}>
                                         <div className='close-wrapper'>
                                             <img className='close remove' src={close} />
                                         </div>
-                                        <p className='single-remove-text'>add to my custom pack!</p>
-                                    </div>
-                                {/* } */}
-                                {/* {userPacks[packId] &&
-                                    (<div className='single-add-add' onClick={() => { this.props.removeUserPack(packId); this.handleAddRemove(packId) }}>
+                                        <p className='single-remove-text'>add to my singles!</p>
+                                    </div>)
+                                }
+                                {userMeds[currentMedId]  &&
+                                    (<div className='single-add-add' onClick={() => { this.props.removeUserMed(currentMedId); this.handleAddRemove(currentMedId) }}>
                                         <div className='close-wrapper'>
                                             <img className='close add' src={close} />
                                         </div>
-                                        <p className='remove-text'>remove from my packs</p>
-                                    </div>) */}
-                                {/* } */}
+                                        <p className='remove-text'>remove from my singles</p>
+                                    </div>)
+                                }
                             </div>
                             <div className='single-image-wrapper'>
                                 <img className='single-image' src={singleLogo5} />

@@ -19,3 +19,25 @@ export const fetchAllMeds = flag => {
         data: {flag}
     })
 }
+
+export const addUserMed = medId => {
+    return $.ajax({
+        method: 'POST',
+        url: '/api/user/completedmeditations',
+        data: {medId}
+    })
+}
+
+export const removeUserMed = medId => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `/api/user/completedmeditations/${medId}`
+    })
+}
+
+export const fetchAllUserMeds = () => {
+    return $.ajax({
+        method: 'GET',
+        url: '/api/user/completedmeditations'
+    })
+}

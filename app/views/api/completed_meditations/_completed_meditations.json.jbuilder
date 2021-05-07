@@ -1,0 +1,1 @@
+json.extract! @user_med, :id, :user_id, :meditation_id, :completed

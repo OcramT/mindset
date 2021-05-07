@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_013638) do
+ActiveRecord::Schema.define(version: 2021_05_07_173743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_013638) do
     t.integer "meditation_id", null: false
     t.boolean "completed", null: false
     t.index ["meditation_id"], name: "index_completed_meditations_on_meditation_id", unique: true
-    t.index ["user_id"], name: "index_completed_meditations_on_user_id", unique: true
   end
 
   create_table "meditation_packs", force: :cascade do |t|

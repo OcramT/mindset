@@ -1,0 +1,1 @@
+json.partial! 'api/completed_meditations/completed_meditations', userMed: @user_med

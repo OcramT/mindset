@@ -90,14 +90,16 @@ class Pack extends React.Component {
                                             <img className='close remove' src={close} />
                                         </div>
                                         <p className='remove-text'>add to my packs</p>
-                                    </div>) }
+                                    </div>) 
+                                }
                                 {userPacks[packId] &&
                                     (<div className='add-add' onClick={() => {this.props.removeUserPack(packId); this.handleAddRemove(packId)}}>
                                         <div className='close-wrapper'>
                                             <img className='close add' src={close} />
                                         </div>
                                         <p className='remove-text'>remove from my packs</p>
-                                    </div>) }
+                                    </div>) 
+                                }
                         </div>
                         <div className='pack-image-wrapper'>
                             <img className='pack-image' src={anxietyPack} />

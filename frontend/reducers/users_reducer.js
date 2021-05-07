@@ -1,6 +1,7 @@
 import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
 import {ADD_USER_PACK, FETCH_ALL_USER_PACKS} from '../actions/user_pack_actions';
 import {MAKE_CURRENT_MED} from '../actions/meditation_actions';
+import {ADD_USER_MED} from '../actions/user_med_actions';
 
 const usersReducer = (defaultState = {}, action) => {
     Object.freeze(defaultState)
@@ -12,6 +13,8 @@ const usersReducer = (defaultState = {}, action) => {
             })
         case FETCH_ALL_USER_PACKS:
             return Object.assign({}, nextState)
+        // case ADD_USER_MED:
+        //     return Object.assign({}, defaultState, {usermeds : {[action.userMed.id]: action.userMed}})
         // case ADD_USER_PACK:
         //     return Object.assign({}, defaultState, {userpacks : {[action.userPack.id]: action.userPack}})
         case MAKE_CURRENT_MED:

@@ -1,5 +1,5 @@
 class Api::UserpacksController < ApplicationController
-    before_action :require_logged_in, only: [:destroy, :create]
+    before_action :require_logged_in, only: [:destroy, :create, :index]
 
     def index 
         @userpacks = UserPack.all

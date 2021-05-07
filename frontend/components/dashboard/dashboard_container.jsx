@@ -3,6 +3,7 @@ import Dashboard from './dashboard';
 import { fetchAllMedIds } from '../../actions/meditation_actions';
 import { fetchAllPacks, clearAllPacks } from '../../actions/pack_actions';
 import { fetchAllUserPacks } from '../../actions/user_pack_actions';
+import { fetchAllUserMeds } from '../../actions/user_med_actions';
 
 const mSTP = state => ({
     medIds: state.entities.meditations.medIds,
@@ -14,7 +15,8 @@ const mDTP = dispatch => ({
     fetchAllMedIds: () => dispatch(fetchAllMedIds()),
     fetchAllPacks: () => dispatch(fetchAllPacks()),
     clearAllPacks: (packs) => dispatch(clearAllPacks(packs)),
-    fetchAllUserPacks: () => dispatch(fetchAllUserPacks())
+    fetchAllUserPacks: () => dispatch(fetchAllUserPacks()),
+    fetchAllUserMeds: () => dispatch(fetchAllUserMeds())
 });
 
 export default connect(mSTP, mDTP)(Dashboard);
