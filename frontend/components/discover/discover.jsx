@@ -125,14 +125,16 @@ class DiscoverPage extends React.Component {
                             <h2 onClick={this.removeNull(), () => { this.all()}}>All</h2>
                             <br />
                             <h2 onClick={() => {this.removeNull(); this.allPacks()}}>Packs</h2>
-                            <ul>
+                            <ul className='list'>
                                 {genres.map((genre, i) => (
-                                    <li className={`${genre} nav-genres`}
-                                        key={`${genre}-${Math.random() * i}`}
-                                        ref={ref => (this.genreRefs.push(ref))}
-                                        onClick={(e) => { this.removeNull();this.filter(e)}}>
-                                        {`${genre}`}
-                                    </li>
+                                    <div className='list'>
+                                        <li className={`${genre} nav-genres`}
+                                            key={`${genre}-${Math.random() * i}`}
+                                            ref={ref => (this.genreRefs.push(ref))}
+                                            onClick={(e) => { this.removeNull();this.filter(e)}}>
+                                            {`${genre}`}
+                                        </li>
+                                    </div>
                                 ))}
                             </ul>
                             <h2 onClick={() => { this.removeNull();this.allSingles()}}>Singles</h2>
