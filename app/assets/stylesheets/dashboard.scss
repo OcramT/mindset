@@ -181,6 +181,25 @@
     // background-color: tan ;
 }
 
+.empty {
+    display: inline;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(245, 139, 68);
+    padding-top: 30px;
+    line-height: 30px;
+}
+
+.disc-span {
+    color: rgb(58,57,56);
+}
+
+.disc-span:hover {
+    color: rgb(87,193,186);
+}
+
 .med-packs {
     display: flex;
     flex-wrap: wrap;

@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
         const userMedArr = this.state.userMeds.userMeds
         // console.log(Object.values(this.props.userPacks))
         // console.log(this.state.userPacks.map(pack => console.log(pack)))
-        console.log(this.state)
+        console.log('THIS IS STATE', this.state)
         console.log(userMedArr)
        
         return (
@@ -50,9 +50,27 @@ class Dashboard extends React.Component {
                 <div className='lower-dash-wrapper'>
                     <div className='packs-wrapper'>
                         <h3 className='packs-header'>My Packs</h3>
+                        {userPackArr.length !== 0 && (
                         <div className='packs-header-details'>
                             Themed meditations for specific topics. 
                             Each session builds on the one before it.</div>
+                        )}
+                        {userPackArr.length === 0 && (
+                            <>
+                                <p className='empty'>
+                                    Looks like you don't have any packs
+                                    added to your account yet!
+                            </p>
+                                <p className='empty'>
+                                    Click the
+                                <span className='disc-span'>
+                                        &nbsp;Discover&nbsp;
+                                </span>
+                                button below to find a pack you like and
+                                add it to your dashboard.
+                            </p>
+                            </>
+                        )}
                         <ul className='med-packs'>
                             {userPackArr.map(pack => (
                                 <Link
@@ -80,9 +98,27 @@ class Dashboard extends React.Component {
                     <div className='divider'/>
                     <div className='meds-wrapper'>
                         <h4 className='packs-header'>My Singles</h4>
-                        <div className='packs-header-details'>
-                            One-off sessions designed to add some 
-                            mindfulness to your day</div>
+                        {userMedArr.length === 0 && (
+                            <>
+                            <p className='empty'>
+                                Looks like you don't have any meditations 
+                                added to your account yet!
+                            </p> 
+                            <p className='empty'>
+                                Click the
+                                <span className='disc-span'>
+                                    &nbsp;Discover&nbsp;
+                                </span>
+                                button below to find a meditation you like and
+                                add it to your dashboard.
+                            </p>
+                            </>
+                        )}
+                        {userMedArr.length !== 0 && (
+                            <div className='packs-header-details'>
+                                One-off sessions designed to add some
+                                mindfulness to your day</div>
+                        )}
                         <ul className='single-meds'>
                             {userMedArr.map(userMed => (
                                 <Link 
@@ -101,6 +137,31 @@ class Dashboard extends React.Component {
                         <Link 
                             to='/discover' 
                             className='singles-discover'>Discover More Singles
+                        </Link>
+                    </div>
+                    <div className='divider' />
+                    <div className='meds-wrapper'>
+                        <h4 className='packs-header'>My Custom Packs</h4>
+                        <div className='packs-header-details'>
+                           Don't see a pack you connect with? Make your own!</div>
+                        {/* <ul className='single-meds'>
+                            {userMedArr.map(userMed => (
+                                <Link
+                                    className={`dash-link med-${userMed.id}`}
+                                    key={`meditation ${userMed.id}`}
+                                    to={`meditation/info/${userMed.id}`}>
+
+                                    <h5 className='dash-link-singles-info'>
+                                        {`${userMed.title}`}</h5>
+                                    <div className='single-med-dur'>
+                                        {`${userMed.duration} minutes`}
+                                    </div>
+                                </Link>
+                            ))}
+                        </ul> */}
+                        <Link
+                            to='/discover'
+                            className='singles-discover'>Discover More
                         </Link>
                     </div>
                     <div className='divider' />
