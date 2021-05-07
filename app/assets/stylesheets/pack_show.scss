@@ -244,19 +244,27 @@
     height: 106px;
 }
 
-.med-icon {
-    transform: scale(.4);
+.med-icon-wrapper {
+    background-image: image-url('med-list-button.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
 }
+
 
 .med-text {
     font-size: 24px;
     line-height: 40px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 20px;
 }
 
 .link-wrap {
     display: flex;
+    align-items: center;
+    margin-left: 35px;
 }
 
 .add {

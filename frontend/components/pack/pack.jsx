@@ -149,7 +149,9 @@ class Pack extends React.Component {
                                     className='med-list-item' 
                                     key={`med-item ${medId}`}>
                                         <div className='link-wrap'>
-                                            <img className='med-icon' src={medListButton} />
+                                            <div className='med-icon-wrapper'>
+                                                {/* <img className='med-icon' src={medListButton} /> */}
+                                            </div>
                                             <li className='med-text'
                                                 key={`med ${medId}`}>{`Session ${idx + 1}`}
                                             </li>
