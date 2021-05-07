@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
                 <div className='banner-wrapper'>
                     <div className='banner'>
                         <div className='session'>
-                            <h2 className='session-info'>You're on session 1 of Level 1</h2>
+                            <h2 className='session-info'>You're on Session 1 of Level 1</h2>
                             <h1 className='med-title'>Managing Anxiety</h1>
                             <div className='med-buttons'>
                                 <Link to='/packs/4' className='med-play'>&#9654; BEGIN</Link>
@@ -92,7 +92,9 @@ class Dashboard extends React.Component {
 
                                     <h5 className='dash-link-singles-info'>
                                         {`${userMed.title}`}</h5>
-
+                                    <div className='single-med-dur'>
+                                        {`${userMed.duration} minutes`}
+                                    </div>
                                 </Link>
                             ))}
                         </ul>

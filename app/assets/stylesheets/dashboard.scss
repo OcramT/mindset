@@ -397,6 +397,14 @@
     color: rgb(102, 102, 102);
 }
 
+.single-med-dur {
+    display: flex;
+    justify-content: center;
+    height: 90px;
+    align-items: flex-end;
+    // background: tomato;
+}
+
 .med-1 {
     background-image: image_url('singleLogo1.png');
     background-repeat: no-repeat;
