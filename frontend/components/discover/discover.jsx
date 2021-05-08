@@ -127,9 +127,10 @@ class DiscoverPage extends React.Component {
                             <h2 onClick={() => {this.removeNull(); this.allPacks()}}>Packs</h2>
                             <ul className='list'>
                                 {genres.map((genre, i) => (
-                                    <div className='list'>
+                                    <div className='list'
+                                        key={`${genre}-${Math.random() * i}`}>
                                         <li className={`${genre} nav-genres`}
-                                            key={`${genre}-${Math.random() * i}`}
+                                            // key={`${genre}-${Math.random() * i}`}
                                             ref={ref => (this.genreRefs.push(ref))}
                                             onClick={(e) => { this.removeNull();this.filter(e)}}>
                                             {`${genre}`}
@@ -163,9 +164,12 @@ class DiscoverPage extends React.Component {
                                                             className={`disc-pack-${pack.id}`}
                                                             key={`packs ${pack.id}`}
                                                             to={`packs/${pack.id}`}>
-                                                            <h5 className='discover-link-info'>
+                                                            <h5 className='discover-link-info'
+                                                                key={Math.random() * idx2}>
                                                                 {`${pack.name}`}
-                                                                <div className='pack-med-nums'>
+                                                                <div className='pack-med-nums'
+                                                                    // key={Math.random() * idx2}
+                                                                    >
                                                                     {`${pack.medIds.length}
                                                                     sessions`}
                                                                 </div>
@@ -181,13 +185,15 @@ class DiscoverPage extends React.Component {
                                 ref={this.allSinglesRef}>
                                 <h4 className='pack-genre-header'>Singles</h4>
                                 <ul className='discover-singles'>
-                                    {allMeditations.map(meditation => (
+                                    {allMeditations.map((meditation, medIdx) => (
                                         <Link
                                             className={`dash-link med-${meditation.id}`}
                                             key={`meditation ${meditation.id}`}
                                             to={`meditation/info/${meditation.id}`}>
 
-                                            <h5 className='disc-link-singles-info'>
+                                            <h5 className='disc-link-singles-info'
+                                                // key={Math.random() * medIdx + 23}
+                                                >
                                                 {`${meditation.title}`}</h5>
                                         </Link>
                                     ))}

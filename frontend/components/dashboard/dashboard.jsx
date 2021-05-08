@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NavBarContainer from '../nav/nav_bar_container';
+import ModalContainer from '../modal/modal_container';
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { }
+        this.state = {
+            show: false
+         }
     }
 
     componentDidMount() {
@@ -18,6 +21,10 @@ class Dashboard extends React.Component {
             .then((userMeds) => this.setState({ userMeds: userMeds['allUserMeds'] }))
     }
 
+    openModal() {
+        this.setState({ show: true })
+    }
+
     render() {
         if (!this.props.medIds) return null;
         if (!this.props.packs) return null;
@@ -28,8 +35,8 @@ class Dashboard extends React.Component {
         const userMedArr = this.state.userMeds.userMeds
         // console.log(Object.values(this.props.userPacks))
         // console.log(this.state.userPacks.map(pack => console.log(pack)))
-        console.log('THIS IS STATE', this.state)
-        console.log(userMedArr)
+        // console.log('THIS IS STATE', this.state)
+        // console.log(userMedArr)
        
         return (
             <>
@@ -159,13 +166,16 @@ class Dashboard extends React.Component {
                                 </Link>
                             ))}
                         </ul> */}
-                        <Link
-                            to='/discover'
-                            className='singles-discover'>Discover More
-                        </Link>
+                        <div
+                            onClick={() => this.openModal()}
+                            className='singles-discover custom'>Make My Own Pack!
+                        </div>
                     </div>
                     <div className='divider' />
                 </div>
+                    <ModalContainer 
+                        show={this.state.show} 
+                        closeModal={() => this.setState({ show: false })}/>
             </>
         )
     }

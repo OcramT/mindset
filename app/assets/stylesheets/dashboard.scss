@@ -203,7 +203,7 @@
 .med-packs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -276,7 +276,7 @@
 .single-meds {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -421,6 +421,7 @@
     justify-content: center;
     height: 90px;
     align-items: flex-end;
+    color: rgb(102, 102, 102);
     // background: tomato;
 }
 
@@ -478,4 +479,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 35%;
+}
+
+.custom {
+    margin-top: 30px;
 }

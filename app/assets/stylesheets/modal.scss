@@ -1,0 +1,40 @@
+.modal-screen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close {
+    position: absolute;
+    margin: 10px;
+    left: 0;
+    top: 0;
+    right: 1;
+    bottom: 0;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+    -webkit-transition: transform 200ms ease-in;
+	-moz-transition: transform 200ms ease-in; 
+	-ms-transition: transform 200ms ease-in;
+	-o-transition: transform 200ms ease-in; 
+    transition: transform 200ms ease-in;
+}

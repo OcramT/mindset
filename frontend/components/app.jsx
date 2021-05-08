@@ -10,6 +10,7 @@ import MeditationContainer from './meditation/meditation_container';
 import PackContainer from './pack/pack_container';
 import DiscoverContainer from './discover/discover_container';
 import MeditationShowContainer from './meditation/meditation_show_container';
+import ModalContainer from './modal/modal_container';
 
 const App = () => (
     <>
