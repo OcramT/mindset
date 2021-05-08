@@ -28,17 +28,26 @@ class Modal extends React.Component {
                             <div></div>
 
                             <label className='session-field'>
-                                <input
-                                    className='session-input'
-                                    type="text"
-                                    placeholder='Pack Category' />
+                                <select
+                                className='session-input category-dropdown'
+                                type="text"
+                                placeholder='Pack Category'>
+                                    <option disabled selected="selected">
+                                        Choose a Category</option>
+                                    <option value="foundations">Foundations</option>
+                                    <option value="health">Health</option>
+                                    <option value="wellness">Wellness</option>
+                                    <option value="happiness">Happiness</option>
+                                    <option value="work">Work & Performance</option>
+                                    <option value="sleep">Sleep</option>
+                                </select>
                             </label>
 
                             <label className='session-field'>
                                 <input
                                     className='session-input'
                                     type="text"
-                                    placeholder='Something Else'/>
+                                    placeholder='Description'/>
                             </label>
 
                             <input className='form-button' type='submit' />

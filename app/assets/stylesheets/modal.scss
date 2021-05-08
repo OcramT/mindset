@@ -1,7 +1,5 @@
 .modal-screen {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
     left: 0;
     top: 0;
     right: 0;
@@ -38,3 +36,9 @@
 	-o-transition: transform 200ms ease-in; 
     transition: transform 200ms ease-in;
 }
+
+.category-dropdown {
+    width: 100%;
+    color: #757575;
+}
+
