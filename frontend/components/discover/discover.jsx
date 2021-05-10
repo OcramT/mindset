@@ -106,7 +106,7 @@ class DiscoverPage extends React.Component {
         const packArr = Object.values(this.props.packs)
         const genres = []
         packArr.map(pack => {
-            if (!genres.includes(pack['category'])) {
+            if (pack['custom'] !== true && !genres.includes(pack['category'])) {
                 genres.push(pack['category'])
             }
         })

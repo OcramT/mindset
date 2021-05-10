@@ -8,7 +8,8 @@ class MeditationShow extends React.Component {
         this.state = {
             footerRef: createRef(),
             footerUp: false,
-            userMeds: {}
+            userMeds: {},
+            customPacks: {}
         }
         // this.handleAddRemove = this.handleAddRemove.bind(this);
         // this.handleAnimate = this.handleAnimate.bind(this);
@@ -31,6 +32,14 @@ class MeditationShow extends React.Component {
                 {
                     userMedArr: allUserMeds.allUserMeds.userMeds.map(
                         med => this.state.userMeds[med.id] = med.id)
+                }
+            ))
+        const flag = 'custom'
+        this.props.fetchCustomPacks(flag)
+            .then(response => response)
+            .then((allCustomPacks) => this.setState(
+                {
+                    customPacks: allCustomPacks.packs
                 }
             ))
     }
@@ -56,11 +65,11 @@ class MeditationShow extends React.Component {
     // }
 
     handleAnimate(e) {
-        if (this.state.footerRef.current.className === 'med-bar-closed') {
-            this.state.footerRef.current.className = 'med-bar-open'
+        if (this.state.footerRef.current.className === 'single-med-bar-closed') {
+            this.state.footerRef.current.className = 'single-med-bar-open'
             this.setState({ ['footerUp']: true })
         } else {
-            this.state.footerRef.current.className = 'med-bar-closed'
+            this.state.footerRef.current.className = 'single-med-bar-closed'
             this.setState({ ['footerUp']: false })
         }
     }
@@ -148,9 +157,11 @@ class MeditationShow extends React.Component {
                             </div>
                             <div to='/dashboard ' className='single-footer-close-wrapper' onClick={(e) => this.handleAnimate(e)}>
                                 {!this.state.footerUp ? (
-                                    <img className='single-footer-open-close' src={footerOpen} />
+                                    // <img className='single-footer-open-close' src={footerOpen} />
+                                    <button className='med-dur duration'>Custom Packs</button>
                                 ) : (
-                                    <img className='single-footer-open-close' src={footerClose} />
+                                    // <img className='single-footer-open-close' src={footerClose} />
+                                    <button className='med-dur duration'>Close </button>
                                 )}
                             </div>
                         </div>

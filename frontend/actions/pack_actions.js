@@ -4,7 +4,7 @@ export const RECEIVE_PACK = 'RECEIVE_PACK';
 export const RECEIVE_ALL_PACKS = 'RECEIVE_ALL_PACKS';
 export const CLEAR_PACK = 'CLEAR_PACK';
 export const CLEAR_ALL_PACKS = 'CLEAR_ALL_PACKS';
-
+export const CREATE_CUSTOM_PACK = 'CREATE_CUSTOM_PACK';
 
 export const receivePack = pack => ({
     type: RECEIVE_PACK,
@@ -25,6 +25,22 @@ export const clearAllPacks = packs => ({
     type: CLEAR_ALL_PACKS,
     packs
 })
+
+export const createCustomPack = (customPack) => dispatch => {
+    return PackApiUtil.createCustomPack(customPack)
+        .then(customPack => 
+            dispatch(receivePack(customPack)))
+        
+        // },
+        // error => {
+        //     return dispatch(receiveErrors(error.responseJSON))
+        // })
+}
+
+export const fetchCustomPacks = (flag) => dispatch => {
+    return PackApiUtil.fetchCustomPacks(flag)
+        .then(allCustomPacks => dispatch(receiveAllPacks(allCustomPacks)))
+}
 
 export const fetchPack = (packId) => dispatch => {
     return PackApiUtil.fetchPack(packId)

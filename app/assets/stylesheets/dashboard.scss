@@ -484,3 +484,27 @@
 .custom {
     margin-top: 30px;
 }
+
+.custom-pack {
+    background-image: image_url('custom-pack.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    color: wheat;
+    margin: .5%;
+    width: 360px;
+    height: 444px;
+    border-radius: 8px;
+}
+
+.custom-pack-info {
+    align-items: center;
+}
+
+.custom-packs > * {
+    color: wheat;
+    margin: .5%;
+    width: 360px;
+    height: 444px;
+    border-radius: 8px;
+}

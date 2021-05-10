@@ -69,8 +69,8 @@ class Pack extends React.Component {
         //             .then(response => this.state.meds.push(response.meditation))
         //     ))
         // }
-        
-        // console.log(this.state)
+        console.log('THIS IS PROPS', this.props)
+        console.log('THIS IS STATE', this.state)
 
 
         
@@ -83,8 +83,12 @@ class Pack extends React.Component {
                         <div className='pack-info-wrapper'>
                             <header className='pack-title'>{`${pack.name}`}</header>
                             <div className='session-total'>{`${pack.medIds.length}`} sessions</div>
+                            {!pack.custom ? (
                                 <h1 className='pack-info'>Alter your mindset with the {`${pack.name}`} pack.</h1>
-                                {!userPacks[packId] &&
+                            ) : (
+                                <h1 className='pack-info'>{`${pack.description}`}</h1>
+                            )}
+                                {(!userPacks[packId] && !pack.custom) &&
                                     (<div className='add-remove' onClick={() => {this.props.addUserPack(packId); this.handleAddRemove(packId)}}>
                                         <div className='close-wrapper'>
                                             <img className='close remove' src={close} />
@@ -92,13 +96,29 @@ class Pack extends React.Component {
                                         <p className='remove-text'>add to my packs</p>
                                     </div>) 
                                 }
-                                {userPacks[packId] &&
+                                {(userPacks[packId] && !pack.custom) &&
                                     (<div className='add-add' onClick={() => {this.props.removeUserPack(packId); this.handleAddRemove(packId)}}>
                                         <div className='close-wrapper'>
                                             <img className='close add' src={close} />
                                         </div>
                                         <p className='remove-text'>remove from my packs</p>
                                     </div>) 
+                                }
+                                {(!userPacks[packId] && pack.custom) &&
+                                    (<div className='add-remove' onClick={() => { this.props.addUserPack(packId); this.handleAddRemove(packId) }}>
+                                        <div className='close-wrapper'>
+                                            <img className='close remove' src={close} />
+                                        </div>
+                                        <p className='remove-text'>this pack shouldn't exist</p>
+                                    </div>)
+                                }
+                                {(userPacks[packId] && pack.custom) &&
+                                    (<div className='add-add' onClick={() => { this.props.removeUserPack(packId); this.handleAddRemove(packId) }}>
+                                        <div className='close-wrapper'>
+                                            <img className='close add' src={close} />
+                                        </div>
+                                        <p className='remove-text'>DELETE this custom pack</p>
+                                    </div>)
                                 }
                         </div>
                         <div className='pack-image-wrapper'>

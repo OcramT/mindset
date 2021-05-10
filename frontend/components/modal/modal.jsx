@@ -4,16 +4,48 @@ class Modal extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            name: '',
+            category: '',
+            description: '',
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const customPack = Object.assign({custom: true}, this.state);
+        console.log(customPack)
+        this.props.createCustomPack(customPack);
+        this.props.closeModal()
+    }
+
+    handleChange(input) {
+        return (e) => {
+            this.setState({[input] : e.currentTarget.value})
+        }
+    }
+
+    handleCloseModal() {
+        this.setState({
+            name: '',
+            category: '',
+            description: '',})
+        this.props.closeModal()
     }
 
     render() {
         if (!this.props.show) {return null}
+        console.log(this.state)
 
         return (
             <main className='modal-screen'>
                 <div className='modal'>
                     <div className='session-form'>
-                        <div onClick={() => this.props.closeModal()} 
+                        <div onClick={() => this.handleCloseModal()} 
                              className='close-wrapper modal-close'>
                             <img className='close remove' src={close} />
                         </div>
@@ -23,7 +55,9 @@ class Modal extends React.Component {
                                 <input
                                     className='session-input'
                                     type="text"
-                                    placeholder='Pack Title' />
+                                    value={this.state.name}
+                                    onChange={this.handleChange('name')}
+                                    placeholder='Pack Name' />
                             </label>
                             <div></div>
 
@@ -31,8 +65,10 @@ class Modal extends React.Component {
                                 <select
                                 className='session-input category-dropdown'
                                 type="text"
+                                value={this.state.category}
+                                onChange={this.handleChange('category')}
                                 placeholder='Pack Category'>
-                                    <option disabled selected="selected">
+                                    <option defaultValue="Choose a Category">
                                         Choose a Category</option>
                                     <option value="foundations">Foundations</option>
                                     <option value="health">Health</option>
@@ -47,6 +83,8 @@ class Modal extends React.Component {
                                 <input
                                     className='session-input'
                                     type="text"
+                                    value={this.state.description}
+                                    onChange={this.handleChange('description')}
                                     placeholder='Description'/>
                             </label>
 

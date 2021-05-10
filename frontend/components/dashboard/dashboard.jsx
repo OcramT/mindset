@@ -36,7 +36,7 @@ class Dashboard extends React.Component {
         // console.log(Object.values(this.props.userPacks))
         // console.log(this.state.userPacks.map(pack => console.log(pack)))
         // console.log('THIS IS STATE', this.state)
-        // console.log(userMedArr)
+        console.log(userPackArr)
        
         return (
             <>
@@ -80,6 +80,7 @@ class Dashboard extends React.Component {
                         )}
                         <ul className='med-packs'>
                             {userPackArr.map(pack => (
+                                pack.custom === null && (
                                 <Link
                                     className={`dash-link pack-${pack.id}`}
                                     key={`packs ${pack.id}`}
@@ -93,9 +94,8 @@ class Dashboard extends React.Component {
                                         </div> */}
                                     </h5>
 
-                                </Link>
+                                </Link>)
                             ))}
-                           
                         </ul>
                         <Link 
                             to='/discover' 
@@ -151,21 +151,27 @@ class Dashboard extends React.Component {
                         <h4 className='packs-header'>My Custom Packs</h4>
                         <div className='packs-header-details'>
                            Don't see a pack you connect with? Make your own!</div>
-                        {/* <ul className='single-meds'>
-                            {userMedArr.map(userMed => (
-                                <Link
-                                    className={`dash-link med-${userMed.id}`}
-                                    key={`meditation ${userMed.id}`}
-                                    to={`meditation/info/${userMed.id}`}>
+                        <ul className='single-meds custom-packs'>
+                            {userPackArr.map(pack => (
+                                pack.custom === true && (
+                                    <Link
+                                        className={`dash-link pack-${pack.id} custom-pack`}
+                                        key={`customPacks ${pack.id}`}
+                                        to={`packs/${pack.id}`}
+                                        description={pack.description}>
 
-                                    <h5 className='dash-link-singles-info'>
-                                        {`${userMed.title}`}</h5>
-                                    <div className='single-med-dur'>
-                                        {`${userMed.duration} minutes`}
-                                    </div>
-                                </Link>
+                                        <h5 className='dash-link-info custom-pack-info'>
+                                            {`${pack.name}`}
+                                            {/* <div className='pack-med-nums'>
+                                            {`${pack.medIds.length}
+                                        sessions`}
+                                        </div> */}
+                                        </h5>
+
+                                    </Link>)
                             ))}
-                        </ul> */}
+
+                        </ul>
                         <div
                             onClick={() => this.openModal()}
                             className='singles-discover custom'>Make My Own Pack!

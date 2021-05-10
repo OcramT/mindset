@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :meditations, only: [:show, :index]
-    resources :packs, only: [:index, :show]
+    resources :packs, only: [:index, :show, :create, :update, :destroy]
   end
 
 end
