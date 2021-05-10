@@ -16,7 +16,7 @@ class Pack < ApplicationRecord
         through: :user_packs,
         source: :user
 
-    has_many :meditations,
+    has_many :meditations, -> {distinct},
         through: :meditation_packs,
         source: :meditation
 

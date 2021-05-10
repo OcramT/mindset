@@ -13,7 +13,6 @@ class Pack extends React.Component {
         }
         this.handleAddRemove = this.handleAddRemove.bind(this);
         this.handleAnimate = this.handleAnimate.bind(this);
-        this.handleMeds = this.handleMeds.bind(this);
     }
 
     componentDidMount() {
@@ -36,14 +35,8 @@ class Pack extends React.Component {
         }
     }
 
-    handleMeds() {
-        let medIds = this.props.pack.medIds
-        if (!this.state.footerUp && this.state.meds.length < medIds.length) {
-            medIds.map(medId => (
-                this.props.fetchMeditation(medId)
-                    .then(response => this.state.meds.push(response.meditation))
-            ))
-        }
+    handleMedRemove() {
+        console.log('remove this eventually!')
     }
 
     handleAnimate(e) {
@@ -60,19 +53,9 @@ class Pack extends React.Component {
         if (!this.props.pack) return null
         if (!this.props.packId) return null
         if (!this.state.userPacks) return null;
+        if (!this.props.pack.meds) return null;
         const {pack, packId} = this.props
         let userPacks = this.state.userPacks
-        
-        // if (this.state.meds.length === 0) {
-        //     this.props.pack.medIds.map(medId => (
-        //         this.props.fetchMeditation(medId)
-        //             .then(response => this.state.meds.push(response.meditation))
-        //     ))
-        // }
-        console.log('THIS IS PROPS', this.props)
-        console.log('THIS IS STATE', this.state)
-
-
         
         return (
             <>
@@ -125,21 +108,23 @@ class Pack extends React.Component {
                             <img className='pack-image' src={anxietyPack} />
                         </div>
                     </div>
-
-                    <div className='techniques-wrapper'>
-                        <h2 className='tech-header'>Techniques</h2>
-                        <div className='tech-images-wrapper'>
-                            <div className='techs tech-1'>
-                                <img className='tech-image' src={techniquesBodyScan} />
-                                <p className='tech-title'>Body Scan</p>
-                            </div>
-                            
-                            <div className='techs tech-2'>
-                                <img className='tech-image' src={techniquesNoting} />
-                                <p className='tech-title'>Noting</p>
+                    {pack.custom === true && (<div className='lower-custom-wrapper'></div>)}
+                    { !pack.custom && (
+                        <div className='techniques-wrapper'>
+                            <h2 className='tech-header'>Techniques</h2>
+                            <div className='tech-images-wrapper'>
+                                <div className='techs tech-1'>
+                                    <img className='tech-image' src={techniquesBodyScan} />
+                                    <p className='tech-title'>Body Scan</p>
+                                </div>
+                                
+                                <div className='techs tech-2'>
+                                    <img className='tech-image' src={techniquesNoting} />
+                                    <p className='tech-title'>Noting</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </div>
                 </div>
 
@@ -157,28 +142,45 @@ class Pack extends React.Component {
                                 ) : (
                                     <img className='footer-open-close' src={footerClose} />
                                 )}
-                                {/* <p>{`${this.state.meds}`}</p> */}
                             </div>
                         </div>
                         <div className='med-divider'></div>
                         <div className='med-list-wrapper'>
+                            {(pack.meds.length === 0) ? (
+                                <button to='/discover' className='med-play'>Add to this pack</button>
+                            )
+                            : (
                             <ul className='med-list'>
-                                {pack.medIds.map((medId, idx) => (
-                                    <Link
-                                    to={`meditation/${medId}`}
-                                    className='med-list-item' 
-                                    key={`med-item ${medId}`}>
-                                        <div className='link-wrap'>
-                                            <div className='med-icon-wrapper'>
-                                                {/* <img className='med-icon' src={medListButton} /> */}
+                                {pack.meds.map((med, idx) => (
+                                    <div className='med-list-item'
+                                         key={`med-item ${med.id}`} >
+                                        <Link
+                                        className='single-med-link'
+                                        to={`meditation/${med.id}`}>
+                                            <div className='link-wrap'>
+                                                <div className='inner-link-wrap'>
+                                                    <div className='med-icon-wrapper'>
+                                                        {/* <img className='med-icon' src={medListButton} /> */}
+                                                    <li className='med-text'
+                                                        key={`med ${med.id}`}>
+                                                            {`Session ${idx + 1}`}
+                                                    </li>
+                                                    </div>
+                                                </div>
+                                                <div className='med-name'>{`${med.title} `}</div>
                                             </div>
-                                            <li className='med-text'
-                                                key={`med ${medId}`}>{`Session ${idx + 1}`}
-                                            </li>
-                                        </div>
-                                    </Link>
+                                                <div className='med-time'>{`${med.duration} mins`}</div>
+                                        </Link>
+                                        {pack.custom === true && (
+                                            <div className='close-wrapper med-remove'
+                                                 onClick={this.handleMedRemove}>
+                                                <img className='close remove' src={close} />
+                                            </div>
+                                        )}
+                                    </div>
                                     ))}
                             </ul>
+                            )}
                         </div>
                     </div>
                 </footer>

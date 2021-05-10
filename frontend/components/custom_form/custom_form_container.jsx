@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import MeditationShow from './meditation_show'
+import CustomForm from './custom_form'
 import { fetchMeditation, makeCurrentMed } from '../../actions/meditation_actions';
 import { addUserMed, removeUserMed, fetchAllUserMeds } from '../../actions/user_med_actions';
-import { fetchCustomPacks } from '../../actions/pack_actions';
+import { fetchCustomPacks, updateCustomPack } from '../../actions/pack_actions';
 
 const mSTP = (state, ownProps) => ({
-    currentMedId: ownProps.match.params.medId,
-    currentMed: state.entities.meditations[ownProps.match.params.medId],
-    currentUser: state.entities.users[state.session.id],
+
 });
 
 const mDTP = dispatch => ({
@@ -17,7 +15,8 @@ const mDTP = dispatch => ({
     addUserMed: medId => dispatch(addUserMed(medId)),
     removeUserMed: medId => dispatch(removeUserMed(medId)),
     fetchAllUserMeds: () => dispatch(fetchAllUserMeds()),
-    fetchCustomPacks: flag => dispatch(fetchCustomPacks(flag))
+    fetchCustomPacks: flag => dispatch(fetchCustomPacks(flag)),
+    updateCustomPack: (packId, medId, pack) => dispatch(updateCustomPack(packId, medId, pack))
 });
 
-export default connect(mSTP, mDTP)(MeditationShow);
+export default connect(mSTP, mDTP)(CustomForm);

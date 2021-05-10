@@ -29,11 +29,28 @@ class Modal extends React.Component {
         }
     }
 
+    // handleCloseModal() {
+    //     this.setState({
+    //         name: '',
+    //         category: '',
+    //         description: '',})
+    //     this.props.closeModal()
+    // }
+
+    // handleCloseModal() {
+    //     this.setState((state) => {
+    //         name: '',
+    //         category: '',
+    //         description: '',
+    //     })
+    //     this.props.closeModal()
+    // }
+
     handleCloseModal() {
-        this.setState({
-            name: '',
-            category: '',
-            description: '',})
+        this.setState((state) => {
+            // Important: read `state` instead of `this.state` when updating.
+            return { name: '', category: '', description: '',}
+        });
         this.props.closeModal()
     }
 

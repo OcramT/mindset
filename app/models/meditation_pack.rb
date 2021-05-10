@@ -1,4 +1,5 @@
 class MeditationPack < ApplicationRecord
+    validates :meditation_id, uniqueness: { scope: :pack_id }
  
     belongs_to :meditation,
         primary_key: :id, 

@@ -1,6 +1,7 @@
 import React, { createRef } from 'react';
 import NavBarContainer from '../nav/nav_bar_container';
 import { Link } from 'react-router-dom';
+import CustomFormContainer from '../custom_form/custom_form_container';
 
 class MeditationShow extends React.Component {
     constructor(props) {
@@ -11,21 +12,10 @@ class MeditationShow extends React.Component {
             userMeds: {},
             customPacks: {}
         }
-        // this.handleAddRemove = this.handleAddRemove.bind(this);
-        // this.handleAnimate = this.handleAnimate.bind(this);
-        // this.handleMeds = this.handleMeds.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchMeditation(this.props.currentMedId)
-        // this.props.fetchAllUserMeds()
-        //     .then(response => response)
-        //     .then((allUserMeds) => this.setState(
-        //         {
-        //             allUserMeds: allUserMeds['allUserMeds'].map(
-        //                 med => this.state.userMeds[med.id] = med.id)
-        //         }
-        //     ))
         this.props.fetchAllUserMeds()
             .then(response => response)
             .then((allUserMeds) => this.setState(
@@ -54,16 +44,6 @@ class MeditationShow extends React.Component {
         }
     }
 
-    // handleMeds() {
-    //     let medIds = this.props.pack.medIds
-    //     if (!this.state.footerUp && this.state.meds.length < medIds.length) {
-    //         medIds.map(medId => (
-    //             this.props.fetchMeditation(medId)
-    //                 .then(response => this.state.meds.push(response.meditation))
-    //         ))
-    //     }
-    // }
-
     handleAnimate(e) {
         if (this.state.footerRef.current.className === 'single-med-bar-closed') {
             this.state.footerRef.current.className = 'single-med-bar-open'
@@ -75,26 +55,10 @@ class MeditationShow extends React.Component {
     }
 
     render() {
-        // if (!this.props.pack) return null
-        // if (!this.props.packId) return null
-        // if (!this.state.userPacks) return null;
-        // const { pack, packId } = this.props
-        // let userPacks = this.state.userPacks
-
-        // if (this.state.meds.length === 0) {
-        //     this.props.pack.medIds.map(medId => (
-        //         this.props.fetchMeditation(medId)
-        //             .then(response => this.state.meds.push(response.meditation))
-        //     ))
-        // }
         if (!this.props.currentMed) return null
         if (!this.props.currentMedId) return null
         const { currentMed, currentMedId } = this.props;
         let userMeds = this.state.userMeds;
-        console.log('this is state', this.state)
-        console.log('this is props', this.props)
-        console.log(currentMedId)
-
 
         return (
             
@@ -105,7 +69,6 @@ class MeditationShow extends React.Component {
                         <div className='single-banner-wrapper'>
                             <div className='single-info-wrapper'>
                                 <header className='single-title'>{`${currentMed.title}`}</header>
-                                {/* <div className='session-total'>{`${currentMed.medIds.length}`} sessions</div> */}
                                 <h1 className='single-info'>Short on time? You can still alter your
                                 mindset with the {`${currentMed.title}`} single!</h1>
                                 {!userMeds[currentMedId] && (
@@ -130,20 +93,7 @@ class MeditationShow extends React.Component {
                             </div>
                         </div>
 
-                        <div className='single-techniques-wrapper'>
-                            {/* <h2 className='tech-header'>Techniques</h2>
-                            <div className='tech-images-wrapper'>
-                                <div className='techs tech-1'>
-                                    <img className='tech-image' src={techniquesBodyScan} />
-                                    <p className='tech-title'>Body Scan</p>
-                                </div>
-
-                                <div className='techs tech-2'>
-                                    <img className='tech-image' src={techniquesNoting} />
-                                    <p className='tech-title'>Noting</p>
-                                </div>
-                            </div> */}
-                        </div>
+                        <div className='single-techniques-wrapper'></div>
                     </div>
                 </div>
 
@@ -157,32 +107,18 @@ class MeditationShow extends React.Component {
                             </div>
                             <div to='/dashboard ' className='single-footer-close-wrapper' onClick={(e) => this.handleAnimate(e)}>
                                 {!this.state.footerUp ? (
-                                    // <img className='single-footer-open-close' src={footerOpen} />
                                     <button className='med-dur duration'>Custom Packs</button>
                                 ) : (
-                                    // <img className='single-footer-open-close' src={footerClose} />
                                     <button className='med-dur duration'>Close </button>
                                 )}
                             </div>
                         </div>
                         <div className='single-med-divider'></div>
-                        {/* <div className='med-list-wrapper'>
-                            <ul className='med-list'>
-                                {pack.medIds.map((medId, idx) => (
-                                    <Link
-                                        to={`meditation/${medId}`}
-                                        className='med-list-item'
-                                        key={`med-item ${medId}`}>
-                                        <div className='link-wrap'>
-                                            <img className='med-icon' src={medListButton} />
-                                            <li className='med-text'
-                                                key={`med ${medId}`}>{`Session ${idx + 1}`}
-                                            </li>
-                                        </div>
-                                    </Link>
-                                ))}
-                            </ul>
-                        </div> */}
+                        <CustomFormContainer 
+                            currentMed={this.props.currentMed}
+                            userMeds={this.state.userMeds}
+                            customPacks={this.state.customPacks}
+                            currentUser={this.props.currentUser}/>
                     </div>
                 </footer>
 

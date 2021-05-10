@@ -28,13 +28,12 @@ export const clearAllPacks = packs => ({
 
 export const createCustomPack = (customPack) => dispatch => {
     return PackApiUtil.createCustomPack(customPack)
-        .then(customPack => 
-            dispatch(receivePack(customPack)))
-        
-        // },
-        // error => {
-        //     return dispatch(receiveErrors(error.responseJSON))
-        // })
+        .then(customPack => dispatch(receivePack(customPack)))
+}
+
+export const updateCustomPack = (packId, medId, customPack) => dispatch => {
+    return PackApiUtil.updateCustomPack(packId, medId, customPack)
+        .then(updatedPack => dispatch(receivePack(updatedPack)))
 }
 
 export const fetchCustomPacks = (flag) => dispatch => {

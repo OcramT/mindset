@@ -20,6 +20,14 @@ export const createCustomPack = (pack) => {
     })
 }
 
+export const updateCustomPack = (packId, medId, pack) => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `/api/packs/${packId}`,
+        data: { pack, medId }
+    })
+}
+
 export const fetchCustomPacks = (flag) => {
     return $.ajax({
         method: 'GET',
