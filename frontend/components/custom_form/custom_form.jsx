@@ -47,7 +47,8 @@ class CustomForm extends React.Component {
         console.log(this.props.customPacks)
 
         return (
-                <div className='med-list-wrapper'>
+            <div className='custom-wrap'>
+                <div className='custom-med-list-wrapper'>
                     <ul className='med-list'>
                         <label className='session-field'>
                             <select
@@ -85,7 +86,9 @@ class CustomForm extends React.Component {
                         <button className='med-play' onClick={this.handleSubmit}>Add to this pack</button>
                     </ul>
                 </div>
+            </div>
         )}
+        
 }
 
 export default CustomForm;

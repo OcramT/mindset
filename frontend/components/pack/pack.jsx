@@ -9,10 +9,12 @@ class Pack extends React.Component {
             userPacks: {},
             footerRef: createRef(),
             footerUp: false,
-            meds: []
+            meds: [],
+            flag: true
         }
         this.handleAddRemove = this.handleAddRemove.bind(this);
         this.handleAnimate = this.handleAnimate.bind(this);
+        this.handleMedRemove = this.handleMedRemove.bind(this);
     }
 
     componentDidMount() {
@@ -35,8 +37,14 @@ class Pack extends React.Component {
         }
     }
 
-    handleMedRemove() {
-        console.log('remove this eventually!')
+    handleMedRemove(medId) {
+        let flip = this.state.flag
+        this.props.deleteCustomPackMeditation(medId)
+        flip ? 
+        this.setState({ flip : false })
+        :
+        this.setState({ flip: true })
+        this.forceUpdate()
     }
 
     handleAnimate(e) {
@@ -56,6 +64,7 @@ class Pack extends React.Component {
         if (!this.props.pack.meds) return null;
         const {pack, packId} = this.props
         let userPacks = this.state.userPacks
+        console.log(this.state.flag)
         
         return (
             <>
@@ -143,11 +152,12 @@ class Pack extends React.Component {
                                     <img className='footer-open-close' src={footerClose} />
                                 )}
                             </div>
+                            {/* <div className='med-divider'></div> */}
                         </div>
                         <div className='med-divider'></div>
                         <div className='med-list-wrapper'>
                             {(pack.meds.length === 0) ? (
-                                <button to='/discover' className='med-play'>Add to this pack</button>
+                                <Link to='/discover' className='med-play'>Add to this pack</Link>
                             )
                             : (
                             <ul className='med-list'>
@@ -173,7 +183,7 @@ class Pack extends React.Component {
                                         </Link>
                                         {pack.custom === true && (
                                             <div className='close-wrapper med-remove'
-                                                 onClick={this.handleMedRemove}>
+                                                 onClick={() => this.handleMedRemove(med.id)}>
                                                 <img className='close remove' src={close} />
                                             </div>
                                         )}

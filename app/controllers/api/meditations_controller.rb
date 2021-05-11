@@ -17,6 +17,11 @@ class Api::MeditationsController < ApplicationController
         end
     end
 
+    def destroy
+        @meditation = MeditationPack.find_by(meditation_id: params[:id])
+        @meditation.delete
+    end
+
     private
 
     def meditation_params

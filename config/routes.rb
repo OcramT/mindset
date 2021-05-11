@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :completedmeditations, only: [:index, :show, :create, :destroy]
     end
     resource :session, only: [:create, :destroy]
-    resources :meditations, only: [:show, :index]
+    resources :meditations, only: [:show, :index, :destroy]
     resources :packs, only: [:index, :show, :create, :update, :destroy]
   end
 

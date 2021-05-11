@@ -5,6 +5,7 @@ export const RECEIVE_MEDITATION = 'RECEIVE_MEDITATION';
 export const RECEIVE_ALL_MEDITATION_IDS = 'RECEIVE_ALL_MEDITATION_IDS';
 export const RECEIVE_ALL_MEDITATIONS = 'RECEIVE_ALL_MEDITATIONS';
 export const MAKE_CURRENT_MED = 'MAKE_CURRENT_MED';
+export const DELETE_CUSTOM_PACK_MED = 'DELETE_CUSTOM_PACK_MED';
 
 export const receiveMeditation = meditation => ({
     type: RECEIVE_MEDITATION,
@@ -26,6 +27,10 @@ export const makeCurrentMed = (med) => ({
     med
 })
 
+export const deleteMed = () => ({
+    type: DELETE_CUSTOM_PACK_MED
+})
+
 export const fetchMeditation = (meditationId) => dispatch => {
     return MeditationApiUtil.fetchMeditation(meditationId)
         .then(meditation => dispatch(receiveMeditation(meditation)))
@@ -39,4 +44,9 @@ export const fetchAllMedIds = () => dispatch => {
 export const fetchAllMeditations = (flag) => dispatch => {
     return MeditationApiUtil.fetchAllMeds(flag)
         .then(allMeditations => dispatch(receiveAllMeditations(allMeditations)))
+}
+
+export const deleteCustomPackMeditation = (medId) => dispatch => {
+    return MeditationApiUtil.deleteCustomPackMeditation(medId)
+        .then(() => dispatch(deleteMed()))
 }

@@ -3,10 +3,12 @@ if !@flag
     @packs.each do |pack|
         json.set! pack.id do
             json.partial! 'pack', pack: pack
-            medIds = []
-            @pack_meds.each do |meditation|
-                json.medIds medIds.push(meditation.id)
+            @pack_meds.each do |packId, medArr|
+                if pack.id == packId
+                    json.medIds *medArr
+                end
             end
+            # json.medIds @pack_meds
         end
     end
 elsif @flag == 'custom'

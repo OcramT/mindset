@@ -3,11 +3,11 @@ class Api::PacksController < ApplicationController
 
     def index
         @packs = Pack.all
-        @meditations = Meditation.all
-        @pack_meds = []
+        @pack_meds = Hash.new {|h,k| h[k] = Array.new }
         @packs.each do |pack|
-            meds = Meditation.all.joins(:meditation_packs).where(meditation_packs: { pack_id: pack.id })
-            @pack_meds.concat(meds)
+            @pack_meds[pack.id] << Meditation.select(:category, :duration, :id, :title)
+                    .joins(:meditation_packs)
+                    .where(meditation_packs: { pack_id: pack.id })
         end
         @flag = params[:flag]
         render 'api/packs/index'
@@ -18,20 +18,20 @@ class Api::PacksController < ApplicationController
         @custom = params[:pack][:custom]
         @meditations = Meditation.all
         @pack_meds = []
-        # @medIds = []
         @pack = Pack.new(pack_params)
         if @pack.save
             UserPack.create(user_id: @user.id, pack_id: @pack.id)
             render 'api/packs/show'
         else
             render json: ["Sorry, couldn't make this pack!"]
-            # render json: @userpack.errors.full_messages, status: 422
         end
     end
 
     def show
         @pack = Pack.find_by(id: params[:id])
-        @meditations = Meditation.all.joins(:meditation_packs).where(meditation_packs: { pack_id: @pack.id })
+        @meditations = Meditation.all
+                        .joins(:meditation_packs)
+                        .where(meditation_packs: { pack_id: @pack.id })
         @custom = @pack.custom
         @pack_meds = []
         @meditations.each do |meditation|
@@ -49,7 +49,9 @@ class Api::PacksController < ApplicationController
         @userpack = UserPack.find_by(pack_id: params[:id])
         @user = @userpack.user_id
         @pack_meds = []
-        @meditations = Meditation.all.joins(:meditation_packs).where(meditation_packs: { pack_id: @pack.id })
+        @meditations = Meditation.all
+                        .joins(:meditation_packs)
+                        .where(meditation_packs: { pack_id: @pack.id })
         @meditations.each do |meditation|
             @pack_meds << meditation
         end

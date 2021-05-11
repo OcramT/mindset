@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import Pack from './pack'
 import { fetchPack, clearPack } from '../../actions/pack_actions';
-import { fetchMeditation, fetchAllMeditations } from '../../actions/meditation_actions';
+import { fetchMeditation, fetchAllMeditations, deleteCustomPackMeditation } from '../../actions/meditation_actions';
 import { addUserPack, removeUserPack, fetchAllUserPacks } from '../../actions/user_pack_actions';
 
 
@@ -19,7 +19,8 @@ const mDTP = dispatch => ({
     removeUserPack: packId => dispatch(removeUserPack(packId)),
     addUserPack: packId => dispatch(addUserPack(packId)),
     fetchAllUserPacks: () => dispatch(fetchAllUserPacks()),
-    fetchAllMeditations: meditationIds => dispatch(fetchAllMeditations(meditationIds))
+    fetchAllMeditations: meditationIds => dispatch(fetchAllMeditations(meditationIds)),
+    deleteCustomPackMeditation: medId => dispatch(deleteCustomPackMeditation(medId))
 })
 
 export default connect(mSTP, mDTP)(Pack)

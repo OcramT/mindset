@@ -41,3 +41,10 @@ export const fetchAllUserMeds = () => {
         url: '/api/user/completedmeditations'
     })
 }
+
+export const deleteCustomPackMeditation = (medId) => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `/api/meditations/${medId}`
+    })
+}

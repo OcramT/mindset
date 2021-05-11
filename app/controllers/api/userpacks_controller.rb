@@ -9,7 +9,6 @@ class Api::UserpacksController < ApplicationController
     end
 
     def create
-        # raise params.inspect
         @user = current_user
         @pack_id = params[:packId]
         @userpack = UserPack.new(user_id: @user.id, pack_id: @pack_id)

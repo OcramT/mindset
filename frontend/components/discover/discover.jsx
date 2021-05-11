@@ -113,6 +113,8 @@ class DiscoverPage extends React.Component {
         this.genreRefs = [];
         this.packRefs = [];
         this.removeNull()
+        console.log('THIS IS STATE', this.state)
+        console.log('THIS IS PROPS', this.props)
        
         return (
             <>
@@ -167,9 +169,7 @@ class DiscoverPage extends React.Component {
                                                             <h5 className='discover-link-info'
                                                                 key={Math.random() * idx2}>
                                                                 {`${pack.name}`}
-                                                                <div className='pack-med-nums'
-                                                                    // key={Math.random() * idx2}
-                                                                    >
+                                                                <div className='pack-med-nums'>
                                                                     {`${pack.medIds.length}
                                                                     sessions`}
                                                                 </div>
@@ -191,10 +191,12 @@ class DiscoverPage extends React.Component {
                                             key={`meditation ${meditation.id}`}
                                             to={`meditation/info/${meditation.id}`}>
 
-                                            <h5 className='disc-link-singles-info'
-                                                // key={Math.random() * medIdx + 23}
-                                                >
-                                                {`${meditation.title}`}</h5>
+                                            <div className='disc-link-singles-info'>
+                                                <h5>{`${meditation.title}`}</h5>
+                                                <div className='disc-singles-duration'>
+                                                    {`${meditation.duration} minutes`}
+                                                </div>
+                                            </div>
                                         </Link>
                                     ))}
                                 </ul>

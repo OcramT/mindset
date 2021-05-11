@@ -19,7 +19,6 @@ ApplicationRecord.connection.reset_pk_sequence!('packs')
 ApplicationRecord.connection.reset_pk_sequence!('meditation_packs')
 ApplicationRecord.connection.reset_pk_sequence!('user_packs')
 ApplicationRecord.connection.reset_pk_sequence!('completed_meditations')
-ActiveRecord::Base.connection.reset_pk_sequence!('packs')
 
 #Test Users
 testUser1 = User.create!({username: 'gr8bigweil', email: 'weil@whale.com', password: 'password123'})
@@ -47,6 +46,8 @@ testPack6 = Pack.create!({id: 6, name: 'Sleep Health', category: 'Health'})
 testPack7 = Pack.create!({id: 7, name: 'Self-esteem', category: 'Wellness'})
 testPack8 = Pack.create!({id: 8, name: 'Relationships', category: 'Wellness'})
 testPack9 = Pack.create!({id: 9, name: 'Appreciation', category: 'Wellness'})
+
+ActiveRecord::Base.connection.reset_pk_sequence!('packs')
 
 #Meditation Pack Joins
 MeditationPack.create({pack_id: 1, meditation_id: 1}) #Basics
