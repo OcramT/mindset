@@ -11,6 +11,7 @@ json.set! :pack do
             json.medIds medIds.push(meditation.id)
             json.meds meds.push(meditation)
         end
+        json.packMeds @pack_meds_new
     end
 end
 

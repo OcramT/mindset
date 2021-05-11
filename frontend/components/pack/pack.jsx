@@ -9,12 +9,16 @@ class Pack extends React.Component {
             userPacks: {},
             footerRef: createRef(),
             footerUp: false,
-            meds: [],
-            flag: true
+            meds: {},
+            packMeds: {}
+            // meds: [],
+            // flag: true
         }
         this.handleAddRemove = this.handleAddRemove.bind(this);
         this.handleAnimate = this.handleAnimate.bind(this);
         this.handleMedRemove = this.handleMedRemove.bind(this);
+        this.setMeds = this.setMeds.bind(this);
+        this.setPackMeds = this.setPackMeds.bind(this);
     }
 
     componentDidMount() {
@@ -38,13 +42,18 @@ class Pack extends React.Component {
     }
 
     handleMedRemove(medId) {
-        let flip = this.state.flag
-        this.props.deleteCustomPackMeditation(medId)
-        flip ? 
-        this.setState({ flip : false })
-        :
-        this.setState({ flip: true })
-        this.forceUpdate()
+        console.log(this.state.packMeds[medId])
+        const newMeds = this.props.pack.meds.filter((med) => med.id !== medId)
+        this.setState({meds : newMeds})
+        this.props.deleteCustomPackMeditation(this.state.packMeds[medId])
+    }
+
+    setMeds(oldMeds) {
+        this.state.meds = oldMeds
+    }
+
+    setPackMeds(oldPackMeds) {
+        this.state.packMeds = oldPackMeds
     }
 
     handleAnimate(e) {
@@ -64,7 +73,12 @@ class Pack extends React.Component {
         if (!this.props.pack.meds) return null;
         const {pack, packId} = this.props
         let userPacks = this.state.userPacks
-        console.log(this.state.flag)
+        const {packMeds} = this.props.pack
+        // console.log(this.props.pack.meds)
+        console.log(this.state)
+        // console.log(packMeds)
+        this.setMeds(this.props.pack.meds)
+        this.setPackMeds(packMeds)
         
         return (
             <>

@@ -5,7 +5,7 @@ class Api::PacksController < ApplicationController
         @packs = Pack.all
         @pack_meds = Hash.new {|h,k| h[k] = Array.new }
         @packs.each do |pack|
-            @pack_meds[pack.id] << Meditation.select(:category, :duration, :id, :title)
+            @pack_meds[pack.id] = Meditation.select(:category, :duration, :id, :title)
                     .joins(:meditation_packs)
                     .where(meditation_packs: { pack_id: pack.id })
         end
@@ -33,7 +33,20 @@ class Api::PacksController < ApplicationController
                         .joins(:meditation_packs)
                         .where(meditation_packs: { pack_id: @pack.id })
         @custom = @pack.custom
+        @pack_med_ids = MeditationPack.select(:id, :meditation_id, :pack_id)
+                        .joins(:meditation)
+                        .joins(:pack)
+                        .where(packs: { id: @pack.id })
+        @pack_meds_new = Hash.new {|h,k| h[k] = Array.new }
         @pack_meds = []
+        @pack_med_ids.each do |packMedId|
+            if packMedId.pack_id == @pack.id
+                @pack_meds_new[packMedId.meditation_id] = packMedId.id
+            end
+        end
+        @meditations.each do |meditation|
+
+        end
         @meditations.each do |meditation|
             @pack_meds << meditation
         end

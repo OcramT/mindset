@@ -5,7 +5,7 @@ if !@flag
             json.partial! 'pack', pack: pack
             @pack_meds.each do |packId, medArr|
                 if pack.id == packId
-                    json.medIds *medArr
+                    json.medIds medArr
                 end
             end
             # json.medIds @pack_meds
