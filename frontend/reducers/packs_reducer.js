@@ -1,4 +1,5 @@
 import {RECEIVE_PACK,
+        RECEIVE_UPDATED_PACK,
         RECEIVE_ALL_PACKS,
         CLEAR_PACK,
         CLEAR_ALL_PACKS} from '../actions/pack_actions';
@@ -12,25 +13,25 @@ const packsReducer = (defaultState = {}, action) => {
             return nextState['pack'] = action.pack
         case RECEIVE_ALL_PACKS:
             return nextState['packs'] = action.packs
+        case RECEIVE_UPDATED_PACK:
+            let packId = action.updatedPack.pack.id
+            let packToUpdate = nextState['packId']
+            let meds = action.updatedPack.pack.meds
+            nextState[packId]['medIds'] = meds
+            return nextState
         case CLEAR_PACK:
             delete nextState['pack']
             return nextState
         case CLEAR_ALL_PACKS:
-            let newState = Object.assign({}, nextState['packs'] = {})
-            return newState
+            nextState = {}
+            return nextState
         case DELETE_CUSTOM_PACK_MED:
-            // debugger
-            console.log('FIRST NEXT STATE', nextState)
             const newMeds = nextState.pack.meds.filter((med) => med.id !== action.currentMedId)
             newNextState = Object.assign({}, nextState, nextState.pack.meds = newMeds)
-            console.log('SECOND NEXT STATE', newNextState)
             return newNextState
         case DELETE_CUSTOM_PACK_MED_FORM:
-            // debugger
-            console.log('FIRST NEXT STATE', nextState)
             const newFormMeds = nextState[action.packId].medIds.filter((med) => med.id !== action.currentMedId)
             let newNextState = Object.assign({}, nextState, nextState[action.packId].medIds = newFormMeds)
-            console.log('SECOND NEXT STATE', newNextState)
             return newNextState
         default:
             return defaultState;

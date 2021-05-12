@@ -36,6 +36,10 @@ class MeditationShow extends React.Component {
         this.setState({packs: this.props.packs})
     }
 
+    componentWillUnmount() {
+        this.props.clearAllPacks()
+    }
+
     handleAddRemove(medId) {
         let userMeds = this.state.userMeds
 
@@ -61,8 +65,6 @@ class MeditationShow extends React.Component {
         if (!this.props.currentMedId) return null
         const { currentMed, currentMedId } = this.props;
         let userMeds = this.state.userMeds;
-        // console.log('THIS IS STATE', this.state)
-        // console.log('THIS IS PROPS', this.props)
 
         return (
             

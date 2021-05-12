@@ -7,8 +7,8 @@ import { fetchAllUserMeds } from '../../actions/user_med_actions';
 
 const mSTP = state => ({
     medIds: state.entities.meditations.medIds,
-    packs: state.entities.packs
-    // userPacks: state.entities.users.userPacks
+    userPacks: state.entities.users.userPacks,
+    userMeds: state.entities.users.userMeds,
 });
 
 const mDTP = dispatch => ({
@@ -16,7 +16,7 @@ const mDTP = dispatch => ({
     fetchAllPacks: () => dispatch(fetchAllPacks()),
     clearAllPacks: (packs) => dispatch(clearAllPacks(packs)),
     fetchAllUserPacks: () => dispatch(fetchAllUserPacks()),
-    fetchAllUserMeds: () => dispatch(fetchAllUserMeds())
+    fetchAllUserMeds: () => dispatch(fetchAllUserMeds()),
 });
 
 export default connect(mSTP, mDTP)(Dashboard);

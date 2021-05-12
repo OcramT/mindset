@@ -15,11 +15,20 @@ class Modal extends React.Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
+    // componentWillUnmount() {
+    //     this.forceUpdate()
+    // }
+
     handleSubmit(e) {
         e.preventDefault();
         const customPack = Object.assign({custom: true}, this.state);
-        console.log(customPack)
-        this.props.createCustomPack(customPack);
+        this.props.createCustomPack(customPack)
+            .then(() => this.handleCloseModal())
+        this.handleCloseModal()
+    }
+
+    handleCloseModal() {
+        this.setState({ name: '', category: '', description: '',});
         this.props.closeModal()
     }
 
@@ -29,33 +38,8 @@ class Modal extends React.Component {
         }
     }
 
-    // handleCloseModal() {
-    //     this.setState({
-    //         name: '',
-    //         category: '',
-    //         description: '',})
-    //     this.props.closeModal()
-    // }
-
-    // handleCloseModal() {
-    //     this.setState((state) => {
-    //         name: '',
-    //         category: '',
-    //         description: '',
-    //     })
-    //     this.props.closeModal()
-    // }
-
-    handleCloseModal() {
-        this.setState((state) => {
-            return { name: '', category: '', description: '',}
-        });
-        this.props.closeModal()
-    }
-
     render() {
         if (!this.props.show) {return null}
-        console.log(this.state)
 
         return (
             <main className='modal-screen'>
@@ -107,9 +91,6 @@ class Modal extends React.Component {
                             <input className='form-button' type='submit' />
                         </form>
                     </div>
-                    {/* <div className='form-bg-container'>
-                        <img className='form-bg' src={mindsetBGUrl} />
-                    </div> */}
                 </div>
             </main>
         )

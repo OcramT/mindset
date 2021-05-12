@@ -13,12 +13,8 @@ class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllUserPacks()
-            .then(response => response)
-            .then((userPacks) => this.setState({ userPacks: userPacks['allUserPacks'] }))
         this.props.fetchAllMedIds()
         this.props.fetchAllUserMeds()
-            .then(response => response)
-            .then((userMeds) => this.setState({ userMeds: userMeds['allUserMeds'] }))
     }
 
     openModal() {
@@ -27,16 +23,10 @@ class Dashboard extends React.Component {
 
     render() {
         if (!this.props.medIds) return null;
-        if (!this.props.packs) return null;
-        if (!this.state.userPacks) return null;
-        if (!this.state.userMeds) return null;
-        // const packArr = Object.values(this.props.packs)
-        const userPackArr = this.state.userPacks
-        const userMedArr = this.state.userMeds.userMeds
-        // console.log(Object.values(this.props.userPacks))
-        // console.log(this.state.userPacks.map(pack => console.log(pack)))
-        // console.log('THIS IS STATE', this.state)
-        console.log(userPackArr)
+        if (!this.props.userPacks) return null;
+        if (!this.props.userMeds) return null;
+        const userPackArr = this.props.userPacks
+        const userMedArr = this.props.userMeds
        
         return (
             <>

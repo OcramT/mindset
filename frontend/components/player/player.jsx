@@ -75,7 +75,6 @@ class Player extends React.Component {
             this.setState({seeking:false})
         }
         this.handlePlay()
-        // console.log(this.state)
     }
 
     barClick(value) {
@@ -94,13 +93,11 @@ class Player extends React.Component {
         this.audio.currentTime = this.state.currentTime
         this.audio.play()
         // }
-        // console.log(this.progressBar)
         // Width of the timeline
         // let progressBarLeft = e.pageX - this.progressBar.offsetLeft;
         // let progressBarWidth = progressBarLeft - this.progressBar.offsetWidth;
 
         // Left position of the handle
-        // console.log(progressBarWidth)
     }
 
     formatTime(seconds) {

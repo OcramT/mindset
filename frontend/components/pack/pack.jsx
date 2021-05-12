@@ -17,36 +17,37 @@ class Pack extends React.Component {
         this.handleMedRemove = this.handleMedRemove.bind(this);
         this.setMeds = this.setMeds.bind(this);
         this.setPackMeds = this.setPackMeds.bind(this);
+        this.handlePackDelete = this.handlePackDelete.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchPack(this.props.packId)
         this.props.fetchAllUserPacks()
-            .then((userPackIds) => this.setState(
-                {userPackIds: userPackIds['allUserPacks'].map(
-                    pack => this.state.userPacks[pack.id] = pack.id)}
-            ))
     }
 
     handleAddRemove(packId) {
         let userPacks = this.state.userPacks
         if (!userPacks[packId]) {
-            this.setState(Object.assign(userPacks, {[`${packId}`]: parseInt(packId)}))
+            this.props.addUserPack(packId)
+                .then(this.setState(Object.assign(userPacks, { [`${packId}`]: parseInt(packId) })))
         } else if (userPacks[packId]) {
-            this.setState({ [userPacks] : delete userPacks[packId] })
+            let newPacks = delete userPacks[packId]
+            this.props.removeUserPack(packId)
+                .then(() => this.setState({ [userPacks]: newPacks }))
         }
     }
 
-    // handleMedRemove(currentMedId) {
-    //     let medId = this.state.packMeds[currentMedId]
-    //     let newMeds = this.props.pack.meds
-    //     newMeds = newMeds.filter((med) => med.id !== currentMedId)
-    //     this.props.deleteCustomPackMeditation(medId, currentMedId)
-    //         .then(() => this.setState({meds : newMeds}))
-    // }
+    goBack() {
+        this.props.history.goBack();
+    }
+
+    handlePackDelete(packId) {
+        let userPacks = this.state.userPacks
+        this.props.deleteCustomPack(packId)
+            .then(() => this.goBack())
+    }
 
     handleMedRemove(medId) {
-        // let medId = this.state.packMeds[currentMedId]
         let newMeds = this.props.pack.meds
         newMeds = newMeds.filter((med) => med.id !== medId)
         this.props.deleteCustomPackMeditation(medId, this.props.packId)
@@ -74,15 +75,13 @@ class Pack extends React.Component {
     render() {
         if (!this.props.pack) return null
         if (!this.props.packId) return null
-        if (!this.state.userPacks) return null;
+        if (!this.props.userPacks) return null;
         if (!this.props.pack.meds) return null;
-        const {pack, packId} = this.props
-        let userPacks = this.state.userPacks
+        const {pack, packId, userPacks} = this.props
         const {packMeds, meds} = this.props.pack
+        userPacks.map(pack => this.state.userPacks[pack.id] = pack.id)
         this.setMeds(meds)
         this.setPackMeds(packMeds)
-        console.log(this.state)
-        console.log(this.props.packId)
         
         return (
             <>
@@ -98,23 +97,25 @@ class Pack extends React.Component {
                             ) : (
                                 <h1 className='pack-info'>{`${pack.description}`}</h1>
                             )}
-                                {(!userPacks[packId] && !pack.custom) &&
-                                    (<div className='add-remove' onClick={() => {this.props.addUserPack(packId); this.handleAddRemove(packId)}}>
+                                {(!this.state.userPacks[packId] && !pack.custom) &&
+                                    // (<div className='add-remove' onClick={() => {this.props.addUserPack(packId); this.handleAddRemove(packId)}}>
+                                    (<div className='add-remove' onClick={() => this.handleAddRemove(packId) }>
                                         <div className='close-wrapper'>
                                             <img className='close remove' src={close} />
                                         </div>
                                         <p className='remove-text'>add to my packs</p>
                                     </div>) 
                                 }
-                                {(userPacks[packId] && !pack.custom) &&
-                                    (<div className='add-add' onClick={() => {this.props.removeUserPack(packId); this.handleAddRemove(packId)}}>
+                                {(this.state.userPacks[packId] && !pack.custom) &&
+                                    // (<div className='add-add' onClick={() => {this.props.removeUserPack(packId); this.handleAddRemove(packId)}}>
+                                    (<div className='add-add' onClick={() => this.handleAddRemove(packId)}>
                                         <div className='close-wrapper'>
                                             <img className='close add' src={close} />
                                         </div>
                                         <p className='remove-text'>remove from my packs</p>
                                     </div>) 
                                 }
-                                {(!userPacks[packId] && pack.custom) &&
+                                {(!this.state.userPacks[packId] && pack.custom) &&
                                     (<div className='add-remove' onClick={() => { this.props.addUserPack(packId); this.handleAddRemove(packId) }}>
                                         <div className='close-wrapper'>
                                             <img className='close remove' src={close} />
@@ -122,8 +123,12 @@ class Pack extends React.Component {
                                         <p className='remove-text'>this pack shouldn't exist</p>
                                     </div>)
                                 }
-                                {(userPacks[packId] && pack.custom) &&
-                                    (<div className='add-add' onClick={() => { this.props.removeUserPack(packId); this.handleAddRemove(packId) }}>
+                                {(this.state.userPacks[packId] && pack.custom) &&
+                                    (<div  
+                                            className='add-add' 
+                                            onClick={() => 
+                                                this.handlePackDelete(packId)
+                                                }>
                                         <div className='close-wrapper'>
                                             <img className='close add' src={close} />
                                         </div>
@@ -163,19 +168,18 @@ class Pack extends React.Component {
                                 <button className='med-dur duration'>20 MIN</button>
                                     <h2 className='med-list-title'>Day 1 of {`${pack.medIds.length}`} in {`${pack.name}`} </h2>
                             </div>
-                            <div to='/dashboard ' className='footer-close-wrapper' onClick={(e) => this.handleAnimate(e)}>
+                            <div className='footer-close-wrapper' onClick={(e) => this.handleAnimate(e)}>
                                 {!this.state.footerUp ? (
                                     <img className='footer-open-close' src={footerOpen} />
                                 ) : (
                                     <img className='footer-open-close' src={footerClose} />
                                 )}
                             </div>
-                            {/* <div className='med-divider'></div> */}
                         </div>
                         <div className='med-divider'></div>
                         <div className='med-list-wrapper'>
                             {(pack.meds.length === 0) ? (
-                                <Link to='/discover' className='med-play'>Add to this pack</Link>
+                                <Link to='/discover' className='med-play no-meds'>Add to this pack</Link>
                             )
                             : (
                             <ul className='med-list'>
@@ -188,7 +192,6 @@ class Pack extends React.Component {
                                             <div className='link-wrap'>
                                                 <div className='inner-link-wrap'>
                                                     <div className='med-icon-wrapper'>
-                                                        {/* <img className='med-icon' src={medListButton} /> */}
                                                     <li className='med-text'
                                                         key={`med ${med.id}`}>
                                                             {`Session ${idx + 1}`}

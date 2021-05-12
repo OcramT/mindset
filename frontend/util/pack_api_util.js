@@ -35,3 +35,10 @@ export const fetchCustomPacks = (flag) => {
         data: {flag}
     })
 }
+
+export const deleteCustomPack = (packId) => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `/api/packs/${packId}`
+    })
+}

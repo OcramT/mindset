@@ -6,7 +6,7 @@ import packs from './packs_reducer';
 const entitiesReducer = combineReducers({
     users: users,
     meditations: meditations,
-    packs: packs
+    packs: packs, 
 });
 
 export default entitiesReducer;

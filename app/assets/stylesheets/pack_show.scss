@@ -1,6 +1,6 @@
-.pack-main-content {
-    height: 115vh;
-}
+// .pack-main-content {
+//     height: 115vh;
+// }
 
 .pack-show-wrapper {
     display: flex;
@@ -351,4 +351,8 @@
 	-ms-transition: transform 200ms ease-in;
 	-o-transition: transform 200ms ease-in; 
     transition: transform 200ms ease-in;
+}
+
+.no-meds {
+    margin-top: 50px;
 }

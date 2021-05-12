@@ -66,18 +66,26 @@ class Api::PacksController < ApplicationController
     def update
         @pack = Pack.find_by(id: params[:id])
         @userpack = UserPack.find_by(pack_id: params[:id])
-        @user = @userpack.user_id
-        @pack_meds = []
-        @meditations = Meditation.all
-                        .joins(:meditation_packs)
-                        .where(meditation_packs: { pack_id: @pack.id })
-        @meditations.each do |meditation|
-            @pack_meds << meditation
-        end
+        # @user = @userpack.user_id
+        # @pack_meds = []
+        # @meditations = Meditation.all
+        #                 .joins(:meditation_packs)
+        #                 .where(meditation_packs: { pack_id: @pack.id })
+        # @meditations.each do |meditation|
+        #     @pack_meds << meditation
+        # end
         
         if current_user.id == @userpack.user_id
             MeditationPack.create(pack_id: @pack.id, meditation_id: params[:medId])
-            render 'api/packs/show'
+            @meditations = Meditation.all
+                        .joins(:meditation_packs)
+                        .where(meditation_packs: { pack_id: @pack.id })
+            @pack_meds = []
+            @meditations.each do |meditation|
+                @pack_meds << meditation
+            end
+            @pack = Pack.find_by(id: params[:id])
+            render 'api/packs/update'
         else
             render json: ['Cannot save to that custom pack!'], status: 404
         end

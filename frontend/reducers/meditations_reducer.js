@@ -14,8 +14,6 @@ const meditationsReducer = (defaultState = {}, action) => {
             return Object.assign({}, nextState, { medIds : Object.values(allMeds)})
         case RECEIVE_ALL_MEDITATIONS:
             return Object.assign({}, nextState, action.allMeditations )
-        // case DELETE_CUSTOM_PACK_MED_FORM:
-        //     debugger
         default:
             return defaultState;
     }

@@ -9,14 +9,14 @@ export const addPack = userPack => ({
     userPack
 })
 
-export const removePack = pack => ({
+export const removePack = packId => ({
     type: REMOVE_USER_PACK,
-    pack
+    packId
 });
 
 export const fetchUserPacks = allUserPacks => ({
     type: FETCH_ALL_USER_PACKS,
-    allUserPacks: allUserPacks.userpacks
+    allUserPacks
 })
 
 export const addUserPack = (packId) => dispatch => {
@@ -26,7 +26,7 @@ export const addUserPack = (packId) => dispatch => {
 
 export const removeUserPack = (packId) => dispatch => {
     return UserPackApiUtil.removeUserPack(packId)
-        .then(() => dispatch(removePack()))
+        .then(() => dispatch(removePack(packId)))
 }
 
 export const fetchAllUserPacks = () => dispatch => {

@@ -25,14 +25,16 @@ class CustomForm extends React.Component {
     }
 
     componentDidMount() {
-        // console.log(this.props)
         this.setState({packs: this.props.packs})
     }
 
+    componentWillUnmount() {
+        this.props.clearAllPacks()
+    }
+
     componentDidUpdate(prevProps) {
-        if (prevProps !== this.props) {
-            console.log('PREVPROPS', prevProps)
-            console.log('PROPS', this.props)
+        if (prevProps.packs !== this.props.packs) {
+            this.setState({packs: this.props.packs})
         }
     }
 
@@ -41,11 +43,8 @@ class CustomForm extends React.Component {
         const {packId, medId, pack} = this.state
         let packUpdate = this.state.customPackUpdateValues
         packUpdate = pack
-        // const customPack = Object.assign({ custom: true }, this.state);
-        // console.log(customPack)
         this.props.updateCustomPack(packId, medId, pack)
-            .then(() => this.setState({ customPackUpdateValues: packUpdate}))
-        // this.props.closeModal()
+            .then(() => this.setState({ packs: this.props.packs}))
     }
 
     handleChange(input) {
@@ -85,7 +84,7 @@ class CustomForm extends React.Component {
             for (const key in currentPack) {
                 currentMedArr.push(currentPack[key]['id'])
             }
-            // console.log(currentMedArr)
+
             if (!currentMedArr.includes(this.state.medId)) {
                 return <button className='med-play single-med-add-remove'
                     onClick={this.handleSubmit}>
@@ -106,11 +105,6 @@ class CustomForm extends React.Component {
         let customPackArr = Object.values(this.props.customPacks)
         this.handleState()
         let currentPackMeds = this.state.pack.medIds
-        // console.log('CURRENT PACK MEDS', currentPackMeds)
-        console.log('FORM PROPS', this.props)
-        console.log('FORM STATE', this.state)
-        // console.log(this.state.pack.medIds)
-        // console.log(customPackArr.map(customPack => (customPack.id)))
 
         return (
             <div className='custom-wrap'>

@@ -35,9 +35,10 @@ class DiscoverPage extends React.Component {
     };
 
     componentDidMount() {
+        this.props.clearAllPacks()
         const flag = 'all'
-        this.props.fetchAllMedIds()
         this.props.fetchAllPacks()
+        this.props.fetchAllMedIds()
         this.props.fetchAllMeditations(flag)
         this.removeNull()
     }
@@ -113,13 +114,10 @@ class DiscoverPage extends React.Component {
         this.genreRefs = [];
         this.packRefs = [];
         this.removeNull()
-        console.log('THIS IS STATE', this.state)
-        console.log('THIS IS PROPS', this.props)
        
         return (
             <>
                 <NavBarContainer/>
-                {/* <button onClick={()=>this.handleFetchAll()}>Fetch All Meds</button> */}
                 <div className='discover-wrapper'>
                     <h1 className='discover-header'></h1>
                     <div className='discover-content'>

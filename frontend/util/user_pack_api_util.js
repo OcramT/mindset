@@ -6,7 +6,6 @@ export const removeUserPack = (packId) => {
 }
 
 export const addUserPack = (packId) => {
-    // debugger
     return $.ajax({
         method: 'POST',
         url: `/api/user/userpacks`,
