@@ -18,6 +18,7 @@ class Api::MeditationsController < ApplicationController
     end
 
     def destroy
+        @med_id = MeditationPack.select(:meditation_id).where(id: params[:id])
         @meditation = MeditationPack.find_by(id: params[:id])
         @meditation.destroy
     end

@@ -27,8 +27,9 @@ export const makeCurrentMed = (med) => ({
     med
 })
 
-export const deleteMed = () => ({
-    type: DELETE_CUSTOM_PACK_MED
+export const deleteMed = (currentMedId) => ({
+    type: DELETE_CUSTOM_PACK_MED,
+    currentMedId
 })
 
 export const fetchMeditation = (meditationId) => dispatch => {
@@ -46,7 +47,7 @@ export const fetchAllMeditations = (flag) => dispatch => {
         .then(allMeditations => dispatch(receiveAllMeditations(allMeditations)))
 }
 
-export const deleteCustomPackMeditation = (medId) => dispatch => {
+export const deleteCustomPackMeditation = (medId, currentMedId) => dispatch => {
     return MeditationApiUtil.deleteCustomPackMeditation(medId)
-        .then(() => dispatch(deleteMed()))
+        .then(() => dispatch(deleteMed(currentMedId)))
 }

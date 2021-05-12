@@ -48,7 +48,6 @@ class Modal extends React.Component {
 
     handleCloseModal() {
         this.setState((state) => {
-            // Important: read `state` instead of `this.state` when updating.
             return { name: '', category: '', description: '',}
         });
         this.props.closeModal()

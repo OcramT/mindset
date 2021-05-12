@@ -10,9 +10,7 @@ class Pack extends React.Component {
             footerRef: createRef(),
             footerUp: false,
             meds: {},
-            packMeds: {}
-            // meds: [],
-            // flag: true
+            packMeds: {},
         }
         this.handleAddRemove = this.handleAddRemove.bind(this);
         this.handleAnimate = this.handleAnimate.bind(this);
@@ -24,7 +22,6 @@ class Pack extends React.Component {
     componentDidMount() {
         this.props.fetchPack(this.props.packId)
         this.props.fetchAllUserPacks()
-            .then(response => response)
             .then((userPackIds) => this.setState(
                 {userPackIds: userPackIds['allUserPacks'].map(
                     pack => this.state.userPacks[pack.id] = pack.id)}
@@ -33,7 +30,6 @@ class Pack extends React.Component {
 
     handleAddRemove(packId) {
         let userPacks = this.state.userPacks
-
         if (!userPacks[packId]) {
             this.setState(Object.assign(userPacks, {[`${packId}`]: parseInt(packId)}))
         } else if (userPacks[packId]) {
@@ -41,11 +37,12 @@ class Pack extends React.Component {
         }
     }
 
-    handleMedRemove(medId) {
-        console.log(this.state.packMeds[medId])
-        const newMeds = this.props.pack.meds.filter((med) => med.id !== medId)
-        this.setState({meds : newMeds})
-        this.props.deleteCustomPackMeditation(this.state.packMeds[medId])
+    handleMedRemove(currentMedId) {
+        let medId = this.state.packMeds[currentMedId]
+        let newMeds = this.props.pack.meds
+        newMeds = newMeds.filter((med) => med.id !== currentMedId)
+        this.props.deleteCustomPackMeditation(medId, currentMedId)
+            .then(() => this.setState({meds : newMeds}))
     }
 
     setMeds(oldMeds) {
@@ -73,11 +70,8 @@ class Pack extends React.Component {
         if (!this.props.pack.meds) return null;
         const {pack, packId} = this.props
         let userPacks = this.state.userPacks
-        const {packMeds} = this.props.pack
-        // console.log(this.props.pack.meds)
-        console.log(this.state)
-        // console.log(packMeds)
-        this.setMeds(this.props.pack.meds)
+        const {packMeds, meds} = this.props.pack
+        this.setMeds(meds)
         this.setPackMeds(packMeds)
         
         return (

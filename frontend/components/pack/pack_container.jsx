@@ -9,7 +9,8 @@ import { addUserPack, removeUserPack, fetchAllUserPacks } from '../../actions/us
 const mSTP = (state, ownProps) => ({
     packId: ownProps.match.params.packId,
     pack: state.entities.packs.pack,
-    userPacks: state.entities.users.userPacks
+    userPacks: state.entities.users.userPacks,
+    // meds: state.entities.packs.pack['meds']
 })
 
 const mDTP = dispatch => ({
@@ -20,7 +21,7 @@ const mDTP = dispatch => ({
     addUserPack: packId => dispatch(addUserPack(packId)),
     fetchAllUserPacks: () => dispatch(fetchAllUserPacks()),
     fetchAllMeditations: meditationIds => dispatch(fetchAllMeditations(meditationIds)),
-    deleteCustomPackMeditation: medId => dispatch(deleteCustomPackMeditation(medId))
+    deleteCustomPackMeditation: (medId, currentMedId) => dispatch(deleteCustomPackMeditation(medId, currentMedId))
 })
 
 export default connect(mSTP, mDTP)(Pack)

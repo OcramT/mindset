@@ -6,7 +6,7 @@ import { addUserMed, removeUserMed, fetchAllUserMeds } from '../../actions/user_
 import { fetchCustomPacks, updateCustomPack } from '../../actions/pack_actions';
 
 const mSTP = (state, ownProps) => ({
-
+    packs: state.entities.packs
 });
 
 const mDTP = dispatch => ({

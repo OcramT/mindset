@@ -9,6 +9,7 @@ const mSTP = (state, ownProps) => ({
     currentMedId: ownProps.match.params.medId,
     currentMed: state.entities.meditations[ownProps.match.params.medId],
     currentUser: state.entities.users[state.session.id],
+    packs: state.entities.packs
 });
 
 const mDTP = dispatch => ({

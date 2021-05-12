@@ -20,10 +20,10 @@ class RightNavLinks extends React.Component {
             <div className='hidden'>
                 <ul className='right-nav-bar-links'>
                     <li className='about'>
-                        <NavLink to='/about'>About</NavLink>
+                        <a href='https://www.marcotorre.io/#about' target="_blank">About</a>
                     </li>
                     <li className='work'>
-                        <NavLink to='/work'>Work</NavLink>
+                        <a href='https://www.marcotorre.io/#work' target="_blank">Work</a>
                     </li>
                     {(this.props.currentUser && location.pathname !== '/dashboard') && (
                         <li className='dashboard'>

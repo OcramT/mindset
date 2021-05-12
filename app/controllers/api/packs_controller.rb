@@ -3,12 +3,18 @@ class Api::PacksController < ApplicationController
 
     def index
         @packs = Pack.all
-        @pack_meds = Hash.new {|h,k| h[k] = Array.new }
+        @all_pack_meds = Hash.new {|h,k| h[k] = Array.new }
         @packs.each do |pack|
-            @pack_meds[pack.id] = Meditation.select(:category, :duration, :id, :title)
+            @all_pack_meds[pack.id] = Meditation.select(:category, :duration, :id, :title)
                     .joins(:meditation_packs)
                     .where(meditation_packs: { pack_id: pack.id })
         end
+      
+       @packs.each do |pack|
+            @pack_meds = Meditation.joins(:meditation_packs)
+                    .where(meditation_packs: { pack_id: pack.id }).pluck(:id)
+        end
+
         @flag = params[:flag]
         render 'api/packs/index'
     end

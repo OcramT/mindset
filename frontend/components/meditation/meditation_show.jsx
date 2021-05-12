@@ -10,7 +10,8 @@ class MeditationShow extends React.Component {
             footerRef: createRef(),
             footerUp: false,
             userMeds: {},
-            customPacks: {}
+            customPacks: {},
+            packs: this.props.packs
         }
     }
 
@@ -32,6 +33,7 @@ class MeditationShow extends React.Component {
                     customPacks: allCustomPacks.packs
                 }
             ))
+        this.setState({packs: this.props.packs})
     }
 
     handleAddRemove(medId) {
@@ -55,10 +57,12 @@ class MeditationShow extends React.Component {
     }
 
     render() {
-        if (!this.props.currentMed) return null
+    if (!this.props.currentMed) return null
         if (!this.props.currentMedId) return null
         const { currentMed, currentMedId } = this.props;
         let userMeds = this.state.userMeds;
+        // console.log('THIS IS STATE', this.state)
+        // console.log('THIS IS PROPS', this.props)
 
         return (
             
@@ -115,6 +119,7 @@ class MeditationShow extends React.Component {
                         </div>
                         <div className='single-med-divider'></div>
                         <CustomFormContainer 
+                            packs={this.props.packs}
                             currentMed={this.props.currentMed}
                             userMeds={this.state.userMeds}
                             customPacks={this.state.customPacks}
