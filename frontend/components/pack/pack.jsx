@@ -37,12 +37,20 @@ class Pack extends React.Component {
         }
     }
 
-    handleMedRemove(currentMedId) {
-        let medId = this.state.packMeds[currentMedId]
+    // handleMedRemove(currentMedId) {
+    //     let medId = this.state.packMeds[currentMedId]
+    //     let newMeds = this.props.pack.meds
+    //     newMeds = newMeds.filter((med) => med.id !== currentMedId)
+    //     this.props.deleteCustomPackMeditation(medId, currentMedId)
+    //         .then(() => this.setState({meds : newMeds}))
+    // }
+
+    handleMedRemove(medId) {
+        // let medId = this.state.packMeds[currentMedId]
         let newMeds = this.props.pack.meds
-        newMeds = newMeds.filter((med) => med.id !== currentMedId)
-        this.props.deleteCustomPackMeditation(medId, currentMedId)
-            .then(() => this.setState({meds : newMeds}))
+        newMeds = newMeds.filter((med) => med.id !== medId)
+        this.props.deleteCustomPackMeditation(medId, this.props.packId)
+            .then(() => this.setState({ meds: newMeds }))
     }
 
     setMeds(oldMeds) {
@@ -73,6 +81,8 @@ class Pack extends React.Component {
         const {packMeds, meds} = this.props.pack
         this.setMeds(meds)
         this.setPackMeds(packMeds)
+        console.log(this.state)
+        console.log(this.props.packId)
         
         return (
             <>

@@ -42,9 +42,10 @@ export const fetchAllUserMeds = () => {
     })
 }
 
-export const deleteCustomPackMeditation = (medId) => {
+export const deleteCustomPackMeditation = (medId, packId) => {
     return $.ajax({
         method: 'DELETE',
         url: `/api/meditations/${medId}`,
+        data: {medId, packId}
     })
 }

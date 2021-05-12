@@ -2,7 +2,7 @@ import {RECEIVE_PACK,
         RECEIVE_ALL_PACKS,
         CLEAR_PACK,
         CLEAR_ALL_PACKS} from '../actions/pack_actions';
-import {DELETE_CUSTOM_PACK_MED} from '../actions/meditation_actions'
+import { DELETE_CUSTOM_PACK_MED, DELETE_CUSTOM_PACK_MED_FORM} from '../actions/meditation_actions'
 
 const packsReducer = (defaultState = {}, action) => {
     Object.freeze(defaultState)
@@ -20,8 +20,18 @@ const packsReducer = (defaultState = {}, action) => {
             return newState
         case DELETE_CUSTOM_PACK_MED:
             // debugger
+            console.log('FIRST NEXT STATE', nextState)
             const newMeds = nextState.pack.meds.filter((med) => med.id !== action.currentMedId)
-            return Object.assign({}, nextState, nextState.pack.meds = newMeds)
+            newNextState = Object.assign({}, nextState, nextState.pack.meds = newMeds)
+            console.log('SECOND NEXT STATE', newNextState)
+            return newNextState
+        case DELETE_CUSTOM_PACK_MED_FORM:
+            // debugger
+            console.log('FIRST NEXT STATE', nextState)
+            const newFormMeds = nextState[action.packId].medIds.filter((med) => med.id !== action.currentMedId)
+            let newNextState = Object.assign({}, nextState, nextState[action.packId].medIds = newFormMeds)
+            console.log('SECOND NEXT STATE', newNextState)
+            return newNextState
         default:
             return defaultState;
     }

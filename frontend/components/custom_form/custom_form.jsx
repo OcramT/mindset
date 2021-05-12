@@ -15,11 +15,13 @@ class CustomForm extends React.Component {
                 pack: ''},
             selectedCustomPack: {},
             packs: this.props.packs,
-            selected: false
+            selected: false,
+            meds: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRender = this.handleRender.bind(this);
         this.handleState = this.handleState.bind(this);
+        this.handleMedRemove = this.handleMedRemove.bind(this);
     }
 
     componentDidMount() {
@@ -27,12 +29,22 @@ class CustomForm extends React.Component {
         this.setState({packs: this.props.packs})
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            console.log('PREVPROPS', prevProps)
+            console.log('PROPS', this.props)
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const {packId, medId, pack} = this.state
+        let packUpdate = this.state.customPackUpdateValues
+        packUpdate = pack
         // const customPack = Object.assign({ custom: true }, this.state);
         // console.log(customPack)
         this.props.updateCustomPack(packId, medId, pack)
+            .then(() => this.setState({ customPackUpdateValues: packUpdate}))
         // this.props.closeModal()
     }
 
@@ -42,6 +54,14 @@ class CustomForm extends React.Component {
             let pack = this.props.customPacks[e.currentTarget.value]
             this.setState({ [input]: e.currentTarget.value, pack: pack })
         }
+    }
+
+    handleMedRemove() {
+        let {medId, packId} = this.state
+        let newMeds = this.state.pack.medIds
+        newMeds = newMeds.filter((med) => med.id !== medId)
+        this.props.deleteCustomPackMeditationForm(medId, packId)
+            .then(() => this.setState({ meds: newMeds }))
     }
 
     handleAnimate(e) {
@@ -73,7 +93,7 @@ class CustomForm extends React.Component {
                                 </button>
             } else {
                 return <button className='med-play single-med-add-remove'
-                    onClick={this.handleSubmit}>
+                    onClick={() => this.handleMedRemove()}>
                     Remove from this pack
                                 </button>
             }
@@ -87,8 +107,8 @@ class CustomForm extends React.Component {
         this.handleState()
         let currentPackMeds = this.state.pack.medIds
         // console.log('CURRENT PACK MEDS', currentPackMeds)
-        // console.log('FORM PROPS', this.props.packs)
-        // console.log('FORM STATE', this.state)
+        console.log('FORM PROPS', this.props)
+        console.log('FORM STATE', this.state)
         // console.log(this.state.pack.medIds)
         // console.log(customPackArr.map(customPack => (customPack.id)))
 

@@ -6,6 +6,7 @@ export const RECEIVE_ALL_MEDITATION_IDS = 'RECEIVE_ALL_MEDITATION_IDS';
 export const RECEIVE_ALL_MEDITATIONS = 'RECEIVE_ALL_MEDITATIONS';
 export const MAKE_CURRENT_MED = 'MAKE_CURRENT_MED';
 export const DELETE_CUSTOM_PACK_MED = 'DELETE_CUSTOM_PACK_MED';
+export const DELETE_CUSTOM_PACK_MED_FORM = 'DELETE_CUSTOM_PACK_MED_FORM';
 
 export const receiveMeditation = meditation => ({
     type: RECEIVE_MEDITATION,
@@ -32,6 +33,11 @@ export const deleteMed = (currentMedId) => ({
     currentMedId
 })
 
+export const deleteFormMed = (currentMedId, packId) => ({
+    type: DELETE_CUSTOM_PACK_MED_FORM,
+    currentMedId, packId
+})
+
 export const fetchMeditation = (meditationId) => dispatch => {
     return MeditationApiUtil.fetchMeditation(meditationId)
         .then(meditation => dispatch(receiveMeditation(meditation)))
@@ -47,7 +53,12 @@ export const fetchAllMeditations = (flag) => dispatch => {
         .then(allMeditations => dispatch(receiveAllMeditations(allMeditations)))
 }
 
-export const deleteCustomPackMeditation = (medId, currentMedId) => dispatch => {
-    return MeditationApiUtil.deleteCustomPackMeditation(medId)
-        .then(() => dispatch(deleteMed(currentMedId)))
+export const deleteCustomPackMeditation = (medId, packId) => dispatch => {
+    return MeditationApiUtil.deleteCustomPackMeditation(medId, packId)
+        .then(() => dispatch(deleteMed(medId)))
+}
+
+export const deleteCustomPackMeditationForm = (medId, packId) => dispatch => {
+    return MeditationApiUtil.deleteCustomPackMeditation(medId, packId)
+        .then(() => dispatch(deleteFormMed(medId, packId)))
 }

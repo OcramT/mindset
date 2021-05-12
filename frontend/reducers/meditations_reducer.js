@@ -1,7 +1,7 @@
 import {RECEIVE_MEDITATION,
         RECEIVE_ALL_MEDITATION_IDS,
         RECEIVE_ALL_MEDITATIONS, 
-        DELETE_CUSTOM_PACK_MED } from '../actions/meditation_actions';
+        DELETE_CUSTOM_PACK_MED_FORM } from '../actions/meditation_actions';
 
 const meditationsReducer = (defaultState = {}, action) => {
     Object.freeze(defaultState)
@@ -14,6 +14,8 @@ const meditationsReducer = (defaultState = {}, action) => {
             return Object.assign({}, nextState, { medIds : Object.values(allMeds)})
         case RECEIVE_ALL_MEDITATIONS:
             return Object.assign({}, nextState, action.allMeditations )
+        // case DELETE_CUSTOM_PACK_MED_FORM:
+        //     debugger
         default:
             return defaultState;
     }

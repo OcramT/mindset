@@ -21,7 +21,7 @@ const mDTP = dispatch => ({
     addUserPack: packId => dispatch(addUserPack(packId)),
     fetchAllUserPacks: () => dispatch(fetchAllUserPacks()),
     fetchAllMeditations: meditationIds => dispatch(fetchAllMeditations(meditationIds)),
-    deleteCustomPackMeditation: (medId, currentMedId) => dispatch(deleteCustomPackMeditation(medId, currentMedId))
+    deleteCustomPackMeditation: (medId, packId) => dispatch(deleteCustomPackMeditation(medId, packId))
 })
 
 export default connect(mSTP, mDTP)(Pack)

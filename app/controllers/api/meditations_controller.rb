@@ -18,14 +18,13 @@ class Api::MeditationsController < ApplicationController
     end
 
     def destroy
-        @med_id = MeditationPack.select(:meditation_id).where(id: params[:id])
-        @meditation = MeditationPack.find_by(id: params[:id])
+        @meditation = MeditationPack.find_by(pack_id: params[:packId], meditation_id: params[:medId])
         @meditation.destroy
     end
 
     private
 
     def meditation_params
-        params.require(:meditation).permit(:title, :category, :url, :duration, :flag)
+        params.require(:meditation).permit(:title, :category, :url, :duration, :flag, :medId, :packId)
     end
 end
