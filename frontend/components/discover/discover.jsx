@@ -42,6 +42,10 @@ class DiscoverPage extends React.Component {
         this.props.fetchAllMeditations(flag)
         this.removeNull()
     }
+
+    componentWillUnmount() {
+        this.props.clearAllPacks()
+    }
     
     filter(e) {
         this.removeNull()

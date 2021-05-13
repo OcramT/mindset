@@ -17,6 +17,10 @@ class Dashboard extends React.Component {
         this.props.fetchAllUserMeds()
     }
 
+    componentWillUnmount() {
+        this.props.clearAllPacks()
+    }
+
     openModal() {
         this.setState({ show: true })
     }

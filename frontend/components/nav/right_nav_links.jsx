@@ -31,7 +31,7 @@ class RightNavLinks extends React.Component {
                         </li>
                     )}
                     {(this.props.currentUser && location.pathname !== '/discover') && (
-                        <li className='discover' onClick={() => this.props.clearAllPacks()}>
+                        <li className='discover'>
                             <NavLink to='/discover'>Discover</NavLink>
                         </li>
                     )}

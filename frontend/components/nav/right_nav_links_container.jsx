@@ -11,7 +11,7 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
     login: user => dispatch(login(user)),
-    clearAllPacks: (packs) => dispatch(clearAllPacks(packs)),
+    clearAllPacks: () => dispatch(clearAllPacks()),
 });
 
 export default connect(mSTP, mDTP)(RightNavLinks);

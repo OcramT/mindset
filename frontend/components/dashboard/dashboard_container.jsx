@@ -14,7 +14,7 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     fetchAllMedIds: () => dispatch(fetchAllMedIds()),
     fetchAllPacks: () => dispatch(fetchAllPacks()),
-    clearAllPacks: (packs) => dispatch(clearAllPacks(packs)),
+    clearAllPacks: () => dispatch(clearAllPacks()),
     fetchAllUserPacks: () => dispatch(fetchAllUserPacks()),
     fetchAllUserMeds: () => dispatch(fetchAllUserMeds()),
 });

@@ -28,9 +28,8 @@ export const clearPack = pack => ({
     pack
 })
 
-export const clearAllPacks = packs => ({
+export const clearAllPacks = () => ({
     type: CLEAR_ALL_PACKS,
-    packs
 })
 
 export const deletePack = customPack => ({
