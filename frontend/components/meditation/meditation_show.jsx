@@ -73,8 +73,8 @@ class MeditationShow extends React.Component {
         let customPacks = Object.values(userPacks).filter(pack => pack.custom)
         // customPacks = Object.assign({...customPacks})
         // console.log(customPacks)
-        console.log('MED PROPS', this.props)
-        console.log('MED STATE', this.state)
+        // console.log('MED PROPS', this.props)
+        // console.log('MED STATE', this.state)
 
         return (
             
