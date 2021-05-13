@@ -26,6 +26,7 @@ class Dashboard extends React.Component {
         if (!this.props.userPacks) return null;
         if (!this.props.userMeds) return null;
         const userPackArr = this.props.userPacks
+        console.log(userPackArr)
         const userMedArr = this.props.userMeds
        
         return (
@@ -70,7 +71,7 @@ class Dashboard extends React.Component {
                         )}
                         <ul className='med-packs'>
                             {userPackArr.map(pack => (
-                                pack.custom === null && (
+                                pack.custom === false && (
                                 <Link
                                     className={`dash-link pack-${pack.id}`}
                                     key={`packs ${pack.id}`}

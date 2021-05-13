@@ -37,15 +37,15 @@ testMed4 = Meditation.create!({id: 7, title: 'Working with Difficulties', catego
 testMed5 = Meditation.create!({id: 8, title: 'Loving Kindness', category: 'Wellness', url: 'https://www.uclahealth.org/marc/mpeg/05_Loving_Kindness_Meditation.mp3', duration: 9})
 
 #Test Packs
-testPack1 = Pack.create!({id: 1, name: 'Basics', category: 'Foundations'})
-testPack2 = Pack.create!({id: 2, name: 'Basics 2', category: 'Foundations'})
-testPack3 = Pack.create!({id: 3, name: 'Basics 3', category: 'Foundations'})
-testPack4 = Pack.create!({id: 4, name: 'Managing Anxiety', category: 'Health'})
-testPack5 = Pack.create!({id: 5, name: 'Letting Go of Stress', category: 'Health'})
-testPack6 = Pack.create!({id: 6, name: 'Sleep Health', category: 'Health'})
-testPack7 = Pack.create!({id: 7, name: 'Self-esteem', category: 'Wellness'})
-testPack8 = Pack.create!({id: 8, name: 'Relationships', category: 'Wellness'})
-testPack9 = Pack.create!({id: 9, name: 'Appreciation', category: 'Wellness'})
+testPack1 = Pack.create!({id: 1, name: 'Basics', category: 'Foundations', custom: 'false'})
+testPack2 = Pack.create!({id: 2, name: 'Basics 2', category: 'Foundations', custom: 'false'})
+testPack3 = Pack.create!({id: 3, name: 'Basics 3', category: 'Foundations', custom: 'false'})
+testPack4 = Pack.create!({id: 4, name: 'Managing Anxiety', category: 'Health', custom: 'false'})
+testPack5 = Pack.create!({id: 5, name: 'Letting Go of Stress', category: 'Health', custom: 'false'})
+testPack6 = Pack.create!({id: 6, name: 'Sleep Health', category: 'Health', custom: 'false'})
+testPack7 = Pack.create!({id: 7, name: 'Self-esteem', category: 'Wellness', custom: 'false'})
+testPack8 = Pack.create!({id: 8, name: 'Relationships', category: 'Wellness', custom: 'false'})
+testPack9 = Pack.create!({id: 9, name: 'Appreciation', category: 'Wellness', custom: 'false'})
 
 ActiveRecord::Base.connection.reset_pk_sequence!('packs')
 
