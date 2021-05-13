@@ -80,6 +80,8 @@ class Pack extends React.Component {
         const {pack, packId, userPacks} = this.props
         const {packMeds, meds} = this.props.pack
         userPacks.map(pack => this.state.userPacks[pack.id] = pack.id)
+        let totalMedTime = 0
+        meds.map(med => totalMedTime += med.duration)
         this.setMeds(meds)
         this.setPackMeds(packMeds)
         
@@ -165,7 +167,7 @@ class Pack extends React.Component {
                         <div className='pop-up-header'>
                             <div className='med-buttons'>
                                 <Link to='/meditation/1' className='med-play begin'>&#9654; BEGIN</Link>
-                                <button className='med-dur duration'>20 MIN</button>
+                                <button className='med-dur duration'>{`${totalMedTime}`} MIN</button>
                                     <h2 className='med-list-title'>Day 1 of {`${pack.medIds.length}`} in {`${pack.name}`} </h2>
                             </div>
                             <div className='footer-close-wrapper' onClick={(e) => this.handleAnimate(e)}>

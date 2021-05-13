@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
                             <h1 className='med-title'>Managing Anxiety</h1>
                             <div className='med-buttons'>
                                 <Link to='/packs/4' className='med-play'>&#9654; BEGIN</Link>
-                                <button className='med-dur'>20 MIN</button>
+                                <button className='med-dur'>28 MIN</button>
                             </div>
                         </div>
                     </div>

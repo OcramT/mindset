@@ -75,3 +75,7 @@ MeditationPack.create({pack_id: 8, meditation_id: 8}) #Relationships
 MeditationPack.create({pack_id: 9, meditation_id: 7}) #Appreciation
 MeditationPack.create({pack_id: 9, meditation_id: 8}) #Appreciation
 
+
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
