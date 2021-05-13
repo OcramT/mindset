@@ -7,12 +7,12 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    has_many :completed_meditations,
+    has_many :completed_meditations, -> {distinct},
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :CompletedMeditation
 
-    has_many :user_packs,
+    has_many :user_packs, -> {distinct},
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :UserPack

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_142051) do
+ActiveRecord::Schema.define(version: 2021_05_13_152723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_142051) do
     t.integer "user_id", null: false
     t.integer "meditation_id", null: false
     t.boolean "completed", null: false
-    t.index ["meditation_id"], name: "index_completed_meditations_on_meditation_id", unique: true
+    t.index ["user_id", "meditation_id"], name: "index_completed_meditations_on_user_id_and_meditation_id", unique: true
   end
 
   create_table "meditation_packs", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_142051) do
     t.integer "pack_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pack_id"], name: "index_user_packs_on_pack_id", unique: true
+    t.index ["user_id", "pack_id"], name: "index_user_packs_on_user_id_and_pack_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
