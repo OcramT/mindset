@@ -26,18 +26,21 @@ class MeditationShow extends React.Component {
                 }
             ))
         const flag = 'custom'
-        this.props.fetchCustomPacks(flag)
-            .then(response => response)
-            .then((allCustomPacks) => this.setState(
-                {
-                    customPacks: allCustomPacks.packs
-                }
-            ))
+        // this.props.fetchCustomPacks(flag)
+        //     .then(response => response)
+        //     .then((allCustomPacks) => this.setState(
+        //         {
+        //             customPacks: allCustomPacks.packs
+        //         }
+        //     ))
+        this.props.fetchAllUserPacks()
+            // .then(response => response)
+            // .then((allCustomPacks) => this.setState(
+            //     {
+            //         customPacks: allCustomPacks.packs
+            //     }
+            // ))
         this.setState({packs: this.props.packs})
-    }
-
-    componentWillUnmount() {
-        this.props.clearAllPacks()
     }
 
     handleAddRemove(medId) {
@@ -61,10 +64,17 @@ class MeditationShow extends React.Component {
     }
 
     render() {
-    if (!this.props.currentMed) return null
+        if (!this.props.currentMed) return null
         if (!this.props.currentMedId) return null
-        const { currentMed, currentMedId } = this.props;
+        if (!this.props.userPacks) return null
+        const { currentMed, currentMedId, userPacks } = this.props;
         let userMeds = this.state.userMeds;
+        // console.log(userPacks)
+        let customPacks = Object.values(userPacks).filter(pack => pack.custom)
+        // customPacks = Object.assign({...customPacks})
+        // console.log(customPacks)
+        console.log('MED PROPS', this.props)
+        console.log('MED STATE', this.state)
 
         return (
             
@@ -124,7 +134,7 @@ class MeditationShow extends React.Component {
                             packs={this.props.packs}
                             currentMed={this.props.currentMed}
                             userMeds={this.state.userMeds}
-                            customPacks={this.state.customPacks}
+                            customPacks={customPacks}
                             currentUser={this.props.currentUser}/>
                     </div>
                 </footer>

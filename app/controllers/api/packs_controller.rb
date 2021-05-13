@@ -85,7 +85,7 @@ class Api::PacksController < ApplicationController
                 @pack_meds << meditation
             end
             @pack = Pack.find_by(id: params[:id])
-            render 'api/packs/update'
+            # render 'api/packs/update'
         else
             render json: ['Cannot save to that custom pack!'], status: 404
         end

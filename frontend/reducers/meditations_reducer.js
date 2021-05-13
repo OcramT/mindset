@@ -1,7 +1,6 @@
 import {RECEIVE_MEDITATION,
         RECEIVE_ALL_MEDITATION_IDS,
-        RECEIVE_ALL_MEDITATIONS, 
-        DELETE_CUSTOM_PACK_MED_FORM } from '../actions/meditation_actions';
+        RECEIVE_ALL_MEDITATIONS} from '../actions/meditation_actions';
 
 const meditationsReducer = (defaultState = {}, action) => {
     Object.freeze(defaultState)

@@ -17,10 +17,6 @@ class Dashboard extends React.Component {
         this.props.fetchAllUserMeds()
     }
 
-    componentWillUnmount() {
-        this.props.clearAllPacks()
-    }
-
     openModal() {
         this.setState({ show: true })
     }
@@ -29,7 +25,7 @@ class Dashboard extends React.Component {
         if (!this.props.medIds) return null;
         if (!this.props.userPacks) return null;
         if (!this.props.userMeds) return null;
-        const userPackArr = this.props.userPacks
+        const userPackArr = Object.values(this.props.userPacks)
         console.log(userPackArr)
         const userMedArr = this.props.userMeds
        

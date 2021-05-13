@@ -35,16 +35,12 @@ class DiscoverPage extends React.Component {
     };
 
     componentDidMount() {
-        this.props.clearAllPacks()
+        // this.props.clearAllPacks()
         const flag = 'all'
         this.props.fetchAllPacks()
         this.props.fetchAllMedIds()
         this.props.fetchAllMeditations(flag)
         this.removeNull()
-    }
-
-    componentWillUnmount() {
-        this.props.clearAllPacks()
     }
     
     filter(e) {
@@ -172,8 +168,8 @@ class DiscoverPage extends React.Component {
                                                                 key={Math.random() * idx2}>
                                                                 {`${pack.name}`}
                                                                 <div className='pack-med-nums'>
-                                                                    {`${pack.medIds.length}
-                                                                    sessions`}
+                                                                    {/* {`${pack.medIds.length}
+                                                                    sessions`} */}
                                                                 </div>
                                                             </h5>
                                                         </Link>

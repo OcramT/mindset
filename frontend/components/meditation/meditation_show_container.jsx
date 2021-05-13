@@ -4,12 +4,14 @@ import MeditationShow from './meditation_show'
 import { fetchMeditation, makeCurrentMed } from '../../actions/meditation_actions';
 import { addUserMed, removeUserMed, fetchAllUserMeds } from '../../actions/user_med_actions';
 import { fetchCustomPacks, clearAllPacks} from '../../actions/pack_actions';
+import { fetchAllUserPacks } from '../../actions/user_pack_actions';
 
 const mSTP = (state, ownProps) => ({
     currentMedId: ownProps.match.params.medId,
     currentMed: state.entities.meditations[ownProps.match.params.medId],
     currentUser: state.entities.users[state.session.id],
-    packs: state.entities.packs
+    packs: state.entities.packs,
+    userPacks: state.entities.users.userPacks
 });
 
 const mDTP = dispatch => ({
@@ -19,7 +21,8 @@ const mDTP = dispatch => ({
     addUserMed: medId => dispatch(addUserMed(medId)),
     removeUserMed: medId => dispatch(removeUserMed(medId)),
     fetchAllUserMeds: () => dispatch(fetchAllUserMeds()),
-    fetchCustomPacks: flag => dispatch(fetchCustomPacks(flag))
+    fetchCustomPacks: flag => dispatch(fetchCustomPacks(flag)),
+    fetchAllUserPacks: () => dispatch(fetchAllUserPacks())
 });
 
 export default connect(mSTP, mDTP)(MeditationShow);

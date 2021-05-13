@@ -5,6 +5,12 @@ class Api::UserpacksController < ApplicationController
         @userpacks = UserPack.all
         @user = current_user
         @packs = Pack.all.joins(:user_packs).where(user_packs: { user_id: @user.id })
+        @userpack_meds = Hash.new {|h,k| h[k] = Array.new }
+        @packs.each do |pack|
+            @userpack_meds[pack.id] = Meditation.select(:category, :duration, :id, :title)
+                    .joins(:meditation_packs)
+                    .where(meditation_packs: { pack_id: pack.id })
+        end
         render 'api/userpacks/index'
     end
 

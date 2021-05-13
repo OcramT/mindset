@@ -79,7 +79,8 @@ class Pack extends React.Component {
         if (!this.props.pack.meds) return null;
         const {pack, packId, userPacks} = this.props
         const {packMeds, meds} = this.props.pack
-        userPacks.map(pack => this.state.userPacks[pack.id] = pack.id)
+        console.log(userPacks)
+        Object.values(userPacks).map(pack => this.state.userPacks[pack.id] = pack.id)
         let totalMedTime = 0
         meds.map(med => totalMedTime += med.duration)
         this.setMeds(meds)
