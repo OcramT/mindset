@@ -1,3 +1,4 @@
+import {merge} from 'lodash';
 import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
 import {ADD_USER_PACK, REMOVE_USER_PACK, FETCH_ALL_USER_PACKS} from '../actions/user_pack_actions';
 import {MAKE_CURRENT_MED} from '../actions/meditation_actions';
@@ -8,7 +9,8 @@ import { DELETE_CUSTOM_PACK_MED, DELETE_CUSTOM_PACK_MED_FORM } from '../actions/
 
 const usersReducer = (defaultState = {}, action) => {
     Object.freeze(defaultState)
-    let nextState = Object.assign({}, defaultState)
+    // let nextState = Object.assign({}, defaultState)
+    let nextState = merge({}, defaultState)
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return Object.assign({}, defaultState, {
@@ -16,38 +18,36 @@ const usersReducer = (defaultState = {}, action) => {
             })
         case FETCH_ALL_USER_PACKS:
             // debugger
-            let newPackState = Object.assign({}, nextState, {['userPacks'] : action.userpacks})
+            let newPackState = Object.assign({}, nextState, 
+                {['userPacks'] : action.userpacks})
             return newPackState
         case FETCH_ALL_USER_MEDS:
-            let newMedState = Object.assign({}, nextState, {['userMeds'] : action.allUserMeds.userMeds})
+            let newMedState = Object.assign({}, nextState, 
+                {['userMeds'] : action.allUserMeds.userMeds})
             return newMedState
         case CREATE_CUSTOM_PACK:
             // debugger
             let newCustomPackObj = {}
             newCustomPackObj[action.customPack.pack.id] = action.customPack.pack
-            return Object.assign({}, nextState, Object.assign(nextState.userPacks, newCustomPackObj))
-            // return Object.assign({}, nextState, nextState['userPacks'].push(action.customPack.pack))
+            return Object.assign({}, nextState, 
+                Object.assign(nextState.userPacks, newCustomPackObj))
         case ADD_USER_PACK:
             // debugger
-            let newPack = {}
-            newPack[action.userPack.userpack.id] = action.userPack.userpack
-            return Object.assign({}, nextState, Object.assign(nextState.userPacks, newPack))
-            // let addedUserPackState = Object.assign({}, nextState, nextState['userPacks'].push(action.userPack))
-            // return addedUserPackState
+            nextState.userPacks[action.userPack.id] = action.userPack
+            return nextState
         case REMOVE_USER_PACK:
             let intPackId = parseInt(action.packId)
-            // let newUserPacks = nextState.userPacks.filter(pack => pack.id !== intPackId)
-            // let removedUserPackState = Object.assign({}, nextState, nextState['userPacks'] = newUserPacks)
             Object.assign({}, delete nextState.userPacks[intPackId])
             return nextState
         case MAKE_CURRENT_MED:
             return Object.assign({}, nextState, {['currentUserMed'] : action.med})
         case DELETE_CUSTOM_PACK_MED_FORM:
             // debugger
-            const newFormMeds = nextState.userPacks[action.packId].medIds.filter((med) => med.id !== action.currentMedId)
-            let deleteCustomMedState = Object.assign({}, nextState, nextState.userPacks[action.packId].medIds = newFormMeds)
+            const newFormMeds = nextState.userPacks[action.packId].medIds.filter(
+                (med) => med.id !== action.currentMedId)
+            let deleteCustomMedState = Object.assign({}, nextState, 
+                nextState.userPacks[action.packId].medIds = newFormMeds)
             return deleteCustomMedState
-            // return nextState
         case RECEIVE_UPDATED_PACK:
             // debugger
             let packId = action.updatedPack.pack.id

@@ -6,7 +6,7 @@
 #     end
 # end
 
-json.userpacks do
+# json.userPacks do
     @packs.each do |pack|
         # if pack.custom == true
         json.set! pack.id do
@@ -19,4 +19,4 @@ json.userpacks do
         end
         # end
     end
-end
+# end
