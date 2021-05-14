@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
         if (!this.props.userPacks) return null;
         if (!this.props.userMeds) return null;
         const userPackArr = Object.values(this.props.userPacks)
-        // console.log(userPackArr)
+        console.log(userPackArr)
         const userMedArr = this.props.userMeds
        
         return (

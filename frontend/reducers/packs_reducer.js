@@ -20,7 +20,7 @@ const packsReducer = (defaultState = {}, action) => {
             return nextState
         case DELETE_CUSTOM_PACK_MED:
             const newMeds = nextState.pack.meds.filter((med) => med.id !== action.currentMedId)
-            newNextState = Object.assign({}, nextState, nextState.pack.meds = newMeds)
+            let newNextState = Object.assign({}, nextState, nextState.pack.meds = newMeds)
             return newNextState
         default:
             return defaultState;

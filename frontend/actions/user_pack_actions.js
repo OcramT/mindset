@@ -14,9 +14,9 @@ export const removePack = packId => ({
     packId
 });
 
-export const fetchUserPacks = allUserPacks => ({
+export const fetchUserPacks = (userpacks) => ({
     type: FETCH_ALL_USER_PACKS,
-    allUserPacks
+    userpacks: userpacks
 })
 
 export const addUserPack = (packId) => dispatch => {
