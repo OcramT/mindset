@@ -172,6 +172,10 @@ html:not([data-scroll='0']) {
     // font-size: 0.85vw;
 }
 
+.logout:hover {
+    cursor: pointer;
+}
+
 .avatar {
     width: 35px;
     height: 35px;

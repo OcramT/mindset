@@ -18,7 +18,7 @@ class Greeting extends React.Component {
 
     welcomeMsg() {
        return <div className='account hidden'>
-                <Link className='logout' to='/' onClick={this.logout}>Log Out</Link>
+                <div className='logout' onClick={this.logout}>Log Out</div>
                 <Link to='/dashboard' className='user-info'>
                     <div className='avatar'></div>
                     <span className='username'>{this.props.currentUser.username}</span>

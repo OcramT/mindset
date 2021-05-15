@@ -6,7 +6,7 @@ import { fetchAllUserPacks } from '../../actions/user_pack_actions';
 import { fetchAllUserMeds } from '../../actions/user_med_actions';
 
 const mSTP = state => ({
-    medIds: state.entities.meditations.medIds,
+    // medIds: state.entities.meditations.medIds,
     userPacks: state.entities.users.userPacks,
     userMeds: state.entities.users.userMeds,
 });

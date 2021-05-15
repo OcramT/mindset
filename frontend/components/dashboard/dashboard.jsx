@@ -13,7 +13,6 @@ class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllUserPacks()
-        this.props.fetchAllMedIds()
         this.props.fetchAllUserMeds()
     }
 
@@ -22,7 +21,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        if (!this.props.medIds) return null;
+        // if (!this.props.medIds) return null;
         if (!this.props.userPacks) return null;
         if (!this.props.userMeds) return null;
         const userPackArr = Object.values(this.props.userPacks)

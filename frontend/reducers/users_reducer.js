@@ -1,5 +1,5 @@
 import {merge} from 'lodash';
-import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from '../actions/session_actions';
 import {ADD_USER_PACK, REMOVE_USER_PACK, FETCH_ALL_USER_PACKS} from '../actions/user_pack_actions';
 import {MAKE_CURRENT_MED} from '../actions/meditation_actions';
 import { ADD_USER_MED, FETCH_ALL_USER_MEDS} from '../actions/user_med_actions';
@@ -54,6 +54,8 @@ const usersReducer = (defaultState = {}, action) => {
             let meds = action.updatedPack.pack.meds
             nextState.userPacks[packId].medIds = meds
             return nextState
+        case LOGOUT_CURRENT_USER:
+            return nextState = {}
         default:
             return defaultState;
     }
