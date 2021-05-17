@@ -85,9 +85,19 @@ class SessionForm extends React.Component {
                     </form>
                 </div>
                 <div className='form-bg-container'>
-                    <img className='form-bg' src={mindsetBGUrl} />
+                    {/* <img className='form-bg' src={mindsetBGUrl} /> */}
                 </div>
             </div>
+                <footer className='splash-footer'>
+                    <div className='footer-content'>
+                        <p>This app was created by
+                            <a href="https://www.marcotorre.io/" target='_blank'>
+                                <span>&nbsp; Marco Torre &nbsp;</span>
+                            </a>
+                            and is a clone of Headspace.
+                        </p>
+                    </div>
+                </footer>
             </>
         )
     }

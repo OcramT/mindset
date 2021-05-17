@@ -7,6 +7,14 @@
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta property="og:title" content="Project Title" />
+    <meta property='og:image' content="<%= image_url('mindsetThumb.png') %>"/>
+    <meta property="og:description"content="Mindset is a single-page, 
+    full-stack clone of Headspace - an app that provides an approachable and 
+    visually engaging introduction to meditation. It is built using React, 
+    Redux, Ruby on Rails, and Javascript."/>
+    <meta property="og:url" content="https://mind-set.herokuapp.com/#/"/>
+
     <link rel='icon' href="<%= image_url('mindset-logo.svg') %>"/>
     <script type='text/javascript'>
       window.close = "<%=image_url('close-icon.png')%>";

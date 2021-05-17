@@ -3,16 +3,42 @@ import NavBar from '../nav/nav_bar';
 import {NavLink} from 'react-router-dom';
 import NavBarContainer from '../nav/nav_bar_container'
 
-document.addEventListener("scroll", () => {
-    document.documentElement.dataset.scroll = window.scrollY;
-});
-
 class Splash extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            headRoll : React.createRef(),
+            transform: 'translateX(0px) scale(0.33)'
+        }
+
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll",this.handleScroll, false)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll",this.handleScroll, false)
+    }
+
+    handleScroll() {
+        let windowY = window.pageYOffset
+        windowY = windowY - 1500
+        let i = (windowY + 500);
+        this.setState({ transform: `translateX(${i}px) scale(0.33) rotate(${i/9.5 + 5}deg)`})
+        
     }
 
     render() {
+        const style = {
+            animationStyle: { 
+                transform: this.state.transform,
+            }
+        }
+        const {animationStyle} = style
+
         return (
             <>
                 <div className='nav-main-splash'><NavBarContainer /></div>
@@ -58,9 +84,22 @@ class Splash extends React.Component {
                     <NavLink to='/' className='article-link'>Article Link</NavLink>
                 </main>
                 <div className='animation-wrapper'>
-                    {/* <img preserveAspectRatio="xMidYMin slice" className='animate-path' src={headPath}/> */}
-                    <img preserveAspectRatio="xMidYMin slice" className='animate-head' src={splashHead} />
+                    <img  
+                         className='animate-head' 
+                         style={animationStyle}
+                         src={splashHead}
+                         ref={this.state.headRoll} />
                 </div>
+                <footer className='splash-footer'>
+                    <div className='footer-content'>
+                        <p>This app was created by 
+                            <a href="https://www.marcotorre.io/" target='_blank'>
+                                <span>&nbsp; Marco Torre &nbsp;</span>
+                            </a>
+                            and is a clone of Headspace.
+                        </p>
+                        </div>
+                </footer>
             </>
         )
     }
