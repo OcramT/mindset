@@ -15,7 +15,7 @@ Mindset is a single page web app and clone of [Headspace][7] - an application th
 The original Headspace app allows users to to listen to recorded meditations that belong 
 to a series called a 'pack'. These themed packs guide listeners towards a more mindful approach to specific issues - better sleep, anxiety management, etc. To achieve this, I leveraged the HTML5 Audio Element's inbuilt functionality, React state management, and the visual versatility of CSS/SASS to create a dynamic, interactive, and visually engaging meditation player.
 
-<p align="center"><img src="app/assets/images/mindsetAudioPlayerGIF.gif"></p>
+<p align="center"><img src="app/assets/images/mindsetAudioPlayerGIF.gif" width="900"></p>
 
 ### Audio Player
 
@@ -135,7 +135,7 @@ Taking further advantage of React's native functionality, I utilized references 
 Since the parts of Headspace I was cloning didn't take advantage of full CRUD functionality, I decided to add my own. To create a simple interface in which to build your own pack, I built a modal component that, in conjuction with the intuitive MVC framework of Rails, allows a user to create their own custom meditation pack that they can add or remove specific meditations from.
 
 
-<p align="center"><img src="app/assets/images/mindsetCustomPackGIF.gif"></p>
+<p align="center"><img src="app/assets/images/mindsetCustomPackGIF.gif" width="900"></p>
 
 ## Discover Page with Filter Search
 
