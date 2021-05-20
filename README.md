@@ -188,7 +188,7 @@ filter(e) {
 [<img src="app/assets/images/angellist-gray.svg" width='15px'>][5] 
 [<img src="app/assets/images/portfolio-gray.svg" width='18px'>][6]
 
-Marco is originally from New Orleans and studied performing arts at NYU and later got his masters from conservatory in London. His passion for creating exciting and engaging things inspired him to become a software engineer. He loves taking a creative approach to problem solving and writing clean, concise code to build applications that inspire and 
+Marco is originally from New Orleans and studied performing arts at NYU and later got his masters from conservatory in London. His passion for creating exciting and engaging things inspired him to become a software engineer. He loves taking a creative approach to problem solving and writing clean, concise code to build applications that inspire and intrigue.
 
 
 [1]: https://mind-set.herokuapp.com/#/
