@@ -19,7 +19,7 @@ to a series called a 'pack'. These themed packs guide listeners towards a more m
 
 ### Audio Player
 
-Using the HTML `<audio>` element and React state management, I was able to store the track progress and display live track progress. I also used React's native event handlers like `onClick` and `onChange` to construct and style custom player controls. A point of pride is the progress bar which allows the listener to seamlessly scrub to any timestamp in the audio clip. A sample of the code can be seen below.
+Using the HTML `<audio>` element and React state management, I was able to store and display live track progress. I also used React's native event handlers like `onClick` and `onChange` to construct and style custom player controls. A point of pride is the progress bar which allows the listener to seamlessly scrub to any timestamp in the audio clip. A sample of the code can be seen below.
 
 ```js
 //Saving the pertinent audio track information to state and binding respective helper functions
