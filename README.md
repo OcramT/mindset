@@ -34,10 +34,7 @@ class Player extends React.Component {
         }
         this.currentMed = this.props.currentMed
         this.audio = new Audio(this.props.currentMedUrl)
-        this.handlePlay = this.handlePlay.bind(this)
-        this.onScrub = this.onScrub.bind(this);
-        this.onScrubEnd = this.onScrubEnd.bind(this);
-        this.barClick = this.barClick.bind(this);
+        //...bind functions here...
     }
 
 //Adding and removing audio event listeners upon mounting or unmounting the component to avoid memory leaks
