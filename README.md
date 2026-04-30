@@ -9,8 +9,6 @@ Mindset is a single page web app and clone of [Headspace][7] - an application th
 * Javascript
 * CSS/SASS
 
-## <p align="center"> [Check Out the Live App!][1] </p>
-
 ## Meditation Player
 The original Headspace app allows users to to listen to recorded meditations that belong 
 to a series called a 'pack'. These themed packs guide listeners towards a more mindful approach to specific issues - better sleep, anxiety management, etc. To achieve this, I leveraged the HTML5 Audio Element's inbuilt functionality, React state management, and the visual versatility of CSS/SASS to create a dynamic, interactive, and visually engaging meditation player.
